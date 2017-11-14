@@ -7,6 +7,11 @@ package View;
 
 import Control.TabuleiroControl;
 import Model.Tabuleiro;
+import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  *
@@ -17,9 +22,12 @@ public class TabuleiroView extends javax.swing.JFrame {
     /**
      * Creates new form TabuleiroView
      */
+   
     public TabuleiroView() {
         
         initComponents();
+        this.setResizable(false);
+        
     }
 
     /**
@@ -32,9 +40,15 @@ public class TabuleiroView extends javax.swing.JFrame {
     private void initComponents() {
 
         desktopPane = new javax.swing.JDesktopPane();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        btJogar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelStickman = new javax.swing.JLabel();
+        jLabelTabuleiro = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jBtnLançar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabelDado1 = new javax.swing.JLabel();
+        jLabelDado2 = new javax.swing.JLabel();
+        jBtnMover = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -47,37 +61,74 @@ public class TabuleiroView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btJogar.setText("jogar");
-        btJogar.addActionListener(new java.awt.event.ActionListener() {
+        desktopPane.setBackground(new java.awt.Color(240, 240, 240));
+
+        jLabelStickman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/boy-stick-stickman-human-alone-happy-30cffab76fd13f91-512x512.png"))); // NOI18N
+        desktopPane.add(jLabelStickman);
+        jLabelStickman.setBounds(90, 500, 20, 40);
+
+        jLabelTabuleiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Tabuleiro.png"))); // NOI18N
+        desktopPane.add(jLabelTabuleiro);
+        jLabelTabuleiro.setBounds(0, 0, 650, 650);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Opções de jogo"));
+
+        jBtnLançar.setText("Lançar dados");
+        jBtnLançar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btJogarActionPerformed(evt);
+                jBtnLançarActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("PEÇA");
+        jLabel1.setText("Dado um :");
 
-        jLayeredPane1.setLayer(btJogar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLabel2.setText("Dado dois :");
 
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addComponent(btJogar)
-                .addGap(0, 340, Short.MAX_VALUE))
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+        jBtnMover.setText("Mover");
+        jBtnMover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnMoverActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBtnLançar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelDado1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabelDado2)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jBtnMover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                .addComponent(btJogar)
-                .addGap(84, 84, 84)
-                .addComponent(jLabel4)
-                .addContainerGap(146, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jBtnLançar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabelDado1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabelDado2))
+                .addGap(18, 18, 18)
+                .addComponent(jBtnMover, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(469, Short.MAX_VALUE))
         );
 
         fileMenu.setMnemonic('f');
@@ -135,22 +186,18 @@ public class TabuleiroView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLayeredPane1)
-                .addGap(18, 18, 18)
-                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(desktopPane)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(desktopPane)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -172,27 +219,29 @@ public class TabuleiroView extends javax.swing.JFrame {
         rankingView.setVisible(true);
     }//GEN-LAST:event_RankingMenuItemActionPerformed
 
-    private void btJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btJogarActionPerformed
-       TabuleiroControl ct = new TabuleiroControl();
-       ct.jogar();
-       
-       System.out.println("Dado 1: "+Tabuleiro.numD1());
-       System.out.println("Dado 2: "+Tabuleiro.numD2());
-       System.out.println("Soma dos dados: "+(Tabuleiro.numD1()+Tabuleiro.numD2()));
-       
     
-       int x,y;
-       x = jLabel4.getLocation().x;
-       y = jLabel4.getLocation().y;
+    private void jBtnLançarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLançarActionPerformed
+        TabuleiroControl tbControl = new TabuleiroControl();
+        tbControl.jogar();
+        
+        jLabelDado1.setText(""+Tabuleiro.numD1());
+        jLabelDado2.setText(""+Tabuleiro.numD2());
+  
+    }//GEN-LAST:event_jBtnLançarActionPerformed
+
+    private void jBtnMoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMoverActionPerformed
+      int x,y;
+       x = jLabelStickman.getLocation().x;
+       y = jLabelStickman.getLocation().y;
        
         //jLabel4.setLocation(x+5, y);
         
        for(int i = 0; i < (Tabuleiro.numD1()+Tabuleiro.numD2()); i++){
            x += 10;
-           jLabel4.setLocation(x, y);     
+           jLabelStickman.setLocation(x, y);     
            
        }      
-    }//GEN-LAST:event_btJogarActionPerformed
+    }//GEN-LAST:event_jBtnMoverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,13 +281,19 @@ public class TabuleiroView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AjudaMenuItem;
     private javax.swing.JMenuItem RankingMenuItem;
-    private javax.swing.JButton btJogar;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JButton jBtnLançar;
+    private javax.swing.JButton jBtnMover;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelDado1;
+    private javax.swing.JLabel jLabelDado2;
+    private javax.swing.JLabel jLabelStickman;
+    private javax.swing.JLabel jLabelTabuleiro;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;

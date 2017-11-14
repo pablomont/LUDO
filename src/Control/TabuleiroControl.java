@@ -19,8 +19,6 @@ public class TabuleiroControl {
         u = new User();
     }
     
-    
-    
     public void jogar(){
         u.jogar();
     }
