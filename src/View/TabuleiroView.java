@@ -6,7 +6,6 @@
 package View;
 
 import Control.TabuleiroControl;
-import Model.Peça;
 import Model.Tabuleiro;
 import java.awt.Point;
 import javax.swing.JLabel;
@@ -281,7 +280,7 @@ public class TabuleiroView extends javax.swing.JFrame {
   
     }//GEN-LAST:event_jBtnLançarActionPerformed
 
-    int casaVerdeAnterior;
+    int p = 0;
     private void jBtnMoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMoverActionPerformed
       
        int pecaDaVez = tbControl.jogadorDaVez-1;
@@ -296,9 +295,11 @@ public class TabuleiroView extends javax.swing.JFrame {
        
        
        if(pecaDaVez == 0){
-           int casa = (Tabuleiro.numD1()+Tabuleiro.numD2());
-           pecas[pecaDaVez].setLocation(caminhoVerde[casa+casaVerdeAnterior]);
-           casaVerdeAnterior = casa;
+           int casa = (Tabuleiro.numD1()+Tabuleiro.numD2())-1;
+           p += casa;
+           pecas[pecaDaVez].setLocation(caminhoVerde[p]);
+           System.out.print(p+" ");
+           //casaVerdeAnterior = casa;
        }
        
        
