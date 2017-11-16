@@ -5,7 +5,7 @@
  */
 package Control;
 
-import Model.User;
+import Model.Jogador;
 
 /**
  *
@@ -13,14 +13,30 @@ import Model.User;
  */
 public class TabuleiroControl {
     
-    public User u ;
+    
 
+    public Jogador[] jogadores;
+    public int jogadorDaVez = 0;
+    
     public TabuleiroControl() {
-        u = new User();
-    }
+        jogadores = new Jogador[]{
+            new Jogador(),
+            new Jogador(),
+            new Jogador(),
+            new Jogador() 
+        };
+    }         
     
     public void jogar(){
-        u.jogar();
+        
+        
+        if(jogadorDaVez > 3)
+            jogadorDaVez = 0;
+        
+       jogadores[jogadorDaVez].jogar();
+       jogadorDaVez++;
+       
+       
     }
     
     

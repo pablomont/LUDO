@@ -9,11 +9,12 @@ package Model;
  *
  * @author paabl
  */
-public class User {
+public class Jogador {
     
     private final Peça _p;
+    
      
-    public User() {
+    public Jogador() {
         _p = new Peça();
     }
      
@@ -23,6 +24,10 @@ public class User {
         
         return _p.getNumCasa() == Tabuleiro.NUMCASAFINAL;
         
+    }
+
+    public Peça getPeca() {
+        return _p;
     }
      
     
