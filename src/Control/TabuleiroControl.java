@@ -6,6 +6,7 @@
 package Control;
 
 import Model.Jogador;
+import View.TabuleiroVIew2;
 
 /**
  *
@@ -13,12 +14,13 @@ import Model.Jogador;
  */
 public class TabuleiroControl {
     
-    
+    TabuleiroVIew2 tbControl;
 
     public Jogador[] jogadores;
     public int jogadorDaVez = 0;
     
     public TabuleiroControl() {
+        tbControl = new TabuleiroVIew2();
         jogadores = new Jogador[]{
             new Jogador(),
             new Jogador(),
