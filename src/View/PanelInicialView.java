@@ -6,7 +6,6 @@
 package View;
 
 import Control.PanelInicialControl;
-import static java.awt.Frame.MAXIMIZED_BOTH;
 
 /**
  *
@@ -14,25 +13,17 @@ import static java.awt.Frame.MAXIMIZED_BOTH;
  */
 public class PanelInicialView extends javax.swing.JPanel {
 
-    FramePrincipal f;
+    PanelInicialControl control;
     
     /**
      * Creates new form Tabuleiro
      */
-//    PanelInicialControl controller;
     
-//    public PanelInicialView(PanelInicialControl controller) {
-//        
-//        initComponents();
-////        this.controller = controller;
-//    }
-
-    PanelInicialView(FramePrincipal f) {
-        this.f = f;
-         initComponents();
+     public PanelInicialView() {
+        control = new PanelInicialControl(this);
+        initComponents();
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,27 +47,27 @@ public class PanelInicialView extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageTabuleiro/ludo2.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/ludo2.png"))); // NOI18N
         add(jLabel3);
-        jLabel3.setBounds(490, 220, 300, 290);
+        jLabel3.setBounds(500, 270, 300, 290);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageTabuleiro/Ludo_logo.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/Ludo_logo.png"))); // NOI18N
         add(jLabel2);
-        jLabel2.setBounds(-10, -50, 500, 300);
+        jLabel2.setBounds(0, 0, 500, 300);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Senha:");
         add(jLabel4);
-        jLabel4.setBounds(100, 330, 60, 20);
+        jLabel4.setBounds(110, 380, 60, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Usuário:");
         add(jLabel5);
-        jLabel5.setBounds(100, 280, 80, 20);
+        jLabel5.setBounds(110, 330, 80, 20);
 
         JTextSenha.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         add(JTextSenha);
-        JTextSenha.setBounds(100, 350, 230, 30);
+        JTextSenha.setBounds(110, 400, 230, 30);
 
         txtLogin.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         txtLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +76,7 @@ public class PanelInicialView extends javax.swing.JPanel {
             }
         });
         add(txtLogin);
-        txtLogin.setBounds(100, 300, 230, 30);
+        txtLogin.setBounds(110, 350, 230, 30);
 
         btnGuest.setBackground(new java.awt.Color(0, 51, 255));
         btnGuest.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
@@ -97,7 +88,7 @@ public class PanelInicialView extends javax.swing.JPanel {
             }
         });
         add(btnGuest);
-        btnGuest.setBounds(340, 420, 110, 40);
+        btnGuest.setBounds(360, 470, 130, 40);
 
         btnRegister.setBackground(new java.awt.Color(0, 255, 0));
         btnRegister.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
@@ -109,7 +100,7 @@ public class PanelInicialView extends javax.swing.JPanel {
             }
         });
         add(btnRegister);
-        btnRegister.setBounds(220, 420, 113, 40);
+        btnRegister.setBounds(230, 470, 120, 40);
 
         btnLogin1.setBackground(new java.awt.Color(153, 153, 0));
         btnLogin1.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
@@ -121,11 +112,11 @@ public class PanelInicialView extends javax.swing.JPanel {
             }
         });
         add(btnLogin1);
-        btnLogin1.setBounds(100, 420, 110, 40);
+        btnLogin1.setBounds(110, 470, 110, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageTabuleiro/a-soft-sky-with-cloud-background-in-pastel-color-abstract-gradation-color-pastel_6529-11.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/a-soft-sky-with-cloud-background-in-pastel-color-abstract-gradation-color-pastel_6529-11.jpg"))); // NOI18N
         add(jLabel1);
-        jLabel1.setBounds(90, 40, 640, 440);
+        jLabel1.setBounds(100, 90, 640, 440);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
@@ -133,9 +124,8 @@ public class PanelInicialView extends javax.swing.JPanel {
     }//GEN-LAST:event_txtLoginActionPerformed
 
     private void btnGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestActionPerformed
-//        controller.guest();
-        f.setContentPane(new TabuleiroVIew2());
-        f.setResizable(true);
+           control.guest();
+
     }//GEN-LAST:event_btnGuestActionPerformed
 
     private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
@@ -144,7 +134,7 @@ public class PanelInicialView extends javax.swing.JPanel {
     }//GEN-LAST:event_btnLogin1ActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-//        controller.register();
+        control.register();
     }//GEN-LAST:event_btnRegisterActionPerformed
 
 

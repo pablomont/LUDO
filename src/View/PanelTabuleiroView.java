@@ -6,42 +6,22 @@
 package View;
 
 import Control.TabuleiroControl;
-import Model.Tabuleiro;
-import java.awt.Point;
-import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author paabl
  */
-public class PanelTabuleiroView extends javax.swing.JFrame {
+public class PanelTabuleiroView extends javax.swing.JPanel {
 
     /**
-     * Creates new form TabuleiroView
+     * Creates new form TAB
      */
-    TabuleiroControl tbControl;
-    JLabel[] pecas;
-    Point[] caminhoVerde;
-   
+    
+    TabuleiroControl control;
     public PanelTabuleiroView() {
-        
+        control = new TabuleiroControl(this);
         initComponents();
-        tbControl = new TabuleiroControl();
-        pecas = new JLabel[]{
-            jLabelPeaoGreen2,
-            jLabelPeaoRed2,
-            jLabelPeaoBlue2,
-            jLabelPeaoYellow1
-        };
-        
-        caminhoVerde = new Point[]{
-            new Point(10,290),new Point(80,290),new Point(150,290),new Point(220,290),new Point(290,290),new Point(360,290),
-            new Point(430,250),new Point(430,200),new Point(430,150),new Point(430,100),new Point(430,50),new Point(430,0),
-            new Point(500,0),new Point(570,50),new Point(430,100),new Point(430,150),new Point(430,200),new Point(430,250), 
-        };
-        
-        //this.setResizable(false);
-        
     }
 
     /**
@@ -53,251 +33,260 @@ public class PanelTabuleiroView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        desktopPane = new javax.swing.JDesktopPane();
-        jLabelPeaoRed1 = new javax.swing.JLabel();
-        jLabelPeaoGreen1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabelUser1 = new javax.swing.JLabel();
+        jLabelUser3 = new javax.swing.JLabel();
+        jLabelUser4 = new javax.swing.JLabel();
+        jLabelUser2 = new javax.swing.JLabel();
+        jLabelPeaoYellow4 = new javax.swing.JLabel();
+        jLabelPeaoBlue4 = new javax.swing.JLabel();
+        jLabelPeaoBlue2 = new javax.swing.JLabel();
+        jLabelPeaoBlue3 = new javax.swing.JLabel();
+        jLabelPeaoYellow3 = new javax.swing.JLabel();
         jLabelPeaoBlue1 = new javax.swing.JLabel();
         jLabelPeaoYellow2 = new javax.swing.JLabel();
-        jLabelPeaoRed2 = new javax.swing.JLabel();
-        jLabelPeaoGreen2 = new javax.swing.JLabel();
+        jLabelDados = new javax.swing.JLabel();
         jLabelPeaoYellow1 = new javax.swing.JLabel();
-        jLabelPeaoBlue2 = new javax.swing.JLabel();
-        jLabelTabuleiro = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jBtnLançar = new javax.swing.JButton();
-        jBtnMover = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabelDado1 = new javax.swing.JLabel();
-        jLabelDado2 = new javax.swing.JLabel();
+        jLabelPeaoRed3 = new javax.swing.JLabel();
+        jLabelPeaoRed4 = new javax.swing.JLabel();
+        jLabelPeaoGreen2 = new javax.swing.JLabel();
+        jLabelPeaoRed2 = new javax.swing.JLabel();
+        jLabelPeaoRed1 = new javax.swing.JLabel();
+        jLabelPeaoGreen4 = new javax.swing.JLabel();
+        jLabelPeaoGreen3 = new javax.swing.JLabel();
+        jLabelPeaoGreen1 = new javax.swing.JLabel();
+        jLabelTabuleiero = new javax.swing.JLabel();
+        jLabelCircleYellow = new javax.swing.JLabel();
+        jLabelCircleBlue = new javax.swing.JLabel();
+        jLabelCircleGreen = new javax.swing.JLabel();
+        jLabelCircleRed = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jButtonSair = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new java.awt.BorderLayout());
 
-        desktopPane.setBackground(new java.awt.Color(240, 240, 240));
+        jPanel1.setBackground(new java.awt.Color(255, 253, 165));
+        jPanel1.setLayout(null);
 
-        jLabelPeaoRed1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/peçavermelha1.png.png"))); // NOI18N
-        desktopPane.add(jLabelPeaoRed1);
-        jLabelPeaoRed1.setBounds(800, 120, 30, 42);
+        jLabelUser1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar2.png"))); // NOI18N
+        jLabelUser1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        jPanel1.add(jLabelUser1);
+        jLabelUser1.setBounds(140, 390, 70, 80);
 
-        jLabelPeaoGreen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green-th.png"))); // NOI18N
-        desktopPane.add(jLabelPeaoGreen1);
-        jLabelPeaoGreen1.setBounds(190, 120, 30, 42);
+        jLabelUser3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar4.png"))); // NOI18N
+        jLabelUser3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        jPanel1.add(jLabelUser3);
+        jLabelUser3.setBounds(1030, 400, 70, 80);
 
-        jLabelPeaoBlue1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-peacock-blue-hi.png"))); // NOI18N
-        desktopPane.add(jLabelPeaoBlue1);
-        jLabelPeaoBlue1.setBounds(800, 550, 30, 42);
+        jLabelUser4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar3.png"))); // NOI18N
+        jLabelUser4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        jPanel1.add(jLabelUser4);
+        jLabelUser4.setBounds(1020, 30, 70, 80);
 
-        jLabelPeaoYellow2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-mustard-yellow-th.png"))); // NOI18N
-        desktopPane.add(jLabelPeaoYellow2);
-        jLabelPeaoYellow2.setBounds(190, 550, 30, 42);
+        jLabelUser2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar1.png"))); // NOI18N
+        jLabelUser2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        jPanel1.add(jLabelUser2);
+        jLabelUser2.setBounds(130, 40, 70, 70);
 
-        jLabelPeaoRed2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/peçavermelha1.png.png"))); // NOI18N
-        jLabelPeaoRed2.setText("1");
-        desktopPane.add(jLabelPeaoRed2);
-        jLabelPeaoRed2.setBounds(570, 10, 40, 42);
+        jLabelPeaoYellow4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoYellow4);
+        jLabelPeaoYellow4.setBounds(560, 480, 23, 32);
 
-        jLabelPeaoGreen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green-th.png"))); // NOI18N
-        jLabelPeaoGreen2.setText("0");
-        desktopPane.add(jLabelPeaoGreen2);
-        jLabelPeaoGreen2.setBounds(10, 290, 30, 42);
+        jLabelPeaoBlue4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoBlue4);
+        jLabelPeaoBlue4.setBounds(630, 410, 23, 32);
 
-        jLabelPeaoYellow1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-mustard-yellow-th.png"))); // NOI18N
-        jLabelPeaoYellow1.setText("3");
-        desktopPane.add(jLabelPeaoYellow1);
-        jLabelPeaoYellow1.setBounds(430, 670, 40, 42);
+        jLabelPeaoBlue2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoBlue2);
+        jLabelPeaoBlue2.setBounds(850, 470, 23, 32);
 
-        jLabelPeaoBlue2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-peacock-blue-hi.png"))); // NOI18N
-        jLabelPeaoBlue2.setText("2");
-        desktopPane.add(jLabelPeaoBlue2);
-        jLabelPeaoBlue2.setBounds(970, 390, 40, 42);
+        jLabelPeaoBlue3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoBlue3);
+        jLabelPeaoBlue3.setBounds(790, 470, 23, 32);
 
-        jLabelTabuleiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageTabuleiro/5e78c6204279850aff43a1166d2ee621.gif"))); // NOI18N
-        desktopPane.add(jLabelTabuleiro);
-        jLabelTabuleiro.setBounds(14, 0, 1010, 720);
+        jLabelPeaoYellow3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoYellow3);
+        jLabelPeaoYellow3.setBounds(440, 570, 23, 32);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Opções de jogo"));
+        jLabelPeaoBlue1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoBlue1);
+        jLabelPeaoBlue1.setBounds(820, 430, 23, 32);
 
-        jBtnLançar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageDado/dados.png"))); // NOI18N
-        jBtnLançar.addActionListener(new java.awt.event.ActionListener() {
+        jLabelPeaoYellow2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoYellow2);
+        jLabelPeaoYellow2.setBounds(410, 530, 23, 32);
+
+        jLabelDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/dado.png"))); // NOI18N
+        jLabelDados.setToolTipText("");
+        jPanel1.add(jLabelDados);
+        jLabelDados.setBounds(120, 590, 115, 87);
+
+        jLabelPeaoYellow1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoYellow1);
+        jLabelPeaoYellow1.setBounds(440, 500, 23, 32);
+
+        jLabelPeaoRed3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoRed3);
+        jLabelPeaoRed3.setBounds(790, 90, 23, 40);
+
+        jLabelPeaoRed4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoRed4);
+        jLabelPeaoRed4.setBounds(630, 70, 23, 40);
+
+        jLabelPeaoGreen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoGreen2);
+        jLabelPeaoGreen2.setBounds(340, 160, 30, 40);
+
+        jLabelPeaoRed2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoRed2);
+        jLabelPeaoRed2.setBounds(710, 90, 23, 40);
+
+        jLabelPeaoRed1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoRed1);
+        jLabelPeaoRed1.setBounds(750, 50, 23, 40);
+
+        jLabelPeaoGreen4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoGreen4);
+        jLabelPeaoGreen4.setBounds(360, 270, 30, 40);
+
+        jLabelPeaoGreen3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoGreen3);
+        jLabelPeaoGreen3.setBounds(410, 150, 30, 40);
+
+        jLabelPeaoGreen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
+        jPanel1.add(jLabelPeaoGreen1);
+        jLabelPeaoGreen1.setBounds(370, 120, 30, 40);
+
+        jLabelTabuleiero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/tabu.png"))); // NOI18N
+        jLabelTabuleiero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jPanel1.add(jLabelTabuleiero);
+        jLabelTabuleiero.setBounds(280, 10, 656, 653);
+
+        jLabelCircleYellow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/yellow-circle-design-hi.png"))); // NOI18N
+        jPanel1.add(jLabelCircleYellow);
+        jLabelCircleYellow.setBounds(10, 380, 350, 345);
+
+        jLabelCircleBlue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/blue-circle-design-hi.png"))); // NOI18N
+        jPanel1.add(jLabelCircleBlue);
+        jLabelCircleBlue.setBounds(890, 380, 350, 345);
+
+        jLabelCircleGreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/green-circle-design-hi.png"))); // NOI18N
+        jPanel1.add(jLabelCircleGreen);
+        jLabelCircleGreen.setBounds(10, 21, 350, 345);
+
+        jLabelCircleRed.setBackground(javax.swing.UIManager.getDefaults().getColor("InternalFrame.activeTitleGradient"));
+        jLabelCircleRed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/red-circle-design-hi.png"))); // NOI18N
+        jPanel1.add(jLabelCircleRed);
+        jLabelCircleRed.setBounds(870, 20, 350, 345);
+
+        add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        jPanel2.setBackground(new java.awt.Color(255, 253, 165));
+
+        jButtonSair.setBackground(new java.awt.Color(255, 253, 165));
+        jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/logoutDOOR.png"))); // NOI18N
+        jButtonSair.setBorder(null);
+        jButtonSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnLançarActionPerformed(evt);
+                jButtonSairActionPerformed(evt);
             }
         });
 
-        jBtnMover.setText("Mover");
-        jBtnMover.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnMoverActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Dado um :");
-
-        jLabel2.setText("Dado dois :");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jBtnLançar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelDado1)
-                            .addComponent(jLabelDado2))))
-                .addGap(25, 25, 25))
-            .addComponent(jBtnMover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(1304, Short.MAX_VALUE)
+                .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBtnLançar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelDado1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelDado2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBtnMover)
-                .addGap(0, 575, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1025, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        add(jPanel2, java.awt.BorderLayout.PAGE_START);
+
+        jPanel4.setBackground(new java.awt.Color(255, 253, 165));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 54, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 855, Short.MAX_VALUE)
         );
 
-        pack();
+        add(jPanel4, java.awt.BorderLayout.LINE_END);
+
+        jPanel5.setBackground(new java.awt.Color(255, 253, 165));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 64, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 855, Short.MAX_VALUE)
+        );
+
+        add(jPanel5, java.awt.BorderLayout.LINE_START);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    private void jBtnLançarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLançarActionPerformed
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
         
-        tbControl.jogar();
-        
-        jLabelDado1.setText(""+Tabuleiro.numD1());
-        jLabelDado2.setText(""+Tabuleiro.numD2());
-        jBtnMover.setText("Mover "+(Tabuleiro.numD1()+Tabuleiro.numD2())+" casas");
-  
-    }//GEN-LAST:event_jBtnLançarActionPerformed
-
-    int p = 0;
-    private void jBtnMoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMoverActionPerformed
-      
-       int pecaDaVez = tbControl.jogadorDaVez-1;
-        
-       if(pecaDaVez > 3)
-           pecaDaVez = 0;
-       
-       
-//       int x,y;
-//       x = pecas[pecaDaVez].getLocation().x;
-//       y = pecas[pecaDaVez].getLocation().y;
-       
-       
-       if(pecaDaVez == 0){
-           int casa = (Tabuleiro.numD1()+Tabuleiro.numD2())-1;
-           p += casa;
-           pecas[pecaDaVez].setLocation(caminhoVerde[p]);
-           System.out.print(p+" ");
-           //casaVerdeAnterior = casa;
-       }
-       
-       
-        //jLabel4.setLocation(x+5, y);
-        
-        
-        //Se for a peça verde
-//        if(pecaDaVez == 0){
-//            int casa = tbControl.jogadores[pecaDaVez+1].getPeca().getNumCasa();
-//            pecas[pecaDaVez].setLocation(caminhoVerde[casa]);
-//        }
-            
-        
-//       for(int i = 0; i < (Tabuleiro.numD1()+Tabuleiro.numD2()); i++){
-//           x += 70;
-//           pecas[pecaDaVez].setLocation(x, y);     
-//           
-//       }      
-    }//GEN-LAST:event_jBtnMoverActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PanelTabuleiroView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PanelTabuleiroView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PanelTabuleiroView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PanelTabuleiroView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        int reply = JOptionPane.showConfirmDialog(null, "Tem certeza que você deseja sair", "Fazer logout", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+          control.viewAnterior();
         }
-        //</editor-fold>
-        //</editor-fold>
+    
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PanelTabuleiroView().setVisible(true);
-            }
-        });
-    }
+    }//GEN-LAST:event_jButtonSairActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JButton jBtnLançar;
-    private javax.swing.JButton jBtnMover;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelDado1;
-    private javax.swing.JLabel jLabelDado2;
+    private javax.swing.JButton jButtonSair;
+    private javax.swing.JLabel jLabelCircleBlue;
+    private javax.swing.JLabel jLabelCircleGreen;
+    private javax.swing.JLabel jLabelCircleRed;
+    private javax.swing.JLabel jLabelCircleYellow;
+    private javax.swing.JLabel jLabelDados;
     private javax.swing.JLabel jLabelPeaoBlue1;
     private javax.swing.JLabel jLabelPeaoBlue2;
+    private javax.swing.JLabel jLabelPeaoBlue3;
+    private javax.swing.JLabel jLabelPeaoBlue4;
     private javax.swing.JLabel jLabelPeaoGreen1;
     private javax.swing.JLabel jLabelPeaoGreen2;
+    private javax.swing.JLabel jLabelPeaoGreen3;
+    private javax.swing.JLabel jLabelPeaoGreen4;
     private javax.swing.JLabel jLabelPeaoRed1;
     private javax.swing.JLabel jLabelPeaoRed2;
+    private javax.swing.JLabel jLabelPeaoRed3;
+    private javax.swing.JLabel jLabelPeaoRed4;
     private javax.swing.JLabel jLabelPeaoYellow1;
     private javax.swing.JLabel jLabelPeaoYellow2;
-    private javax.swing.JLabel jLabelTabuleiro;
+    private javax.swing.JLabel jLabelPeaoYellow3;
+    private javax.swing.JLabel jLabelPeaoYellow4;
+    private javax.swing.JLabel jLabelTabuleiero;
+    private javax.swing.JLabel jLabelUser1;
+    private javax.swing.JLabel jLabelUser2;
+    private javax.swing.JLabel jLabelUser3;
+    private javax.swing.JLabel jLabelUser4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
-
 }

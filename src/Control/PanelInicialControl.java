@@ -5,15 +5,18 @@
  */
 package Control;
 
-import View.FramePrincipal;
+import Util.FrameOperation;
 import View.PanelInicialView;
-import View.TabuleiroVIew2;
+import View.PanelRegisterView;
+import View.PanelTabuleiroView;
+
+
 
 /**
  *
  * @author paabl
  */
-public class PanelInicialControl {
+public class PanelInicialControl extends AbstractControl{
 
     PanelInicialView view;
 
@@ -21,20 +24,32 @@ public class PanelInicialControl {
         this.view = view;
     }
 
-   
-    
     public void login() {
         
     }
 
     public void register() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PanelRegisterControl regController = new PanelRegisterControl(new PanelRegisterView());
+        regController.mostrarView();
     }
 
     public void guest() {
-        FramePrincipal f = (FramePrincipal)view.getParent();
-        f.setContentPane(new TabuleiroVIew2());
+        TabuleiroControl tabController = new TabuleiroControl(new PanelTabuleiroView());
+        tabController.mostrarView();
     }
-    
+
+    @Override
+    public void mostrarView() {
+        FrameOperation.setView(view);
+        FrameOperation.setMaximized(false);
+        FrameOperation.setResizable(false);
+    }
+
+    @Override
+    public void viewAnterior() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+ 
     
 }

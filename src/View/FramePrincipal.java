@@ -6,6 +6,7 @@
 package View;
 
 import Control.PanelInicialControl;
+import javax.swing.JPanel;
 
 /**
  *
@@ -21,11 +22,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     
     public FramePrincipal() {
         initComponents();
-//        viewPanelInicial = new PanelInicialView();
-//        controllerPanelInicial = new PanelInicialControl(viewPanelInicial);
-        
-        this.setContentPane(new PanelInicialView(this));
-        this.setResizable(false);
     }
 
     /**
@@ -44,14 +40,15 @@ public class FramePrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 803, Short.MAX_VALUE)
+            .addGap(0, 833, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 498, Short.MAX_VALUE)
+            .addGap(0, 587, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -88,6 +85,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             }
         });
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

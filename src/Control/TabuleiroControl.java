@@ -6,21 +6,24 @@
 package Control;
 
 import Model.Jogador;
-import View.TabuleiroVIew2;
+import Util.FrameOperation;
+import View.PanelInicialView;
+import View.PanelTabuleiroView;
+
 
 /**
  *
  * @author paabl
  */
-public class TabuleiroControl {
+public class TabuleiroControl extends AbstractControl{
     
-    TabuleiroVIew2 tbControl;
+    PanelTabuleiroView view;
 
     public Jogador[] jogadores;
     public int jogadorDaVez = 0;
     
-    public TabuleiroControl() {
-        tbControl = new TabuleiroVIew2();
+    public TabuleiroControl(PanelTabuleiroView view) {
+        this.view = view;
         jogadores = new Jogador[]{
             new Jogador(),
             new Jogador(),
@@ -37,8 +40,20 @@ public class TabuleiroControl {
         
        jogadores[jogadorDaVez].jogar();
        jogadorDaVez++;
-       
-       
+    }
+
+    @Override
+    public void mostrarView() {
+        FrameOperation.setView(view);
+        FrameOperation.setMaximized(true);
+        FrameOperation.setResizable(true);
+    }
+
+    @Override
+    public void viewAnterior() {
+       FrameOperation.setView(new PanelInicialView());
+       FrameOperation.setMaximized(false);
+       FrameOperation.setResizable(false);
     }
     
     
