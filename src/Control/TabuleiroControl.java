@@ -34,7 +34,6 @@ public class TabuleiroControl extends AbstractControl{
     
     public void jogar(){
         
-        
         if(jogadorDaVez > 3)
             jogadorDaVez = 0;
         

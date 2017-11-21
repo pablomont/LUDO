@@ -20,7 +20,7 @@ public class Jogador {
      
     public boolean jogar(){
         int resultLancamento = Tabuleiro.lancarDados();
-        _p.moveCasa(resultLancamento);
+        
         
         return _p.getNumCasa() == Tabuleiro.NUMCASAFINAL;
         

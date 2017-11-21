@@ -6,6 +6,10 @@
 package View;
 
 import Control.TabuleiroControl;
+import Model.Peça;
+import Model.Tabuleiro;
+import java.awt.Point;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,9 +23,39 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
      */
     
     TabuleiroControl control;
+    private final Point[] caminhoVerde;
     public PanelTabuleiroView() {
         control = new TabuleiroControl(this);
         initComponents();
+        caminhoVerde = new Point[]{
+            //Próxima linha representa o trajeto 1 do verde
+            new Point(320,270),new Point(355,270),new Point(390,270),new Point(425,270),new Point(460,270),new Point(495,270),new Point(530,270),
+            //Próxima linha representa o trajeto 2 do verde
+            new Point(565,235),new Point(565,200),new Point(565,165),new Point(565,130),new Point(565,95),new Point(565,60),new Point(565,25),new Point(565,0),
+            //Próxima linha representa o trajeto 3 do verde
+            new Point(600,0),new Point(635,0),
+            //Próxima linha representa o trajeto 4 do verde
+            new Point(635,25),new Point(635,60),new Point(635,95),new Point(635,130),new Point(635,165),new Point(635,200),new Point(635,235),
+            //Próxima linha representa o trajeto 5 do verde
+            new Point(670,270),new Point(700,270),new Point(730,270),new Point(765,270),new Point(800,270),new Point(835,270),new Point(870,270),new Point(905,270),
+            //Próxima linha representa o trajeto 6 do verde
+            new Point(905,305),new Point(905,340),
+            //Próxima linha representa o trajeto 7 do verde
+            new Point(870,340),new Point(835,340),new Point(800,340),new Point(770,340),new Point(735,340),new Point(700,340),new Point(665,340),
+            //Próxima linha representa o trajeto 8 do verde
+            new Point(630,375),new Point(630,405),new Point(630,440),new Point(630,475),new Point(630,510),new Point(630,545),new Point(630,580),new Point(630,615),
+            //Próxima linha representa o trajeto 9 do verde
+            new Point(595,615),new Point(560,615),
+            //Próxima linha representa o trajeto 10 do verde
+            new Point(560,580),new Point(560,555),new Point(560,520),new Point(560,485),new Point(560,450), new Point(560,415),new Point(560,380),
+             //Próxima linha representa o trajeto 11 do verde
+            new Point(530,345),new Point(495,345),new Point(460,345),new Point(425,345),new Point(390,345),new Point(355,345),new Point(320,345),new Point(285,345),
+            //Próxima linha representa o trajeto 12 do verde
+            new Point(285,310),new Point(320,310),new Point(355,310),new Point(390,310),new Point(425,310),new Point(460,310),new Point(495,310),new Point(530,310) 
+        };
+        
+        
+        
     }
 
     /**
@@ -37,6 +71,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+        BtnDado = new javax.swing.JButton();
         jLabelUser9 = new javax.swing.JLabel();
         jLabelUser10 = new javax.swing.JLabel();
         jLabelUser11 = new javax.swing.JLabel();
@@ -48,21 +83,24 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jLabelPeaoYellow10 = new javax.swing.JLabel();
         jLabelPeaoBlue12 = new javax.swing.JLabel();
         jLabelPeaoYellow11 = new javax.swing.JLabel();
-        jLabelDados2 = new javax.swing.JLabel();
         jLabelPeaoYellow12 = new javax.swing.JLabel();
         jLabelPeaoRed9 = new javax.swing.JLabel();
         jLabelPeaoRed10 = new javax.swing.JLabel();
-        jLabelPeaoGreen9 = new javax.swing.JLabel();
+        jLabelPeaoGreen1 = new javax.swing.JLabel();
         jLabelPeaoRed11 = new javax.swing.JLabel();
         jLabelPeaoRed12 = new javax.swing.JLabel();
-        jLabelPeaoGreen10 = new javax.swing.JLabel();
-        jLabelPeaoGreen11 = new javax.swing.JLabel();
-        jLabelPeaoGreen12 = new javax.swing.JLabel();
+        jLabelPeaoGreen4 = new javax.swing.JLabel();
+        jLabelPeaoGreen3 = new javax.swing.JLabel();
+        jLabelPeaoGreen2 = new javax.swing.JLabel();
         jLabelTabuleiero2 = new javax.swing.JLabel();
         jLabelCircleYellow2 = new javax.swing.JLabel();
         jLabelCircleBlue2 = new javax.swing.JLabel();
         jLabelCircleGreen2 = new javax.swing.JLabel();
         jLabelCircleRed2 = new javax.swing.JLabel();
+        lblValorDado1 = new javax.swing.JLabel();
+        lbValorDado2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 253, 165));
 
@@ -82,6 +120,17 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jPanel7.setBackground(new java.awt.Color(255, 253, 165));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BtnDado.setBackground(java.awt.Color.green);
+        BtnDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/dado.png"))); // NOI18N
+        BtnDado.setBorder(null);
+        BtnDado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnDado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDadoActionPerformed(evt);
+            }
+        });
+        jPanel7.add(BtnDado, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 130, 80));
+
         jLabelUser9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar2.png"))); // NOI18N
         jLabelUser9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
         jPanel7.add(jLabelUser9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, -1, 80));
@@ -99,10 +148,10 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jPanel7.add(jLabelUser12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, 70));
 
         jLabelPeaoYellow9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
-        jPanel7.add(jLabelPeaoYellow9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, -1, -1));
+        jPanel7.add(jLabelPeaoYellow9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 530, -1, -1));
 
         jLabelPeaoBlue9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
-        jPanel7.add(jLabelPeaoBlue9, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 410, -1, -1));
+        jPanel7.add(jLabelPeaoBlue9, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 500, -1, -1));
 
         jLabelPeaoBlue10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
         jPanel7.add(jLabelPeaoBlue10, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 470, -1, -1));
@@ -119,10 +168,6 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jLabelPeaoYellow11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
         jPanel7.add(jLabelPeaoYellow11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 530, -1, -1));
 
-        jLabelDados2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/dado.png"))); // NOI18N
-        jLabelDados2.setToolTipText("");
-        jPanel7.add(jLabelDados2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 590, -1, -1));
-
         jLabelPeaoYellow12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
         jPanel7.add(jLabelPeaoYellow12, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 500, -1, -1));
 
@@ -130,10 +175,15 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jPanel7.add(jLabelPeaoRed9, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 90, -1, 40));
 
         jLabelPeaoRed10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
-        jPanel7.add(jLabelPeaoRed10, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 70, -1, 40));
+        jPanel7.add(jLabelPeaoRed10, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 120, -1, 40));
 
-        jLabelPeaoGreen9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
-        jPanel7.add(jLabelPeaoGreen9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 30, 40));
+        jLabelPeaoGreen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
+        jLabelPeaoGreen1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoGreenMouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabelPeaoGreen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 30, 40));
 
         jLabelPeaoRed11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
         jPanel7.add(jLabelPeaoRed11, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 90, -1, 40));
@@ -141,20 +191,36 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jLabelPeaoRed12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
         jPanel7.add(jLabelPeaoRed12, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 50, -1, 40));
 
-        jLabelPeaoGreen10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
-        jPanel7.add(jLabelPeaoGreen10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 30, 40));
+        jLabelPeaoGreen4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
+        jLabelPeaoGreen4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoGreenMouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabelPeaoGreen4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 30, 40));
 
-        jLabelPeaoGreen11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
-        jPanel7.add(jLabelPeaoGreen11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 30, 40));
+        jLabelPeaoGreen3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
+        jLabelPeaoGreen3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoGreenMouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabelPeaoGreen3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 30, 40));
 
-        jLabelPeaoGreen12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
-        jPanel7.add(jLabelPeaoGreen12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 30, 40));
+        jLabelPeaoGreen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
+        jLabelPeaoGreen2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoGreenMouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabelPeaoGreen2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 30, 40));
 
         jLabelTabuleiero2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/tabu.png"))); // NOI18N
         jLabelTabuleiero2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jPanel7.add(jLabelTabuleiero2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
 
         jLabelCircleYellow2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/yellow-circle-design-hi.png"))); // NOI18N
+        jLabelCircleYellow2.setText("Dado 1");
         jPanel7.add(jLabelCircleYellow2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
 
         jLabelCircleBlue2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/blue-circle-design-hi.png"))); // NOI18N
@@ -166,6 +232,18 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jLabelCircleRed2.setBackground(javax.swing.UIManager.getDefaults().getColor("InternalFrame.activeTitleGradient"));
         jLabelCircleRed2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/red-circle-design-hi.png"))); // NOI18N
         jPanel7.add(jLabelCircleRed2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, -1, -1));
+
+        lblValorDado1.setText("tatata");
+        jPanel7.add(lblValorDado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 670, -1, -1));
+
+        lbValorDado2.setText("tetete");
+        jPanel7.add(lbValorDado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 670, -1, -1));
+
+        jLabel1.setText("Dado 1:");
+        jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 670, -1, -1));
+
+        jLabel2.setText("Dado 2:");
+        jPanel7.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 670, -1, -1));
 
         jPanel5.add(jPanel7, new java.awt.GridBagConstraints());
 
@@ -201,22 +279,54 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             control.viewAnterior();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void BtnDadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDadoActionPerformed
+        
+        control.jogar();
+        
+        lblValorDado1.setText("A soma é "+(Tabuleiro.numD1()+Tabuleiro.numD2()));
+        
+       // System.out.print(""+Tabuleiro.numD1());
+       // System.out.print(""+Tabuleiro.numD2());
+        
+        
+    }//GEN-LAST:event_BtnDadoActionPerformed
+
+    private void jLabelPeaoGreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPeaoGreenMouseClicked
+        
+        //try{
+           
+           // if(Tabuleiro.numD1()+Tabuleiro.numD2() == 6){  
+                JLabel peaoClicado = (JLabel)evt.getSource();
+                peaoClicado.setLocation(caminhoVerde[0]);
+           // }
+            
+           
+       // }catch(Exception e){
+            
+       // }
+        
+    }//GEN-LAST:event_jLabelPeaoGreenMouseClicked
+
+     
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnDado;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCircleBlue2;
     private javax.swing.JLabel jLabelCircleGreen2;
     private javax.swing.JLabel jLabelCircleRed2;
     private javax.swing.JLabel jLabelCircleYellow2;
-    private javax.swing.JLabel jLabelDados2;
     private javax.swing.JLabel jLabelPeaoBlue10;
     private javax.swing.JLabel jLabelPeaoBlue11;
     private javax.swing.JLabel jLabelPeaoBlue12;
     private javax.swing.JLabel jLabelPeaoBlue9;
-    private javax.swing.JLabel jLabelPeaoGreen10;
-    private javax.swing.JLabel jLabelPeaoGreen11;
-    private javax.swing.JLabel jLabelPeaoGreen12;
-    private javax.swing.JLabel jLabelPeaoGreen9;
+    private javax.swing.JLabel jLabelPeaoGreen1;
+    private javax.swing.JLabel jLabelPeaoGreen2;
+    private javax.swing.JLabel jLabelPeaoGreen3;
+    private javax.swing.JLabel jLabelPeaoGreen4;
     private javax.swing.JLabel jLabelPeaoRed10;
     private javax.swing.JLabel jLabelPeaoRed11;
     private javax.swing.JLabel jLabelPeaoRed12;
@@ -232,5 +342,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelUser9;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JLabel lbValorDado2;
+    private javax.swing.JLabel lblValorDado1;
     // End of variables declaration//GEN-END:variables
 }
