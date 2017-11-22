@@ -39,6 +39,7 @@ public class PanelTabuleiroControl extends AbstractControl{
         if(jogadorDaVez > 3)
             jogadorDaVez = 0;
         
+
        jogadores[jogadorDaVez].jogar();
        jogadorDaVez++;
     }
