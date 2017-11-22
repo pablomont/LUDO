@@ -17,12 +17,14 @@ public class Jogador {
     public Jogador() {
         _p = new PeçaAmarela();
     }
-     
+
     public void jogar(){
+       // int resultLancamento = Tabuleiro.lancarDados();
         
-        Tabuleiro.lancarDados();
-        //int resultLancamento = Tabuleiro.lancarDados();
+        
         //return _p.getNumCasa() == Tabuleiro.NUMCASAFINAL;
+        Tabuleiro.lancarDados();
+
         
     }
 

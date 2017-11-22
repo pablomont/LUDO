@@ -7,7 +7,10 @@ package View;
 
 import Control.PanelTabuleiroControl;
 import Model.Peça;
+import Model.PeçaAmarela;
+import Model.PeçaAzul;
 import Model.PeçaVerde;
+import Model.PeçaVermelha;
 import Model.Tabuleiro;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -22,6 +25,8 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     /**
      * Creates new form TAB
      */
+    
+    //HELLO
     
     PanelTabuleiroControl control;
     public PanelTabuleiroView() {
@@ -136,42 +141,102 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jLabelUser12.setBounds(130, 40, 70, 70);
 
         jLabelPeaoYellow1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
+        jLabelPeaoYellow1.setName("jLabelPeaoYellow1"); // NOI18N
+        jLabelPeaoYellow1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
         jPanel7.add(jLabelPeaoYellow1);
         jLabelPeaoYellow1.setBounds(560, 580, 23, 32);
 
         jLabelPeaoBlue4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
+        jLabelPeaoBlue4.setName("jLabelPeaoBlue4"); // NOI18N
+        jLabelPeaoBlue4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
         jPanel7.add(jLabelPeaoBlue4);
         jLabelPeaoBlue4.setBounds(820, 500, 23, 32);
 
         jLabelPeaoBlue3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
+        jLabelPeaoBlue3.setName("jLabelPeaoBlue3"); // NOI18N
+        jLabelPeaoBlue3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
         jPanel7.add(jLabelPeaoBlue3);
         jLabelPeaoBlue3.setBounds(850, 470, 23, 32);
 
         jLabelPeaoBlue1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
+        jLabelPeaoBlue1.setName("jLabelPeaoBlue1"); // NOI18N
+        jLabelPeaoBlue1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
         jPanel7.add(jLabelPeaoBlue1);
         jLabelPeaoBlue1.setBounds(870, 340, 23, 32);
 
         jLabelPeaoYellow2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
+        jLabelPeaoYellow2.setName("jLabelPeaoYellow2"); // NOI18N
+        jLabelPeaoYellow2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
         jPanel7.add(jLabelPeaoYellow2);
         jLabelPeaoYellow2.setBounds(440, 570, 23, 32);
 
         jLabelPeaoBlue2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
+        jLabelPeaoBlue2.setName("jLabelPeaoBlue2"); // NOI18N
+        jLabelPeaoBlue2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
         jPanel7.add(jLabelPeaoBlue2);
         jLabelPeaoBlue2.setBounds(820, 430, 23, 32);
 
         jLabelPeaoYellow3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
+        jLabelPeaoYellow3.setName("jLabelPeaoYellow3"); // NOI18N
+        jLabelPeaoYellow3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
         jPanel7.add(jLabelPeaoYellow3);
         jLabelPeaoYellow3.setBounds(410, 530, 23, 32);
 
         jLabelPeaoYellow4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
+        jLabelPeaoYellow4.setName("jLabelPeaoYellow4"); // NOI18N
+        jLabelPeaoYellow4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
         jPanel7.add(jLabelPeaoYellow4);
         jLabelPeaoYellow4.setBounds(440, 500, 23, 32);
 
         jLabelPeaoRed3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
+        jLabelPeaoRed3.setName("jLabelPeaoRed3"); // NOI18N
+        jLabelPeaoRed3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
         jPanel7.add(jLabelPeaoRed3);
         jLabelPeaoRed3.setBounds(790, 90, 23, 40);
 
         jLabelPeaoRed4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
+        jLabelPeaoRed4.setName("jLabelPeaoRed4"); // NOI18N
+        jLabelPeaoRed4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
         jPanel7.add(jLabelPeaoRed4);
         jLabelPeaoRed4.setBounds(750, 120, 23, 40);
 
@@ -179,17 +244,29 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jLabelPeaoGreen1.setName("jLabelPeaoGreen1"); // NOI18N
         jLabelPeaoGreen1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoGreenMouseClicked(evt);
+                jLabelPeaoMouseClicked(evt);
             }
         });
         jPanel7.add(jLabelPeaoGreen1);
         jLabelPeaoGreen1.setBounds(320, 270, 30, 40);
 
         jLabelPeaoRed1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
+        jLabelPeaoRed1.setName("jLabelPeaoRed1"); // NOI18N
+        jLabelPeaoRed1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
         jPanel7.add(jLabelPeaoRed1);
         jLabelPeaoRed1.setBounds(635, 25, 23, 40);
 
         jLabelPeaoRed2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
+        jLabelPeaoRed2.setName("jLabelPeaoRed2"); // NOI18N
+        jLabelPeaoRed2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
         jPanel7.add(jLabelPeaoRed2);
         jLabelPeaoRed2.setBounds(750, 50, 23, 40);
 
@@ -197,7 +274,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jLabelPeaoGreen4.setName("jLabelPeaoGreen4"); // NOI18N
         jLabelPeaoGreen4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoGreenMouseClicked(evt);
+                jLabelPeaoMouseClicked(evt);
             }
         });
         jPanel7.add(jLabelPeaoGreen4);
@@ -207,7 +284,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jLabelPeaoGreen3.setName("jLabelPeaoGreen3"); // NOI18N
         jLabelPeaoGreen3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoGreenMouseClicked(evt);
+                jLabelPeaoMouseClicked(evt);
             }
         });
         jPanel7.add(jLabelPeaoGreen3);
@@ -217,7 +294,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jLabelPeaoGreen2.setName("jLabelPeaoGreen2"); // NOI18N
         jLabelPeaoGreen2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoGreenMouseClicked(evt);
+                jLabelPeaoMouseClicked(evt);
             }
         });
         jPanel7.add(jLabelPeaoGreen2);
@@ -290,20 +367,42 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     }//GEN-LAST:event_BtnDadoActionPerformed
 
     
-    private void jLabelPeaoGreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPeaoGreenMouseClicked
+    private void jLabelPeaoMouseClicked(java.awt.event.MouseEvent evt) {                                        
        
+        
         JLabel peaoClicado = (JLabel)evt.getSource();
+
    
         if(peaoClicado.getName().contains("jLabelPeaoGreen"))
             movimentaPeça(peaoClicado,new PeçaVerde());
        
-             
-    }//GEN-LAST:event_jLabelPeaoGreenMouseClicked
 
-     public void movimentaPeça(JLabel peaoClicado, Peça p){
+  
+        if(peaoClicado.getName().contains("jLabelPeaoRed")){
+            movimentaPeça(peaoClicado,new PeçaVermelha());
+        }
+            
+        
+        if(peaoClicado.getName().contains("jLabelPeaoYellow")){
+            movimentaPeça(peaoClicado,new PeçaAmarela());
+        }
+            
+         
+        if(peaoClicado.getName().contains("jLabelPeaoBlue")){
+            movimentaPeça(peaoClicado,new PeçaAzul());
+        }
+        
+        
+    }                                            
+
+    
+    public void movimentaPeça(JLabel peaoClicado, Peça p){
      
+    try{
        int casaAtual;
        int qtdCasasParaAndar = Tabuleiro.numD1()+Tabuleiro.numD2();
+       
+      
 
         //Se (a soma dos dados for igual a 6) && (o peãoClicado estiver na base)
            //Tira da base e coloca na primeira casa
@@ -331,6 +430,12 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                 }
              }
 
+       }catch(NumberFormatException e){
+           System.out.println("Conversão de string vazia para inteiro"+e.getMessage());
+        }  
+        
+       
+ 
      }
     
 
