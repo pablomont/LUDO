@@ -7,7 +7,6 @@ package Start;
 
 import Control.PanelInicialControl;
 import Util.FrameOperation;
-import View.FramePrincipal;
 import View.PanelInicialView;
 
 /**

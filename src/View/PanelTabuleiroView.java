@@ -7,12 +7,11 @@ package View;
 
 import Control.PanelTabuleiroControl;
 import Model.Peça;
-import Model.PeçaAmarela;
 import Model.PeçaVerde;
 import Model.Tabuleiro;
-import java.awt.Point;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -29,7 +28,6 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         control = new PanelTabuleiroControl(this);
         initComponents();
         inicToolTipPeoes();
-
     }
 
     /**
@@ -277,47 +275,36 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         int reply = JOptionPane.showConfirmDialog(null, "Tem certeza que você deseja sair", "Fazer logout", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
             control.viewAnterior();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-
     private void BtnDadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDadoActionPerformed
-//        i++;       
+    
         control.jogar();
-//        
         lblValorDado1.setText(""+Tabuleiro.numD1());
         lblValorDado2.setText(""+Tabuleiro.numD2());
-        
-//        System.out.print(""+Tabuleiro.numD1());
-//        System.out.print(""+Tabuleiro.numD2());
-        
-        
+  
     }//GEN-LAST:event_BtnDadoActionPerformed
 
     
     private void jLabelPeaoGreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPeaoGreenMouseClicked
        
         JLabel peaoClicado = (JLabel)evt.getSource();
-        
-        
-        
-        
+   
         if(peaoClicado.getName().contains("jLabelPeaoGreen"))
             movimentaPeça(peaoClicado,new PeçaVerde());
-        
-        
-        
-       // movimentaPeça();
+       
              
     }//GEN-LAST:event_jLabelPeaoGreenMouseClicked
 
      public void movimentaPeça(JLabel peaoClicado, Peça p){
      
-      
        int casaAtual;
        int qtdCasasParaAndar = Tabuleiro.numD1()+Tabuleiro.numD2();
-       
-       
+
         //Se (a soma dos dados for igual a 6) && (o peãoClicado estiver na base)
            //Tira da base e coloca na primeira casa
              if(Tabuleiro.numD1()+Tabuleiro.numD2() == 6 && (peaoClicado.getToolTipText() == null)){  
@@ -329,9 +316,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                  }
              else {
                  
-                 
                 casaAtual = Integer.parseInt(peaoClicado.getToolTipText());
-                
                 //Se o peão tiver na primeira casa
                 if(casaAtual == 0){
                     peaoClicado.setLocation(p.getCasa(qtdCasasParaAndar));
@@ -345,10 +330,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                     peaoClicado.setToolTipText(""+novaCasa);
                 }
              }
-       
-       
-     
-     
+
      }
     
 

@@ -54,9 +54,7 @@ public class PanelTabuleiroControl extends AbstractControl{
 
     @Override
     public void viewAnterior() {
-       FrameOperation.setView(new PanelInicialView());
-       FrameOperation.setMaximized(false);
-       FrameOperation.setResizable(false);
+       new PanelInicialControl(new PanelInicialView()).mostrarView();
     }
     
     

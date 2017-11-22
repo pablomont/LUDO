@@ -18,11 +18,11 @@ public class Jogador {
         _p = new PeçaAmarela();
     }
      
-    public boolean jogar(){
-        int resultLancamento = Tabuleiro.lancarDados();
+    public void jogar(){
         
-        
-        return _p.getNumCasa() == Tabuleiro.NUMCASAFINAL;
+        Tabuleiro.lancarDados();
+        //int resultLancamento = Tabuleiro.lancarDados();
+        //return _p.getNumCasa() == Tabuleiro.NUMCASAFINAL;
         
     }
 

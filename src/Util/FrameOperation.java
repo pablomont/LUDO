@@ -19,6 +19,11 @@ import javax.swing.JPanel;
 public class FrameOperation {
     
     public static FramePrincipal mainFrame;
+
+    public static void setCenter(boolean b) {
+        mainFrame.setLocationRelativeTo(null);
+        
+    }
      
     public FrameOperation(){
         mainFrame = new FramePrincipal();

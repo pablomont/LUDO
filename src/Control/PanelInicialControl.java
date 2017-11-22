@@ -10,6 +10,7 @@ import View.PanelInicialView;
 import View.PanelRegisterView;
 import View.PanelTabuleiroView;
 import java.awt.Dimension;
+import java.awt.Point;
 
 
 
@@ -20,7 +21,11 @@ import java.awt.Dimension;
  */
 public class PanelInicialControl extends AbstractControl{
 
-    PanelInicialView view;
+    private PanelInicialView view;
+    private final int dimensionWidth = 804;
+    private final int dimensionHeight = 600;
+    private final int locationX = 0;
+    private final int locationY = 0;
 
     public PanelInicialControl(PanelInicialView view) {
         this.view = view;
@@ -45,14 +50,12 @@ public class PanelInicialControl extends AbstractControl{
         FrameOperation.setView(view);
         FrameOperation.setMaximized(false);
         FrameOperation.setResizable(false);
-        FrameOperation.setSize(new Dimension(804, 600));
+        FrameOperation.setSize(new Dimension(dimensionWidth, dimensionHeight));
+        FrameOperation.setCenter(true);
     }
 
     @Override
     public void viewAnterior() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
- 
-    
+    } 
 }
