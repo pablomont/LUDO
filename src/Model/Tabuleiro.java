@@ -20,6 +20,11 @@ public class Tabuleiro {
         _d2 = new Dado();
     }
 
+    public static void setNum(int num, int num2){
+        _d1.setNum(num);
+        _d2.setNum(num2);
+    }
+    
     public static int numD1() {
         return _d1.getNum();
     }

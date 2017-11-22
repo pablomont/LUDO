@@ -9,6 +9,7 @@ import Util.FrameOperation;
 import View.PanelInicialView;
 import View.PanelRegisterView;
 import View.PanelTabuleiroView;
+import java.awt.Dimension;
 
 
 
@@ -35,7 +36,7 @@ public class PanelInicialControl extends AbstractControl{
     }
 
     public void guest() {
-        TabuleiroControl tabController = new TabuleiroControl(new PanelTabuleiroView());
+        PanelTabuleiroControl tabController = new PanelTabuleiroControl(new PanelTabuleiroView());
         tabController.mostrarView();
     }
 
@@ -44,6 +45,7 @@ public class PanelInicialControl extends AbstractControl{
         FrameOperation.setView(view);
         FrameOperation.setMaximized(false);
         FrameOperation.setResizable(false);
+        FrameOperation.setSize(new Dimension(804, 600));
     }
 
     @Override

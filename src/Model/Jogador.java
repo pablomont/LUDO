@@ -11,11 +11,11 @@ package Model;
  */
 public class Jogador {
     
-    private final Peça _p;
+    private final PeçaAmarela _p;
     
      
     public Jogador() {
-        _p = new Peça();
+        _p = new PeçaAmarela();
     }
      
     public boolean jogar(){
@@ -26,7 +26,7 @@ public class Jogador {
         
     }
 
-    public Peça getPeca() {
+    public PeçaAmarela getPeca() {
         return _p;
     }
      

@@ -5,21 +5,23 @@
  */
 package Model;
 
+import java.awt.Point;
+
 /**
  *
- * @author paabl
+ * @author Lufh
  */
-public class Peça {
+public abstract class Peça {
+    protected Point[] caminho;
+    protected final int NUM_PEÇAS = 74;
 
-    private int _numCasa;
-
-    public int getNumCasa() {
-        return  _numCasa;
+    public Peça() {
+        this.caminho = new Point[74];
     }
-
-    public void moveCasa(int num) {
-        while(_numCasa < num)
-            _numCasa++;
-    }
+   
+    protected abstract void preencheCaminho();
+    
+    public abstract Point getCasa(int i);
+      
     
 }

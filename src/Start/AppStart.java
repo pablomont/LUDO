@@ -25,7 +25,7 @@ public class AppStart {
         
             
            // new FrameOperation(new PanelInicialView());
-            new FrameOperation();
+             new FrameOperation();
             PanelInicialControl control = new PanelInicialControl(new PanelInicialView());
             control.mostrarView();
             

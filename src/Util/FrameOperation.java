@@ -6,8 +6,10 @@
 package Util;
 
 import View.FramePrincipal;
+import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import static java.awt.Frame.NORMAL;
+import java.awt.Point;
 import javax.swing.JPanel;
 
 /**
@@ -16,7 +18,7 @@ import javax.swing.JPanel;
  */
 public class FrameOperation {
     
-    private static FramePrincipal mainFrame;
+    public static FramePrincipal mainFrame;
      
     public FrameOperation(){
         mainFrame = new FramePrincipal();
@@ -28,6 +30,14 @@ public class FrameOperation {
         mainFrame.setVisible(true);
         setView(view);
     } 
+    
+    public static void setLocation(Point p){
+        mainFrame.setLocation(p);
+    }
+    
+    public static void setSize(Dimension d){
+        mainFrame.setSize(d);
+    }
     
     //setExtendedState(MAXIMIZED_BOTH);
     public static void setMaximized(boolean valor){

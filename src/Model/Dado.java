@@ -19,6 +19,10 @@ public class Dado {
         //this._num = randomGenerator.nextInt(6)+1;
     }
 
+    public void setNum(int _num) {
+        this._num = _num;
+    }
+
     public void setRandomNum(){
         this._num = randomGenerator.nextInt(6)+1;
     }

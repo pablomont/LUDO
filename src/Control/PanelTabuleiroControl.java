@@ -9,20 +9,22 @@ import Model.Jogador;
 import Util.FrameOperation;
 import View.PanelInicialView;
 import View.PanelTabuleiroView;
+import java.awt.Dimension;
+import java.awt.Point;
 
 
 /**
  *
  * @author paabl
  */
-public class TabuleiroControl extends AbstractControl{
+public class PanelTabuleiroControl extends AbstractControl{
     
     PanelTabuleiroView view;
 
     public Jogador[] jogadores;
     public int jogadorDaVez = 0;
     
-    public TabuleiroControl(PanelTabuleiroView view) {
+    public PanelTabuleiroControl(PanelTabuleiroView view) {
         this.view = view;
         jogadores = new Jogador[]{
             new Jogador(),
@@ -44,8 +46,10 @@ public class TabuleiroControl extends AbstractControl{
     @Override
     public void mostrarView() {
         FrameOperation.setView(view);
-        FrameOperation.setMaximized(true);
-        FrameOperation.setResizable(true);
+        FrameOperation.setMaximized(false);
+        FrameOperation.setResizable(false);
+        FrameOperation.setSize(new Dimension(1271,833));
+        FrameOperation.setLocation(new Point(80,20));
     }
 
     @Override
