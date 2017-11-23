@@ -7,11 +7,14 @@
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Model/Jogador.java</file>
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Model/Tabuleiro.java</file>
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Model/Dado.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Model/Peça.java</file>
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/View/PanelTabuleiroView.java</file>
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Control/PanelInicialControl.java</file>
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/View/PanelInicialView.java</file>
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/View/PanelRegisterView.java</file>
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Control/PanelTabuleiroControl.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Control/PanelRegisterControl.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Model/PeçaVerde.java</file>
         </group>
     </open-files>
 </project-private>

@@ -6,6 +6,10 @@
 package View;
 
 import Control.PanelTabuleiroControl;
+import static Control.PanelTabuleiroControl.jogadorDaVez.AMARELO;
+import static Control.PanelTabuleiroControl.jogadorDaVez.AZUL;
+import static Control.PanelTabuleiroControl.jogadorDaVez.VERDE;
+import static Control.PanelTabuleiroControl.jogadorDaVez.VERMELHO;
 import Model.Jogador;
 import Model.Peça;
 import Model.PeçaAmarela;
@@ -14,9 +18,12 @@ import Model.PeçaVerde;
 import Model.PeçaVermelha;
 import Model.Tabuleiro;
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -53,6 +60,9 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         preencheFramesDado();
         configuraListeners();
         inicToolTipPeoes();
+        
+        timer.start();
+        timer2.start();
 
     }
 
@@ -67,6 +77,10 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
 
         jButton1 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
+        jLabelVermelho = new javax.swing.JLabel();
+        jLabelAzul = new javax.swing.JLabel();
+        jLabelAmarelo = new javax.swing.JLabel();
+        jLabelVerde = new javax.swing.JLabel();
         jBtnDado1 = new javax.swing.JToggleButton();
         jBtnDado2 = new javax.swing.JToggleButton();
         jLabelUser9 = new javax.swing.JLabel();
@@ -109,6 +123,26 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
 
         jPanel7.setBackground(new java.awt.Color(255, 253, 165));
         jPanel7.setLayout(null);
+
+        jLabelVermelho.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelVermelho.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel7.add(jLabelVermelho);
+        jLabelVermelho.setBounds(940, 180, 220, 50);
+
+        jLabelAzul.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelAzul.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel7.add(jLabelAzul);
+        jLabelAzul.setBounds(940, 530, 220, 50);
+
+        jLabelAmarelo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelAmarelo.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel7.add(jLabelAmarelo);
+        jLabelAmarelo.setBounds(50, 520, 220, 50);
+
+        jLabelVerde.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelVerde.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel7.add(jLabelVerde);
+        jLabelVerde.setBounds(30, 170, 220, 50);
 
         jBtnDado1.setBackground(new java.awt.Color(255, 255, 255));
         jBtnDado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado3.png"))); // NOI18N
@@ -412,34 +446,34 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         JLabel peaoClicado = (JLabel)evt.getSource();
 
    
-        if(peaoClicado.getName().contains("jLabelPeaoGreen"))
-            movimentaPeça(peaoClicado,new PeçaVerde());
-       
-
-  
-        if(peaoClicado.getName().contains("jLabelPeaoRed")){
-            movimentaPeça(peaoClicado,new PeçaVermelha());
-        }
+//        if(peaoClicado.getName().contains("jLabelPeaoGreen") && (control.getJogadorDaVez() == VERDE))
+//            movimentaPeça(peaoClicado,new PeçaVerde());
+//       
+//
+//  
+//        else if(peaoClicado.getName().contains("jLabelPeaoRed")  && (control.getJogadorDaVez() == VERMELHO)){
+//            movimentaPeça(peaoClicado,new PeçaVermelha());
+//        }
             
         
-        if(peaoClicado.getName().contains("jLabelPeaoYellow")){
+         if(peaoClicado.getName().contains("jLabelPeaoYellow")  && (control.getJogadorDaVez() == AMARELO)){
             movimentaPeça(peaoClicado,new PeçaAmarela());
-        }
+         }
             
          
-        if(peaoClicado.getName().contains("jLabelPeaoBlue")){
-            movimentaPeça(peaoClicado,new PeçaAzul());
-        }
+//        else if(peaoClicado.getName().contains("jLabelPeaoBlue") && (control.getJogadorDaVez() == AZUL)) {
+//            movimentaPeça(peaoClicado,new PeçaAzul());
+//        }
         
-        //atualizaView();
+        
     }                                            
 
-    
+    int qtdCasasParaAndar; 
     public void movimentaPeça(JLabel peaoClicado, Peça p){
      
     try{
        int casaAtual;
-       int qtdCasasParaAndar; 
+       //int qtdCasasParaAndar; 
        
        if(jBtnDado1.isSelected() && jBtnDado2.isSelected())
            qtdCasasParaAndar = Tabuleiro.getNumDadoUm()+Tabuleiro.getNumDadoDois();
@@ -447,10 +481,15 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             qtdCasasParaAndar = Tabuleiro.getNumDadoUm();
        else if(jBtnDado2.isSelected())
            qtdCasasParaAndar = Tabuleiro.getNumDadoDois();
-       else{
+       else {
            return;
        }
+       
+       if (timer.isRunning() || timer2.isRunning())
+           return;
            
+       
+       
         //Se (a soma dos dados for igual a 6) && (o peãoClicado estiver na base)
            //Tira da base e coloca na primeira casa
              if(Tabuleiro.getNumDadoUm()+Tabuleiro.getNumDadoDois() == 6 && (peaoClicado.getToolTipText() == null)){  
@@ -476,7 +515,10 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                     peaoClicado.setToolTipText(""+novaCasa);
                 }
              }
-
+          
+         System.out.println("Casa Anterior: "+casaAtual +" | Andou "+qtdCasasParaAndar);
+          control.proximoJogadorDaVez();  
+           atualizaView();
        }catch(NumberFormatException e){
            System.out.println("Conversão de string vazia para inteiro"+e.getMessage());
         }  
@@ -488,6 +530,8 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     private javax.swing.JToggleButton jBtnDado1;
     private javax.swing.JToggleButton jBtnDado2;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabelAmarelo;
+    private javax.swing.JLabel jLabelAzul;
     private javax.swing.JLabel jLabelCircleBlue2;
     private javax.swing.JLabel jLabelCircleGreen2;
     private javax.swing.JLabel jLabelCircleRed2;
@@ -513,6 +557,8 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelUser11;
     private javax.swing.JLabel jLabelUser12;
     private javax.swing.JLabel jLabelUser9;
+    private javax.swing.JLabel jLabelVerde;
+    private javax.swing.JLabel jLabelVermelho;
     private javax.swing.JPanel jPanel7;
     // End of variables declaration//GEN-END:variables
 
@@ -617,65 +663,89 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     }
 
     
-//    int vezDeJogada = 1;
-//    private void atualizaView() {
-//       
-//        if(vezDeJogada > 3)
-//            vezDeJogada = 0;
-//        
-//        switch(vezDeJogada){
-//            
-//            case 0: updatePositionItens(new Point(120,550),new Point(100,520),new Point(100,550));                  
-//                    break;
-//            case 1: updatePositionItens(new Point(120,240),new Point(50,240),new Point(50,240));
-//                    break;
-//            case 2: updatePositionItens(new Point(990,250),new Point(990,140),new Point(990,180));
-//                    break;
-//            case 3: updatePositionItens(new Point(1000,600),new Point(960,510),new Point(960,550));
-//                    break;
-//                    
-//        
-//        }
-//        
-//        gerencioadorDeJogadas();
-//        vezDeJogada++;
-//    }
-//
-//    private void updatePositionItens(Point PosBtn, Point PosValorDado1, Point PosValorDado2) {
-//         BtnDado.setLocation(PosBtn);
-//         lblValorDado1.setLocation(PosValorDado1);
-//         lblValorDado2.setLocation(PosValorDado2);
-//    }
-//
-//    private void gerencioadorDeJogadas(){
-//       while(vezDeJogada != 0){
-//           
-//           control.;
-//           lblValorDado1.setText(""+Tabuleiro.numD1());
-//           lblValorDado2.setText(""+Tabuleiro.numD2());
-//        
-//           if(vezDeJogada == 1){
-//               movimentaPeça(jLabelPeaoGreen1,new PeçaVerde());
-//               atualizaView();
-//           }
-//           
-//           if(vezDeJogada == 2){
-//               movimentaPeça(jLabelPeaoRed1,new PeçaVermelha());
-//               atualizaView();
-//           }
-//           
-//           if(vezDeJogada == 3){
-//               movimentaPeça(jLabelPeaoBlue1,new PeçaAzul());
-//               atualizaView();
-//           }
-//           
-//           try {
-//               Thread.sleep(1000);
-//           } catch (InterruptedException ex) {
-//               Logger.getLogger(PanelTabuleiroView.class.getName()).log(Level.SEVERE, null, ex);
-//           }
-//       
-//       
+    
+    private void atualizaView() {
+       
+    
+        switch(control.getJogadorDaVez()){
+            
+            case AMARELO:   updatePositionDados(new Point(300,400),new Point(350,400)); 
+                           // jLabelAmarelo.setText("Andou "+qtdCasasParaAndar+" casas");
+                            break;
+            case VERDE:     updatePositionDados(new Point(290,20),new Point(340,20));
+                            //Peca P = retornaPecaAleatoriamente();
+                            //JLabel l = retornaLabelAleatoriamente();
+                            // maquinaEscolha(l,P);
+   
+                            maquinaEscolha(jLabelPeaoGreen1,new PeçaVerde());                    
+                            break;
+            case VERMELHO:  updatePositionDados(new Point(880,20),new Point(880,70));
+                            maquinaEscolha(jLabelPeaoRed1,new PeçaVermelha());    
+                            
+                            break;
+            case AZUL:      updatePositionDados(new Point(830,610),new Point(880,610));
+                            maquinaEscolha(jLabelPeaoBlue1,new PeçaAzul());  
+                            
+                            break;
+        }
+        
+        timer.start();
+        timer2.start();
+        
+        //gerencioadorDeJogadas();
+       
+    }
+
+    private void updatePositionDados(Point PosBtn1, Point PosBtn2) {
+         jBtnDado1.setLocation(PosBtn1);
+         jBtnDado2.setLocation(PosBtn2);
+         
+    }
+
+    private void maquinaEscolha(JLabel peao, Peça p) {
+       timer.start();
+       timer2.start();
+       
+        int escolha = control.jogaMaquina();
+        switch(escolha){
+            case 1: timer.stop();
+                    timer2.stop();
+                    
+                    int valorDado1 = Tabuleiro.getNumDadoUm();
+                    jBtnDado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado1+".png")));
+                    
+                    Border b = new LineBorder(Color.BLACK,2,true);
+                    jBtnDado1.setBorder(b);
+                    jBtnDado1.setSelected(true);
+                    
+                    movimentaPeça(peao,p);
+                break;
+            case 2: 
+                    timer.stop();
+                    timer2.stop();
+                    
+                    int valorDado2 = Tabuleiro.getNumDadoDois();
+                    jBtnDado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado2+".png")));
+                    
+                    Border b2 = new LineBorder(Color.BLACK,2,true);
+                    jBtnDado1.setBorder(b2);
+                    jBtnDado1.setSelected(true);
+                    movimentaPeça(peao,p);
+                
+                break;
+            case 3: timer.stop();
+                    timer2.stop();
+                    
+                    int valorDado3 = Tabuleiro.getNumDadoDois() + Tabuleiro.getNumDadoUm();
+                    //jBtnDado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado3+".png")));
+                    
+                    Border b3 = new LineBorder(Color.BLACK,2,true);
+                    jBtnDado1.setBorder(b3);
+                    jBtnDado1.setSelected(true);
+                    movimentaPeça(peao,p);
+
+        }
+    }
  }       
        
     
