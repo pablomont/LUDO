@@ -22,6 +22,5 @@ public abstract class Peça {
     protected abstract void preencheCaminho();
     
     public abstract Point getCasa(int i);
-      
-    
+        
 }
