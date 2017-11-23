@@ -34,14 +34,22 @@ public class PanelTabuleiroControl extends AbstractControl{
         };
     }         
     
-    public void jogar(){
+    public void lancarDado(Jogador.DadoEscolhido dado){
         
         if(jogadorDaVez > 3)
             jogadorDaVez = 0;
-        
-
-       jogadores[jogadorDaVez].jogar();
+       
+       jogadores[jogadorDaVez].lancarDado(dado);
        jogadorDaVez++;
+    }
+    
+    public void lancarDados(){
+         if(jogadorDaVez > 3)
+            jogadorDaVez = 0;
+       
+       jogadores[jogadorDaVez].lancarDados();
+       jogadorDaVez++;
+    
     }
 
     @Override

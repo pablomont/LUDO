@@ -11,26 +11,23 @@ package Model;
  */
 public class Jogador {
     
-    private final PeçaAmarela _p;
-    
-     
-    public Jogador() {
-        _p = new PeçaAmarela();
+public enum DadoEscolhido {
+       DadoUm, DadoDois;
     }
-
-    public void jogar(){
-       // int resultLancamento = Tabuleiro.lancarDados();
+       public Jogador() {
         
-        
-        //return _p.getNumCasa() == Tabuleiro.NUMCASAFINAL;
+    }
+    
+    public void lancarDados(){
         Tabuleiro.lancarDados();
-
-        
     }
-
-    public PeçaAmarela getPeca() {
-        return _p;
-    }
-     
     
+     public void lancarDado(DadoEscolhido dado){
+         if(dado == DadoEscolhido.DadoUm)
+             Tabuleiro.lancarDadoUm();
+         else{
+             Tabuleiro.lancarDadoDois();
+         }
+     }
+
 }
