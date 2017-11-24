@@ -1,5 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+* To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -21,13 +21,10 @@ import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JToggleButton;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.border.Border;
@@ -40,36 +37,26 @@ import javax.swing.border.LineBorder;
  */
 public class PanelTabuleiroView extends javax.swing.JPanel {
 
-    /**
-     * Creates new form TAB
-     */
-    
-    private final Random randomGenerator;
-    private ActionListener animateDado1;
-    private ActionListener animateDado2;
-    private ActionListener startStopDado1;
-    private ActionListener startStopDado2;
+    private Timer timerAnimateDado2;
+    private Timer timerAnimateDado1;
     private final int MAX_ICONS = 6;
     private final ImageIcon[] framesDado = new ImageIcon[MAX_ICONS];
     Jogador jogadorDaVez;
     PanelTabuleiroControl control;
     
     public PanelTabuleiroView() {
-        randomGenerator = new Random();
-  
         control = new PanelTabuleiroControl(this);
         initComponents();
         
         preencheVetorFramesDado();
         
-        moveFramesDados();
-        mudaLayoutDados();
-        
-       
+        createListenersAnimeDados();
+        createListenersLayoutDado();
+ 
         inicToolTipPeoes();
         
-        timer.start();
-        timer2.start();
+        timerAnimateDado1.start();
+        timerAnimateDado2.start();
     }
 
     /**
@@ -409,142 +396,306 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
          int reply = JOptionPane.showConfirmDialog(null, "Tem certeza que você deseja sair", "Fazer logout", JOptionPane.YES_NO_OPTION);
-        if (reply == JOptionPane.YES_OPTION) {
+         if (reply == JOptionPane.YES_OPTION) {
             control.viewAnterior();
         }
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void jBtnDado2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnDado2MouseClicked
        if (SwingUtilities.isRightMouseButton(evt)) {
-           if(timer2.isRunning()){
-               timer2.stop();
+           if(timerAnimateDado2.isRunning()){
+               timerAnimateDado2.stop();
                control.lancarDado(Jogador.DadoEscolhido.DadoDois);
                int valorDado2 = Tabuleiro.getNumDadoDois();
                jBtnDado2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado2+".png")));
            }
                 
            else{
-               timer2.start();
+               timerAnimateDado2.start();
            }
        }
     }//GEN-LAST:event_jBtnDado2MouseClicked
 
     private void jBtnDado1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnDado1MouseClicked
          if (SwingUtilities.isRightMouseButton(evt)){         
-            if(timer.isRunning()){
-                timer.stop();
+            if(timerAnimateDado1.isRunning()){
+                timerAnimateDado1.stop();
                 control.lancarDado(Jogador.DadoEscolhido.DadoUm);
                 int valorDado1 = Tabuleiro.getNumDadoUm();
-               jBtnDado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado1+".png")));
+                jBtnDado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado1+".png")));
             }
             else{
-               timer.start();
-           }
+                timerAnimateDado1.start();
+            }
         }
-        
-        
     }//GEN-LAST:event_jBtnDado1MouseClicked
 
-    
     private void jLabelPeaoMouseClicked(java.awt.event.MouseEvent evt) {                                        
        
+        if (timerAnimateDado1.isRunning() || timerAnimateDado2.isRunning()){
+             JOptionPane.showMessageDialog(this, "Pare todos os dados antes de mover a peça");
+             return;
+        }
         
         JLabel peaoClicado = (JLabel)evt.getSource();
+        
+        if(peaoClicado.getName().contains("jLabelPeaoYellow")  && (control.getJogadorDaVez() == AMARELO)){
+            movimentaPeça(peaoClicado,new PeçaAmarela(),qtdCasasParaAndar());
+        }
 
-   
 //        if(peaoClicado.getName().contains("jLabelPeaoGreen") && (control.getJogadorDaVez() == VERDE))
-//            movimentaPeça(peaoClicado,new PeçaVerde());
-//       
-//
-//  
+//          movimentaPeça(peaoClicado,new PeçaVerde());
+
 //        else if(peaoClicado.getName().contains("jLabelPeaoRed")  && (control.getJogadorDaVez() == VERMELHO)){
 //            movimentaPeça(peaoClicado,new PeçaVermelha());
 //        }
-            
-        
-         if(peaoClicado.getName().contains("jLabelPeaoYellow")  && (control.getJogadorDaVez() == AMARELO)){
-            movimentaPeça(peaoClicado,new PeçaAmarela());
-         }
-            
-         
 //        else if(peaoClicado.getName().contains("jLabelPeaoBlue") && (control.getJogadorDaVez() == AZUL)) {
 //            movimentaPeça(peaoClicado,new PeçaAzul());
 //        }
-        
-        
-    }                                            
+   
+    } 
 
-    int qtdCasasParaAndar; 
-    public void movimentaPeça(JLabel peaoClicado, Peça p){
+    //Método responsável por criar animação dos dados. 
+    private void createListenersAnimeDados() {
+        
+        ActionListener animateDado1;
+        ActionListener animateDado2;
+        
+        animateDado1 = new ActionListener() {
+            int index = 0;
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (index<framesDado.length-1) 
+                    index++;
+                else 
+                    index = 0;
+                jBtnDado1.setIcon(framesDado[index]);     
+            }
+        };
+
+        animateDado2 = new ActionListener() {
+
+            int index2 = framesDado.length-1;
+            //Esse método troca o frame do dado seguidamente
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if(index2 > 0)
+                    index2--; 
+                else 
+                    index2 = framesDado.length-1;
+                jBtnDado2.setIcon(framesDado[index2]);  
+            }
+        };
+        
+        
+        timerAnimateDado2 = new Timer(100,animateDado2);
+        timerAnimateDado1 = new Timer(100,animateDado1);
+ 
+    }
+
+     private void createListenersLayoutDado() {
+        ActionListener startStopDado1;
+        ActionListener startStopDado2;
+       
+        startStopDado1 = (ActionEvent e) -> {
+            if (jBtnDado1.isSelected() ) {
+                changeButtonLayout(jBtnDado1,true);
+            } 
+            else {
+                changeButtonLayout(jBtnDado1,false);
+            }
+        };
+        
+        startStopDado2 = (ActionEvent e) -> {
+            if (jBtnDado2.isSelected()) {
+                changeButtonLayout(jBtnDado2,true);
+            } 
+            else {
+                changeButtonLayout(jBtnDado2,false);
+            }
+        };
+
+         jBtnDado1.addActionListener(startStopDado1);
+         jBtnDado2.addActionListener(startStopDado2);
+    }
+
+    public void changeButtonLayout(JToggleButton jButton,boolean Border){
+        Border preta = new LineBorder(Color.BLACK,2,true);
+        Border branca = new LineBorder(Color.BLACK,0,true);
+        
+        if(Border){
+            jButton.setBorder(preta);
+            jButton.setSelected(true);
+        }
+            
+        else{
+            jButton.setBorder(branca);
+            jButton.setSelected(false);
+        }
+            
+            
+    }
      
+     
+    //gambiarra
+    private void inicToolTipPeoes() {
+       jLabelPeaoGreen1.setToolTipText(""+0);
+       jLabelPeaoRed1.setToolTipText(""+0);
+       jLabelPeaoBlue1.setToolTipText(""+0);
+       jLabelPeaoYellow1.setToolTipText(""+0);
+    }
     
-       int casaAtual = 0;
-       //int qtdCasasParaAndar; 
-       
-       if(jBtnDado1.isSelected() && jBtnDado2.isSelected()){
-            qtdCasasParaAndar = Tabuleiro.getNumDadoUm()+Tabuleiro.getNumDadoDois();
-            //System.out.println("dois botoes selecionados");
-       }
-          
-       else if (jBtnDado1.isSelected()) {
-            qtdCasasParaAndar = Tabuleiro.getNumDadoUm();
-            //System.out.println("botao um selec");
-       }
-           
-       else if(jBtnDado2.isSelected()){
-           qtdCasasParaAndar = Tabuleiro.getNumDadoDois();
-           //System.out.println("botao dois selec");
-       }
-           
-       else {
-           return;
-       }
-       
-       if (timer.isRunning() || timer2.isRunning())
-           return;
-           
-       
-       
+    private void preencheVetorFramesDado() {
+        for (int i = 1; i <= MAX_ICONS; i++) 
+            framesDado[i-1] = new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+i+".png"));
+    }
+    
+    public void movimentaPeça(JLabel peaoClicado, Peça p, int qtdCasasParaAndar ){
+
+        int casaAtual = 0;
         //Se (a soma dos dados for igual a 6) && (o peãoClicado estiver na base)
-           //Tira da base e coloca na primeira casa
-             if(Tabuleiro.getNumDadoUm()+Tabuleiro.getNumDadoDois() == 6 && (peaoClicado.getToolTipText() == null)){  
-                 
-                 peaoClicado.setLocation(p.getCasa(0));
-                 peaoClicado.setToolTipText(""+0);
-                 Tabuleiro.setNum(0, 0);
-                 casaAtual = 0;
-                 }
-             else {
-                 
-                try{
-                    casaAtual = Integer.parseInt(peaoClicado.getToolTipText());
-                }
-                catch(NumberFormatException e){
-                    System.out.println("Conversão de string vazia para inteiro"+e.getMessage());
-                }
+        //Tira da base e coloca na primeira casa
+        if(Tabuleiro.getNumDadoUm()+Tabuleiro.getNumDadoDois() == 6 && (peaoClicado.getToolTipText() == null)){  
+            peaoClicado.setLocation(p.getCasa(0));
+            peaoClicado.setToolTipText(""+0);
+            Tabuleiro.setNum(0, 0);
+            casaAtual = 0;
+        }
+        else{  
+            try{
+                casaAtual = Integer.parseInt(peaoClicado.getToolTipText());
+            }
+            catch(NumberFormatException e){
+                System.out.println("Conversão de string vazia para inteiro"+e.getMessage());
+            }
                 
-                //Se o peão tiver na primeira casa
-                if(casaAtual == 0){
-                    peaoClicado.setLocation(p.getCasa(qtdCasasParaAndar));
-                    peaoClicado.setToolTipText(""+qtdCasasParaAndar);
-                }
-                
-                else{
-                    int novaCasa = casaAtual + qtdCasasParaAndar;
-                    
-                    peaoClicado.setLocation(p.getCasa(novaCasa));
-                    peaoClicado.setToolTipText(""+novaCasa);
-                }
-             }
-       
-          control.proximoJogadorDaVez();  
-       
+            //Se o peão tiver na primeira casa
+            if(casaAtual == 0){
+                peaoClicado.setLocation(p.getCasa(qtdCasasParaAndar));
+                peaoClicado.setToolTipText(""+qtdCasasParaAndar);
+            }
+
+            else{
+                int novaCasa = casaAtual + qtdCasasParaAndar;
+
+                peaoClicado.setLocation(p.getCasa(novaCasa));
+                peaoClicado.setToolTipText(""+novaCasa);
+            }
+        }
+        control.proximoJogadorDaVez();  
+        atualizaView();
+    }
+   
+    public int qtdCasasParaAndar(){
+        
+        int qtdCasasParaAndar = 0; 
+        
+        if(jBtnDado1.isSelected() && jBtnDado2.isSelected()){
+            qtdCasasParaAndar = Tabuleiro.getNumDadoUm()+Tabuleiro.getNumDadoDois();
+        }
           
-         atualizaView();
-
-     }
+        else if (jBtnDado1.isSelected()) {
+            qtdCasasParaAndar = Tabuleiro.getNumDadoUm();
+        }
+           
+        else if(jBtnDado2.isSelected()){
+            qtdCasasParaAndar = Tabuleiro.getNumDadoDois();
+        }
+       
+        return qtdCasasParaAndar;
+    }
     
+    private void atualizaView() {
+        
+        switch(control.getJogadorDaVez()){
+            
+            case AMARELO:   updatePositionDados(new Point(300,400),new Point(350,400)); 
+                           // jLabelAmarelo.setText("Andou "+qtdCasasParaAndar+" casas");
+                            break;
+            case VERDE:     updatePositionDados(new Point(290,20),new Point(340,20));
+                            //Peca P = retornaPecaAleatoriamente();
+                            //JLabel l = retornaLabelAleatoriamente();
+                            // maquinaEscolha(l,P);
+                            
+                            changeButtonLayout(jBtnDado1,false);
+                            changeButtonLayout(jBtnDado2,false);
+                            
+                            maquinaEscolha(jLabelPeaoGreen1,new PeçaVerde(),"Verde");                    
+                            break;
+            case VERMELHO:  updatePositionDados(new Point(880,20),new Point(880,70));
+            
+                            changeButtonLayout(jBtnDado1,false);
+                            changeButtonLayout(jBtnDado2,false);
+                            
+                            maquinaEscolha(jLabelPeaoRed1,new PeçaVermelha(),"Vermelho");    
+                            break;
+            case AZUL:      updatePositionDados(new Point(830,610),new Point(880,610));
+            
+                            changeButtonLayout(jBtnDado1,false);
+                            changeButtonLayout(jBtnDado2,false);
+            
+                            maquinaEscolha(jLabelPeaoBlue1,new PeçaAzul(),"Azul");  
+                            break;
+        }
+        
+        timerAnimateDado1.start();
+        timerAnimateDado2.start();
+        
+    }
 
+    private void updatePositionDados(Point PosBtn1, Point PosBtn2) {
+         jBtnDado1.setLocation(PosBtn1);
+         jBtnDado2.setLocation(PosBtn2); 
+    }
+
+    private void maquinaEscolha(JLabel peao, Peça p, String cor) {
+       int valorDado;
+       
+       timerAnimateDado1.start();
+       timerAnimateDado2.start();
+        
+       JOptionPane.showMessageDialog(this, "Vez de jogada do "+cor+"!");
+       
+        int escolha = control.jogaMaquina();
+        switch(escolha){
+            case 1: timerAnimateDado1.stop();
+                    timerAnimateDado2.stop();
+                    
+                    changeButtonLayout(jBtnDado1,true);
+                    
+                    valorDado = Tabuleiro.getNumDadoUm();
+                    jBtnDado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado+".png")));
+                    JOptionPane.showMessageDialog(this, "O jogador "+cor+" já fez sua escolha !"+valorDado);
+                    movimentaPeça(peao,p,qtdCasasParaAndar());
+                    
+                    break;
+            case 2: 
+                    timerAnimateDado1.stop();
+                    timerAnimateDado2.stop();
+                    
+                    changeButtonLayout(jBtnDado2,true);
+                    
+                    valorDado = Tabuleiro.getNumDadoDois();
+                    jBtnDado2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado+".png")));
+                    JOptionPane.showMessageDialog(this, "O jogador "+cor+" já fez sua escolha !");
+                    movimentaPeça(peao,p,qtdCasasParaAndar());
+                    break;
+            case 3: timerAnimateDado1.stop();
+                    timerAnimateDado2.stop();
+                    
+                    changeButtonLayout(jBtnDado1,true);
+                    changeButtonLayout(jBtnDado2,true);
+                    
+                    valorDado = Tabuleiro.getNumDadoUm();
+                    int valorDado2 = Tabuleiro.getNumDadoDois();
+                    jBtnDado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado+".png")));
+                    jBtnDado2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado2+".png")));
+                    JOptionPane.showMessageDialog(this, "O jogador "+cor+" já fez sua escolha !");   
+                    movimentaPeça(peao,p,qtdCasasParaAndar());
+        }
+    } 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton jBtnDado1;
     private javax.swing.JToggleButton jBtnDado2;
@@ -580,212 +731,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelVermelho;
     private javax.swing.JPanel jPanel7;
     // End of variables declaration//GEN-END:variables
-
-    private void preencheVetorFramesDado() {
-        for (int i = 1; i <= MAX_ICONS; i++) 
-            framesDado[i-1] = new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+i+".png"));
-     
-    }
-
-    
-    
-    Timer timer2;
-    Timer timer;
-    //Método responsável por criar animação dos dados. 
-    private void moveFramesDados() {
-        
-        animateDado1 = new ActionListener() {
-
-                    private int index = 0;
-                   
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
- 
-                        if (index<framesDado.length-1) {
-                            index++;
-                        }
-                        
-                        else {
-                            index = 0;
-                        }
-
-                        jBtnDado1.setIcon(framesDado[index]);
-                    }
-                };
-        
-        animateDado2 = new ActionListener() {
-
-                    private int index2 = framesDado.length-1;
-                    
-                    //Esse método troca o frame do dado seguidamente
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                                    
-                        if(index2 > 0){
-                            index2--;
-                        }
-                        else {
-                            index2 = framesDado.length-1;
-                        }
-                        jBtnDado2.setIcon(framesDado[index2]);  
-                    }
-                };
-        
-        
-        timer2 = new Timer(100,animateDado2);
-        timer = new Timer(100,animateDado1);
- 
-    }
-
-     private void mudaLayoutDados() {
-           
-        startStopDado2 = (ActionEvent e) -> {
-            if (jBtnDado2.isSelected()) {
-                Border b = new LineBorder(Color.BLACK,2,true);
-                jBtnDado2.setBorder(b);
-                
-            } else {
-                 Border b = new LineBorder(Color.WHITE,0,true);
-                 jBtnDado2.setBorder(b);
-            }
-        };
-        
-        
-        
-        
-        startStopDado1 = (ActionEvent e) -> {
-            if (jBtnDado1.isSelected() ) {
-                Border b = new LineBorder(Color.BLACK,2,true);
-                jBtnDado1.setBorder(b);
-                 
-            } else {
-                 
-                 Border b = new LineBorder(Color.WHITE,0,true);
-                 jBtnDado1.setBorder(b);
-            }
-        };
-
-         jBtnDado1.addActionListener(startStopDado1);
-         jBtnDado2.addActionListener(startStopDado2);
-    }
-
-    
-    //gambiarra
-    private void inicToolTipPeoes() {
-       jLabelPeaoGreen1.setToolTipText(""+0);
-       jLabelPeaoRed1.setToolTipText(""+0);
-       jLabelPeaoBlue1.setToolTipText(""+0);
-       jLabelPeaoYellow1.setToolTipText(""+0);
-    }
-
-    
-    
-    private void atualizaView() {
-       Border b = new LineBorder(Color.WHITE,0,true);
-    
-        switch(control.getJogadorDaVez()){
-            
-            case AMARELO:   updatePositionDados(new Point(300,400),new Point(350,400)); 
-                           // jLabelAmarelo.setText("Andou "+qtdCasasParaAndar+" casas");
-                            break;
-            case VERDE:     updatePositionDados(new Point(290,20),new Point(340,20));
-                            //Peca P = retornaPecaAleatoriamente();
-                            //JLabel l = retornaLabelAleatoriamente();
-                            // maquinaEscolha(l,P);
-                            
-                            jBtnDado1.setBorder(b);
-                            jBtnDado2.setBorder(b);
-                            jBtnDado1.setSelected(false);
-                            jBtnDado2.setSelected(false);
-                            
-                            maquinaEscolha(jLabelPeaoGreen1,new PeçaVerde(),"Verde");                    
-                            break;
-            case VERMELHO:  updatePositionDados(new Point(880,20),new Point(880,70));
-            
-                             jBtnDado1.setBorder(b);
-                             jBtnDado2.setBorder(b);
-                             jBtnDado1.setSelected(false);
-                             jBtnDado2.setSelected(false);
-                            maquinaEscolha(jLabelPeaoRed1,new PeçaVermelha(),"Vermelho");    
-                            break;
-            case AZUL:      updatePositionDados(new Point(830,610),new Point(880,610));
-            
-                            jBtnDado1.setBorder(b);
-                            jBtnDado2.setBorder(b);
-                            jBtnDado1.setSelected(false);
-                            jBtnDado2.setSelected(false);
-            
-                            maquinaEscolha(jLabelPeaoBlue1,new PeçaAzul(),"Azul");  
-                            break;
-        }
-        
-      ;
-        
-        timer.start();
-        timer2.start();
-        
-    }
-
-    private void updatePositionDados(Point PosBtn1, Point PosBtn2) {
-         jBtnDado1.setLocation(PosBtn1);
-         jBtnDado2.setLocation(PosBtn2);
-         
-    }
-
-    private void maquinaEscolha(JLabel peao, Peça p, String cor) {
-       Border b = new LineBorder(Color.BLACK,2,true);
-       int valorDado;
-       
-       timer.start();
-       timer2.start();
-        
-       JOptionPane.showMessageDialog(this, "Vez de jogada do "+cor+"!");
-       
-        int escolha = control.jogaMaquina();
-        switch(escolha){
-            case 1: timer.stop();
-                    timer2.stop();
-                    
-                    jBtnDado1.setBorder(b);
-                    jBtnDado1.setSelected(true);
-                    valorDado = Tabuleiro.getNumDadoUm();
-                    jBtnDado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado+".png")));
-                    JOptionPane.showMessageDialog(this, "O jogador "+cor+" já fez sua escolha !"+valorDado);
-
-                    movimentaPeça(peao,p);
-                break;
-            case 2: 
-                    timer.stop();
-                    timer2.stop();
-                    
-                    jBtnDado2.setBorder(b);
-                    jBtnDado2.setSelected(true);
-                    valorDado = Tabuleiro.getNumDadoDois();
-                    jBtnDado2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado+".png")));
-                    JOptionPane.showMessageDialog(this, "O jogador "+cor+" já fez sua escolha !");
-                    movimentaPeça(peao,p);
-                break;
-            case 3: timer.stop();
-                    timer2.stop();
-                    
-                    jBtnDado1.setBorder(b);
-                    jBtnDado1.setSelected(true);
-                    jBtnDado2.setBorder(b);
-                    jBtnDado2.setSelected(true);
-                    valorDado = Tabuleiro.getNumDadoUm();
-                    int valorDado2 = Tabuleiro.getNumDadoDois();
-                    jBtnDado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado+".png")));
-                    jBtnDado2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado2+".png")));
-                    JOptionPane.showMessageDialog(this, "O jogador "+cor+" já fez sua escolha !");   
-                    movimentaPeça(peao,p);
-                    
-                    
-
-        }
-    }
-
-    
- }       
+}       
        
     
 
