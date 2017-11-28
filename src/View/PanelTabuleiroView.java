@@ -442,62 +442,34 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
              return;
         }
         
-        JLabel peaoClicado = (JLabel)evt.getSource();
-        
-        if(peaoClicado.getName().contains("jLabelPeaoYellow")  && (control.getCorDoJogadorDaVez() == AMARELO)){
-            movimentaPeça(peaoClicado,new PeçaAmarela(),qtdCasasParaAndar());
+        if(control.getCorDoJogadorDaVez() == AMARELO){
+            JLabel peaoClicado = (JLabel)evt.getSource();
+            Peça peçaEscolhida = null;
+            
+            if(peaoClicado.getName().contains("jLabelPeaoYellow1")){
+                peçaEscolhida = control.getJogadorDaVez().getPeça(0);
+            }
+            else if(peaoClicado.getName().contains("jLabelPeaoYellow2")){
+                peçaEscolhida = control.getJogadorDaVez().getPeça(1);
+            }
+            else if(peaoClicado.getName().contains("jLabelPeaoYellow3")){
+             peçaEscolhida = control.getJogadorDaVez().getPeça(2);
+            }
+            else if(peaoClicado.getName().contains("jLabelPeaoYellow4")){
+                peçaEscolhida = control.getJogadorDaVez().getPeça(3);
+            }
+            
+            //try{
+                movimentaPeça(peaoClicado,peçaEscolhida,qtdCasasParaAndar());
+            //}
+            //catch(Exception e){
+              //  System.out.print(e.getMessage());
+            //}
+            
+            
+            
         }
-
-//        if(peaoClicado.getName().contains("jLabelPeaoGreen") && (control.getJogadorDaVez() == VERDE))
-//          movimentaPeça(peaoClicado,new PeçaVerde());
-
-//        else if(peaoClicado.getName().contains("jLabelPeaoRed")  && (control.getJogadorDaVez() == VERMELHO)){
-//            movimentaPeça(peaoClicado,new PeçaVermelha());
-//        }
-//        else if(peaoClicado.getName().contains("jLabelPeaoBlue") && (control.getJogadorDaVez() == AZUL)) {
-//            movimentaPeça(peaoClicado,new PeçaAzul());
-//        }
-   
     } 
-
-//    //Método responsável por criar animação dos dados. 
-//    private void createListenersAnimeDados() {
-//        
-//        ActionListener animateDado1;
-//        ActionListener animateDado2;
-//        
-//        animateDado1 = new ActionListener() {
-//            int index = 0;
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                if (index<framesDado.length-1) 
-//                    index++;
-//                else 
-//                    index = 0;
-//                jBtnDado1.setIcon(framesDado[index]);     
-//            }
-//        };
-//
-//        animateDado2 = new ActionListener() {
-//
-//            int index2 = framesDado.length-1;
-//            //Esse método troca o frame do dado seguidamente
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//
-//                if(index2 > 0)
-//                    index2--; 
-//                else 
-//                    index2 = framesDado.length-1;
-//                jBtnDado2.setIcon(framesDado[index2]);  
-//            }
-//        };
-//        
-//        
-//        timerAnimateDado2 = new Timer(100,animateDado2);
-//        timerAnimateDado1 = new Timer(100,animateDado1);
-// 
-//    }
 
      private void createListenersLayoutDado() {
         ActionListener startStopDado1;
@@ -556,48 +528,23 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             framesDado[i-1] = new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+i+".png"));
     }
     
-    public void movimentaPeça(JLabel peaoClicado, Peça p, int qtdCasasParaAndar ){
+    public void movimentaPeça(JLabel peaoClicado, Peça peça, int qtdCasasParaAndar ){
 
         if(qtdCasasParaAndar == 0)
             return;
         
-        int casaAtual = 0;
-        //Se (a soma dos dados for igual a 6) && (o peãoClicado estiver na base)
-        //Tira da base e coloca na primeira casa
-        if(Tabuleiro.getNumDadoUm()+Tabuleiro.getNumDadoDois() == 6 && (peaoClicado.getToolTipText() == null)){  
-            peaoClicado.setLocation(p.getCasa(0));
-            peaoClicado.setToolTipText(""+0);
-            Tabuleiro.setNum(0, 0);
-            casaAtual = 0;
-        }
-        else{  
-            try{
-                casaAtual = Integer.parseInt(peaoClicado.getToolTipText());
-            }
-            catch(NumberFormatException e){
-                System.out.println("Conversão de string vazia para inteiro"+e.getMessage());
-            }
-                
-            //Se o peão tiver na primeira casa
-            if(casaAtual == 0){
-                peaoClicado.setLocation(p.getCasa(qtdCasasParaAndar));
-                peaoClicado.setToolTipText(""+qtdCasasParaAndar);
-            }
-
-            else{
-                int novaCasa = casaAtual + qtdCasasParaAndar;
-
-                peaoClicado.setLocation(p.getCasa(novaCasa));
-                peaoClicado.setToolTipText(""+novaCasa);
-            }
-        }
+        peaoClicado.setLocation(peça.mover(qtdCasasParaAndar));
+       // System.out.println("x: "+peça.mover(qtdCasasParaAndar).x+" y:"+peça.mover(qtdCasasParaAndar).y);
+        
         control.proximoJogadorDaVez();
         atualizaView();
+     
     }
    
     public int qtdCasasParaAndar(){
         
         int qtdCasasParaAndar = 0; 
+        
         
         if(jBtnDado1.isSelected() && jBtnDado2.isSelected()){
             qtdCasasParaAndar = Tabuleiro.getNumDadoUm()+Tabuleiro.getNumDadoDois();
@@ -629,26 +576,24 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                             changeButtonLayout(jBtnDado1,false);
                             changeButtonLayout(jBtnDado2,false);
                             
-                            maquinaEscolha(jLabelPeaoGreen1,new PeçaVerde(),"Verde");                    
+                            maquinaEscolha(jLabelPeaoGreen1,control.getJogadorDaVez().getPeça(0),"Verde");                    
                             break;
             case VERMELHO:  updatePositionDados(new Point(880,20),new Point(880,70));
             
                             changeButtonLayout(jBtnDado1,false);
                             changeButtonLayout(jBtnDado2,false);
                             
-                            maquinaEscolha(jLabelPeaoRed1,new PeçaVermelha(),"Vermelho");    
+                            maquinaEscolha(jLabelPeaoRed1,control.getJogadorDaVez().getPeça(0),"Vermelho");    
                             break;
             case AZUL:      updatePositionDados(new Point(830,610),new Point(880,610));
             
                             changeButtonLayout(jBtnDado1,false);
                             changeButtonLayout(jBtnDado2,false);
             
-                            maquinaEscolha(jLabelPeaoBlue1,new PeçaAzul(),"Azul");  
+                            maquinaEscolha(jLabelPeaoBlue1,control.getJogadorDaVez().getPeça(0),"Azul");  
                             break;
         }
-        
-    
-        
+  
     }
 
     private void updatePositionDados(Point PosBtn1, Point PosBtn2) {

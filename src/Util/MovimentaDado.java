@@ -110,8 +110,9 @@ public class MovimentaDado{
             d1.getTimerAnimateDado().stop();
             Dado2.cancel();
             d2.getTimerAnimateDado().stop();
-            RunningDadoAmbos = false;
         }
+        
+        this.RunningDadoAmbos = (RunningDado1 && RunningDado2);
    
     } 
      

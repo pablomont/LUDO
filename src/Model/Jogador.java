@@ -6,6 +6,7 @@
 package Model;
 
 import Util.EnumDado;
+import java.util.Random;
 
 /**
  *
@@ -13,11 +14,16 @@ import Util.EnumDado;
  */
 public class Jogador {
     
+
     private String name; 
     private String dataDeNascimento;
     private String login;
     private String senha; 
     private String avatar;
+
+    public Jogador() {
+         randomGenerator = new Random();
+    }
 
     public String getAvatar() {
         return avatar;
@@ -59,12 +65,17 @@ public class Jogador {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+ 
+    
+    private Peça[] peças;
+    private final Random randomGenerator;
+    private int peçaAtualEscolhida;
     
     
-    
-    
-    public Jogador() {
-        
+    public Jogador(Peça[] peças) {
+        randomGenerator = new Random();
+        this.peças = peças;
+
     }
     
     public void lancarDados(){
@@ -78,5 +89,13 @@ public class Jogador {
             Tabuleiro.lancarDadoDois();
         }
     }
+    
+    public Peça escolherPeça(){
+        peçaAtualEscolhida = randomGenerator.nextInt(3);
+        return this.peças[peçaAtualEscolhida];
+    }
 
+    public Peça getPeça(int index){
+        return peças[index];
+    }      
 }

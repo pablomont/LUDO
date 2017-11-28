@@ -13,14 +13,19 @@ import java.awt.Point;
  */
 public class PeçaVermelha extends Peça {
 
-    public PeçaVermelha() {
+    public PeçaVermelha(int casaAtual){
+        super.casaAtual = casaAtual;
+        naBase = false;
         preencheCaminho();
     }
-    
-    
 
+    public PeçaVermelha() {
+        preencheCaminho();
+        naBase = true;
+    }
+    
     @Override
-    public void preencheCaminho() {
+    public final void preencheCaminho() {
         
         caminho = new Point[]{
             //Próxima linha representa o trajeto 4 do verde
@@ -48,12 +53,4 @@ public class PeçaVermelha extends Peça {
         
         };
     }
-
-    @Override
-    public Point getCasa(int i) {
-        return caminho[i];
-    }
-    
-    
-    
 }

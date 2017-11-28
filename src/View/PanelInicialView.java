@@ -130,7 +130,7 @@ public class PanelInicialView extends javax.swing.JPanel {
 
     private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
        
-//        controller.login();
+        control.login();
     }//GEN-LAST:event_btnLogin1ActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed

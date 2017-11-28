@@ -15,12 +15,19 @@ public class PeçaVerde extends Peça{
 
     
     
-    public PeçaVerde(){
+    public PeçaVerde(int casaAtual){
+        super.casaAtual = casaAtual;
+        naBase = false;
         preencheCaminho();
+    }
+
+    public PeçaVerde() {
+        preencheCaminho();
+        naBase = true;
     }
     
     @Override
-    protected void preencheCaminho() {
+    protected final void preencheCaminho() {
         caminho = new Point[]{
             //Próxima linha representa o trajeto 1 do verde
             new Point(320,270),new Point(355,270),new Point(390,270),new Point(425,270),new Point(460,270),new Point(495,270),new Point(530,270),
@@ -50,8 +57,5 @@ public class PeçaVerde extends Peça{
     
     }
 
-    @Override
-    public Point getCasa(int i) {
-        return caminho[i];
-    }
+
 }

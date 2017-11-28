@@ -12,8 +12,11 @@ import java.awt.Point;
  * @author Lufh
  */
 public abstract class Peça {
+    public boolean naBase = true;
     protected Point[] caminho;
     protected final int NUM_PEÇAS = 74;
+    protected int casaAtual = -1;
+
 
     public Peça() {
         this.caminho = new Point[74];
@@ -21,6 +24,22 @@ public abstract class Peça {
    
     protected abstract void preencheCaminho();
     
-    public abstract Point getCasa(int i);
+    public Point mover(int qtdCasasParaAndar){
         
+        if(naBase){
+            this.casaAtual = 0;
+            naBase = false;
+        }
+        
+        else{
+            this.casaAtual += qtdCasasParaAndar;
+        }
+        
+        return getCasa();
+    }
+    
+    
+    public  Point getCasa(){
+        return caminho[casaAtual];
+    }     
 }
