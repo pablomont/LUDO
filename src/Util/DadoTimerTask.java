@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 package Util;
-import Util.EnumDado;
 import static Util.EnumDado.Primeiro;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.TimerTask;
 import javax.swing.ImageIcon;
 import javax.swing.JToggleButton;
 import javax.swing.Timer;
@@ -116,7 +114,6 @@ public class DadoTimerTask extends TimerTask  {
      public void run() {
          
          timerAnimateDado.start();
-         System.out.print("run");
          if(System.currentTimeMillis() > timeMillis + TempoLimite && TempoLimiteAtivado)
              timerAnimateDado.stop();
            

@@ -109,10 +109,6 @@ public class PanelTabuleiroControl extends AbstractControl{
         jogadorDaVez++;
         
         if(jogadorDaVez > 3)
-            jogadorDaVez = 0;
-        
-       
-    }
-    
-    
+            jogadorDaVez = 0;         
+    }  
 }

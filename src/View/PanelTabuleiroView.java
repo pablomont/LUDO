@@ -10,8 +10,6 @@ import static Control.PanelTabuleiroControl.corDoJogadorDaVez.AMARELO;
 import static Control.PanelTabuleiroControl.corDoJogadorDaVez.AZUL;
 import static Control.PanelTabuleiroControl.corDoJogadorDaVez.VERDE;
 import static Control.PanelTabuleiroControl.corDoJogadorDaVez.VERMELHO;
-import Model.Jogador;
-
 import Model.Peça;
 import Model.PeçaAmarela;
 import Model.PeçaAzul;
@@ -20,7 +18,6 @@ import Model.PeçaVermelha;
 import Model.Tabuleiro;
 import Util.EnumDado;
 import Util.MovimentaDado;
-
 import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
@@ -28,7 +25,6 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
@@ -55,7 +51,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         
         preencheVetorFramesDado();
         
-        createListenersAnimeDados();
+       // createListenersAnimeDados();
         createListenersLayoutDado();
  
         inicToolTipPeoes();
@@ -411,7 +407,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
 
     private void jBtnDado2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnDado2MouseClicked
        if (SwingUtilities.isRightMouseButton(evt)) {
-           if(movimentaDado.isRunning()){
+           if(movimentaDado.isRunning(EnumDado.Segundo)){
                movimentaDado.stop(EnumDado.Segundo);
                control.lancarDado(EnumDado.Segundo);
                int valorDado2 = Tabuleiro.getNumDadoDois();
@@ -426,7 +422,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
 
     private void jBtnDado1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnDado1MouseClicked
        if (SwingUtilities.isRightMouseButton(evt)) {
-           if(movimentaDado.isRunning()){
+           if(movimentaDado.isRunning(EnumDado.Primeiro)){
                movimentaDado.stop(EnumDado.Primeiro);
                control.lancarDado(EnumDado.Primeiro);
                int valorDado1 = Tabuleiro.getNumDadoUm();
@@ -441,7 +437,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
 
     private void jLabelPeaoMouseClicked(java.awt.event.MouseEvent evt) {                                        
        
-        if (timerAnimateDado1.isRunning() || timerAnimateDado2.isRunning()){
+        if (movimentaDado.isRunning(EnumDado.Ambos)){
              JOptionPane.showMessageDialog(this, "Pare todos os dados antes de mover a peça");
              return;
         }
@@ -464,44 +460,44 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
    
     } 
 
-    //Método responsável por criar animação dos dados. 
-    private void createListenersAnimeDados() {
-        
-        ActionListener animateDado1;
-        ActionListener animateDado2;
-        
-        animateDado1 = new ActionListener() {
-            int index = 0;
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (index<framesDado.length-1) 
-                    index++;
-                else 
-                    index = 0;
-                jBtnDado1.setIcon(framesDado[index]);     
-            }
-        };
-
-        animateDado2 = new ActionListener() {
-
-            int index2 = framesDado.length-1;
-            //Esse método troca o frame do dado seguidamente
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                if(index2 > 0)
-                    index2--; 
-                else 
-                    index2 = framesDado.length-1;
-                jBtnDado2.setIcon(framesDado[index2]);  
-            }
-        };
-        
-        
-        timerAnimateDado2 = new Timer(100,animateDado2);
-        timerAnimateDado1 = new Timer(100,animateDado1);
- 
-    }
+//    //Método responsável por criar animação dos dados. 
+//    private void createListenersAnimeDados() {
+//        
+//        ActionListener animateDado1;
+//        ActionListener animateDado2;
+//        
+//        animateDado1 = new ActionListener() {
+//            int index = 0;
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                if (index<framesDado.length-1) 
+//                    index++;
+//                else 
+//                    index = 0;
+//                jBtnDado1.setIcon(framesDado[index]);     
+//            }
+//        };
+//
+//        animateDado2 = new ActionListener() {
+//
+//            int index2 = framesDado.length-1;
+//            //Esse método troca o frame do dado seguidamente
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//
+//                if(index2 > 0)
+//                    index2--; 
+//                else 
+//                    index2 = framesDado.length-1;
+//                jBtnDado2.setIcon(framesDado[index2]);  
+//            }
+//        };
+//        
+//        
+//        timerAnimateDado2 = new Timer(100,animateDado2);
+//        timerAnimateDado1 = new Timer(100,animateDado1);
+// 
+//    }
 
      private void createListenersLayoutDado() {
         ActionListener startStopDado1;
@@ -562,6 +558,9 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     
     public void movimentaPeça(JLabel peaoClicado, Peça p, int qtdCasasParaAndar ){
 
+        if(qtdCasasParaAndar == 0)
+            return;
+        
         int casaAtual = 0;
         //Se (a soma dos dados for igual a 6) && (o peãoClicado estiver na base)
         //Tira da base e coloca na primeira casa
@@ -648,8 +647,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                             break;
         }
         
-//        timerAnimateDado1.start();
-//        timerAnimateDado2.start();
+    
         
     }
 
@@ -669,41 +667,38 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
 //       while(System.currentTimeMillis() < end) {
 //           
 //       }
-      movimentaDado.start(10000, EnumDado.Ambos);
-      
-       
+      movimentaDado.start(EnumDado.Ambos);
+   
        int escolha = control.escolhaMaquina();
      
-       //JOptionPane.showMessageDialog(this, "Vez de jogada do "+cor+"!");
-       
-               
-       
+       JOptionPane.showMessageDialog(this, "Vez de jogada do "+cor+"!");
+        
         switch(escolha){
             case 1: //timerAnimateDado1.stop();
                     //timerAnimateDado2.stop();
-                    
+                    movimentaDado.stop(EnumDado.Ambos);
                     changeButtonLayout(jBtnDado1,true);
                     
                     valorDado = Tabuleiro.getNumDadoUm();
                     jBtnDado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado+".png")));
-                    //JOptionPane.showMessageDialog(this, "O jogador "+cor+" já fez sua escolha !"+valorDado);
+                    JOptionPane.showMessageDialog(this, "O jogador "+cor+" já fez sua escolha !");
                     movimentaPeça(peao,p,qtdCasasParaAndar());
                     
                     break;
             case 2: 
                     //timerAnimateDado1.stop();
                     //timerAnimateDado2.stop();
-                    
+                     movimentaDado.stop(EnumDado.Ambos);
                     changeButtonLayout(jBtnDado2,true);
                     
                     valorDado = Tabuleiro.getNumDadoDois();
                     jBtnDado2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado+".png")));
-                    //JOptionPane.showMessageDialog(this, "O jogador "+cor+" já fez sua escolha !");
+                    JOptionPane.showMessageDialog(this, "O jogador "+cor+" já fez sua escolha !");
                     movimentaPeça(peao,p,qtdCasasParaAndar());
                     break;
             case 3: //timerAnimateDado1.stop();
                     //timerAnimateDado2.stop();
-                    
+                     movimentaDado.stop(EnumDado.Ambos);
                     changeButtonLayout(jBtnDado1,true);
                     changeButtonLayout(jBtnDado2,true);
                     
@@ -711,7 +706,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                     int valorDado2 = Tabuleiro.getNumDadoDois();
                     jBtnDado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado+".png")));
                     jBtnDado2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+valorDado2+".png")));
-                    //JOptionPane.showMessageDialog(this, "O jogador "+cor+" já fez sua escolha !");   
+                    JOptionPane.showMessageDialog(this, "O jogador "+cor+" já fez sua escolha !");   
                     movimentaPeça(peao,p,qtdCasasParaAndar());
         }
     } 
