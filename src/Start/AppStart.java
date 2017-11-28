@@ -8,6 +8,7 @@ package Start;
 import Control.PanelInicialControl;
 import Util.FrameOperation;
 import View.PanelInicialView;
+import data.DataBase;
 
 /**
  *
@@ -15,7 +16,8 @@ import View.PanelInicialView;
  */
 public class AppStart {
     public static void main(String[] args){
-        
+           DataBase data = new DataBase();
+           data.createDataBase();
 //        new Thread(() -> {
 //            FramePrincipal f = new FramePrincipal();
 //            f.setVisible(true);

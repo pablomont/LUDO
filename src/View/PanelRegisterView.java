@@ -6,6 +6,8 @@
 package View;
 
 import Control.PanelRegisterControl;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -40,10 +42,12 @@ public class PanelRegisterView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLogin = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jButtonSair = new javax.swing.JButton();
         btnRegister = new javax.swing.JButton();
-        txtLogin = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         JTextSenha = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -57,6 +61,12 @@ public class PanelRegisterView extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
+        add(jLogin);
+        jLogin.setBounds(360, 340, 110, 20);
+
+        jLabel9.setText("Login:");
+        add(jLabel9);
+        jLabel9.setBounds(360, 310, 50, 20);
         add(jFormattedTextField1);
         jFormattedTextField1.setBounds(110, 390, 230, 30);
 
@@ -76,17 +86,22 @@ public class PanelRegisterView extends javax.swing.JPanel {
         btnRegister.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Cadastrar");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
         add(btnRegister);
         btnRegister.setBounds(290, 490, 130, 40);
 
-        txtLogin.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        txtLogin.addActionListener(new java.awt.event.ActionListener() {
+        txtNome.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLoginActionPerformed(evt);
+                txtNomeActionPerformed(evt);
             }
         });
-        add(txtLogin);
-        txtLogin.setBounds(110, 340, 230, 30);
+        add(txtNome);
+        txtNome.setBounds(110, 340, 230, 30);
 
         JTextSenha.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         add(JTextSenha);
@@ -134,9 +149,9 @@ public class PanelRegisterView extends javax.swing.JPanel {
         jComboBox1.setBounds(250, 270, 90, 50);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtLoginActionPerformed
+    }//GEN-LAST:event_txtNomeActionPerformed
 
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
 
@@ -146,6 +161,20 @@ public class PanelRegisterView extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_jButtonSairActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+     
+        String avatar = "usuario"+(avatarList.getSelectedIndex()+1)+".png";
+        
+        try {
+            control.registrarUsuario(txtNome.getText(), jFormattedTextField1.getText(), avatar, jLogin.getText(),String.valueOf(JTextSenha.getName()));
+        } catch (Exception ex) {
+            Logger.getLogger(PanelRegisterView.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+        }
+    
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -162,9 +191,12 @@ public class PanelRegisterView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField txtLogin;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jLogin;
+    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 
+     JComboBox avatarList;
     private void preencheComboBox() {
          //DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         for (int i = 1; i <= MAX_ICONS; i++) {
@@ -172,7 +204,7 @@ public class PanelRegisterView extends javax.swing.JPanel {
             //.addElement("Icone "+i);
         }
         
-        JComboBox avatarList = new JComboBox(icons);
+        avatarList = new JComboBox(icons);
         avatarList.setLocation(jComboBox1.getLocation());
         avatarList.setSize(jComboBox1.getSize());
         avatarList.setVisible(true);

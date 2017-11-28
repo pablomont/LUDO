@@ -5,9 +5,14 @@
  */
 package Control;
 
+import Model.Jogador;
+import Model.user.JogadorM;
+import Model.user.JogadorModel;
 import Util.FrameOperation;
 import View.PanelInicialView;
 import View.PanelRegisterView;
+import data.DataBase;
+import data.dao.UsuarioDAO;
 
 /**
  *
@@ -16,11 +21,37 @@ import View.PanelRegisterView;
 public class PanelRegisterControl extends AbstractControl{
 
     PanelRegisterView view;
+   
+    
+    public void registrarUsuario(String nome, String dataDeNascimento, String avatar, String login,String senha) throws Exception{
+       
+        
+        
+       Jogador jogador = new Jogador();
+        
+        jogador.setName(nome);
+        jogador.setDataDeNascimento(dataDeNascimento);
+        jogador.setAvatar(avatar);
+        jogador.setLogin(login);
+        jogador.setSenha(senha);
+        
+        
+       JogadorModel jg = new JogadorModel();
+       
+       try {
+            jg.insertUser(jogador);
+        } catch (Exception ex) {
+          System.out.println(ex.getMessage());
+        }
+        
+        
+    }
     
     public PanelRegisterControl(PanelRegisterView view) {
         this.view = view;
     }
 
+    
     @Override
     public void mostrarView() {
          FrameOperation.setView(view);

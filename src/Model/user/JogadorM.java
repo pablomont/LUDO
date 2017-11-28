@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
-
-import Util.EnumDado;
+package Model.user;
 
 /**
  *
- * @author paabl
+ * @author professor Daniel
  */
-public class Jogador {
+public class JogadorM {
     
-    private String name; 
+     private String name; 
     private String dataDeNascimento;
     private String login;
     private String senha; 
@@ -60,23 +58,4 @@ public class Jogador {
         this.senha = senha;
     }
     
-    
-    
-    
-    public Jogador() {
-        
-    }
-    
-    public void lancarDados(){
-        Tabuleiro.lancarDados();
-    }
-    
-    public void lancarDado(EnumDado dado){
-        if(dado == EnumDado.Primeiro)
-            Tabuleiro.lancarDadoUm();
-        else{
-            Tabuleiro.lancarDadoDois();
-        }
-    }
-
 }
