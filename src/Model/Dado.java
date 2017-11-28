@@ -11,6 +11,7 @@ import java.util.Random;
  * @author paabl
  */
 public class Dado {
+     
     private int _num;
     private final Random randomGenerator;
    

@@ -46,14 +46,13 @@ public class Tabuleiro {
         return _d2.getNum();
     }
 
-    public static int lancarDados(){
+    public static void lancarDados(){
         if(tabuleiro == null)
             tabuleiro = new Tabuleiro();
         
         //Lançando os dados
         _d1.setRandomNum();
         _d2.setRandomNum();
-        
-        return getNumDadoUm()+getNumDadoDois();      
+
     } 
 }

@@ -5,16 +5,16 @@
  */
 package Model;
 
+import Util.EnumDado;
+
 /**
  *
  * @author paabl
  */
 public class Jogador {
     
-public enum DadoEscolhido {
-       DadoUm, DadoDois;
-    }
-       public Jogador() {
+
+    public Jogador() {
         
     }
     
@@ -22,12 +22,12 @@ public enum DadoEscolhido {
         Tabuleiro.lancarDados();
     }
     
-     public void lancarDado(DadoEscolhido dado){
-         if(dado == DadoEscolhido.DadoUm)
-             Tabuleiro.lancarDadoUm();
-         else{
-             Tabuleiro.lancarDadoDois();
-         }
-     }
+    public void lancarDado(EnumDado dado){
+        if(dado == EnumDado.Primeiro)
+            Tabuleiro.lancarDadoUm();
+        else{
+            Tabuleiro.lancarDadoDois();
+        }
+    }
 
 }

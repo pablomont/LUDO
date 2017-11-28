@@ -5,11 +5,12 @@
  */
 package Control;
 
-import static Control.PanelTabuleiroControl.jogadorDaVez.AMARELO;
-import static Control.PanelTabuleiroControl.jogadorDaVez.AZUL;
-import static Control.PanelTabuleiroControl.jogadorDaVez.VERDE;
-import static Control.PanelTabuleiroControl.jogadorDaVez.VERMELHO;
+import static Control.PanelTabuleiroControl.corDoJogadorDaVez.AMARELO;
+import static Control.PanelTabuleiroControl.corDoJogadorDaVez.AZUL;
+import static Control.PanelTabuleiroControl.corDoJogadorDaVez.VERDE;
+import static Control.PanelTabuleiroControl.corDoJogadorDaVez.VERMELHO;
 import Model.Jogador;
+import Util.EnumDado;
 import Util.FrameOperation;
 import View.PanelInicialView;
 import View.PanelTabuleiroView;
@@ -26,20 +27,20 @@ public class PanelTabuleiroControl extends AbstractControl{
     private final Random randomGenerator;
     PanelTabuleiroView view;
 
-    public int jogaMaquina() {
+    public int escolhaMaquina() {
         int escolha = randomGenerator.nextInt(3)+1;
         
         switch(escolha){
     
-            case 1:  lancarDado(Jogador.DadoEscolhido.DadoUm);break;
-            case 2:  lancarDado(Jogador.DadoEscolhido.DadoDois);break;
-            case 3:  lancarDados();
+            case 1:  lancarDado(EnumDado.Primeiro);break;
+            case 2:  lancarDado(EnumDado.Segundo);break;
+            case 3:  lancarDoisDados();
         }
         
         return escolha;
     }
 
-    public enum jogadorDaVez {
+    public enum corDoJogadorDaVez {
        AMARELO, VERDE, AZUL, VERMELHO;
     }
     
@@ -47,9 +48,9 @@ public class PanelTabuleiroControl extends AbstractControl{
     private Jogador[] jogadores;
     private int jogadorDaVez = 0;
 
-    public jogadorDaVez getJogadorDaVez() {
-        if(jogadorDaVez > 3)
-            jogadorDaVez = 0;
+    public corDoJogadorDaVez getCorDoJogadorDaVez() {
+       // if(jogadorDaVez > 3)
+            //jogadorDaVez = 0;
         
         
         switch(jogadorDaVez){
@@ -73,18 +74,20 @@ public class PanelTabuleiroControl extends AbstractControl{
         };
     }         
     
-    public void lancarDado(Jogador.DadoEscolhido dado){
-       if(jogadorDaVez > 3)
-            jogadorDaVez = 0;   
-       jogadores[jogadorDaVez].lancarDado(dado);
+    public void lancarDado(EnumDado dado){
+       //if(jogadorDaVez > 3)
+            //jogadorDaVez = 0; 
+       jogadores[jogadorDaVez].lancarDado(dado);     
+       
+       
        
     }
     
-    public void lancarDados(){  
-        if(jogadorDaVez > 3)
-            jogadorDaVez = 0;
-       jogadores[jogadorDaVez].lancarDados();
- 
+    public void lancarDoisDados(){  
+        //if(jogadorDaVez > 3)
+            //jogadorDaVez = 0;
+       jogadores[jogadorDaVez].lancarDados();     
+
     }
 
     @Override
@@ -103,10 +106,12 @@ public class PanelTabuleiroControl extends AbstractControl{
 
     public void proximoJogadorDaVez() {
         
+        jogadorDaVez++;
+        
         if(jogadorDaVez > 3)
             jogadorDaVez = 0;
         
-       jogadorDaVez++;
+       
     }
     
     

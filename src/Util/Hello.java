@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Control;
+package Util;
 
-import View.FramePrincipal;
+import java.util.TimerTask;
 
 /**
  *
  * @author paabl
  */
-public abstract class AbstractControl {
-   
-   public abstract void mostrarView();
-   
-   public abstract void viewAnterior(); 
-    
+public class Hello extends TimerTask  {
+     @Override
+     public void run() {
+       System.out.println("Hello World!"); 
+    }
 }
