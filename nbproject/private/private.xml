@@ -2,6 +2,31 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< Updated upstream
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Control/AbstractControl.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Model/PeçaAzul.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/data/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/data/DataBase.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Model/PeçaVerde.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Control/PanelTabuleiroControl.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Model/Dado.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Model/Peça.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Util/MovimentaDado.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Model/PeçaVermelha.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/View/PanelInicialView.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Control/PanelInicialControl.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Model/PeçaAmarela.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Model/Tabuleiro.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/View/MenuPrincipal.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Util/DadoTimerTask.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/View/PanelRegisterView.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Model/Jogador.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/View/PanelTabuleiroView.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Control/PanelRegisterControl.java</file>
+        </group>
+>>>>>>> Stashed changes
     </open-files>
 </project-private>

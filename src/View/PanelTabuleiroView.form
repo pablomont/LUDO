@@ -152,7 +152,9 @@
               <Image iconType="3" name="/ImagesDado/dado3.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder roundedCorners="true" thickness="2"/>
+              </Border>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -164,7 +166,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="290" y="400" width="40" height="-1"/>
+              <AbsoluteConstraints x="290" y="400" width="40" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -177,7 +179,9 @@
               <Image iconType="3" name="/ImagesDado/dado3.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder roundedCorners="true" thickness="2"/>
+              </Border>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -189,7 +193,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="350" y="400" width="40" height="-1"/>
+              <AbsoluteConstraints x="350" y="400" width="40" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -266,6 +270,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-yellow.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="1"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoYellow1" noResource="true"/>
           </Properties>
           <Events>
@@ -282,6 +287,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-blue.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="0"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoBlue4" noResource="true"/>
           </Properties>
           <Events>
@@ -298,6 +304,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-blue.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="0"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoBlue3" noResource="true"/>
           </Properties>
           <Events>
@@ -314,6 +321,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-blue.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="1"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoBlue1" noResource="true"/>
           </Properties>
           <Events>
@@ -330,6 +338,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-yellow.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="0"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoYellow2" noResource="true"/>
           </Properties>
           <Events>
@@ -346,6 +355,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-blue.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="0"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoBlue2" noResource="true"/>
           </Properties>
           <Events>
@@ -362,6 +372,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-yellow.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="0"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoYellow3" noResource="true"/>
           </Properties>
           <Events>
@@ -378,6 +389,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-yellow.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="0"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoYellow4" noResource="true"/>
           </Properties>
           <Events>
@@ -394,6 +406,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-red-th4.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="0"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoRed3" noResource="true"/>
           </Properties>
           <Events>
@@ -410,6 +423,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-red-th4.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="0"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoRed4" noResource="true"/>
           </Properties>
           <Events>
@@ -426,6 +440,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-green.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="1"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoGreen1" noResource="true"/>
           </Properties>
           <Events>
@@ -442,6 +457,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-red-th4.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="1"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoRed1" noResource="true"/>
           </Properties>
           <Events>
@@ -458,6 +474,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-red-th4.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="0"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoRed2" noResource="true"/>
           </Properties>
           <Events>
@@ -474,6 +491,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-green.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="0"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoGreen4" noResource="true"/>
           </Properties>
           <Events>
@@ -490,6 +508,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-green.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="0"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoGreen3" noResource="true"/>
           </Properties>
           <Events>
@@ -506,6 +525,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ImagePinos/ludo-piece-green.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="0"/>
             <Property name="name" type="java.lang.String" value="jLabelPeaoGreen2" noResource="true"/>
           </Properties>
           <Events>

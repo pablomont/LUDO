@@ -33,14 +33,21 @@ public class PanelTabuleiroControl extends AbstractControl{
     PanelTabuleiroView view;
     private Jogador[] jogadores;
     private int jogadorDaVez = 0;
+
+    private void finalizaJogo() {
+        
+    }
      
     public enum corDoJogadorDaVez {
        AMARELO, VERDE, AZUL, VERMELHO;
     }
     
   
-    public int escolhaMaquina() {
+    public int escolhaMaquinaDado() {
         int escolha = randomGenerator.nextInt(3)+1;
+        
+        if(getJogadorDaVez().getQtdPeçasNabase() == 3)
+            escolha = 3;
         
         switch(escolha){
     
@@ -109,11 +116,20 @@ public class PanelTabuleiroControl extends AbstractControl{
        new PanelInicialControl(new PanelInicialView()).mostrarView();
     }
 
-    public void proximoJogadorDaVez() {
+    public boolean proximoJogadorDaVez() {
         
-        jogadorDaVez++;
-        
-        if(jogadorDaVez > 3)
-            jogadorDaVez = 0;         
-    }  
+       if(jogadores[jogadorDaVez].getPeçaEscolhida().chegada)
+            jogadores[jogadorDaVez].incrementaNumPeçasNaChegada(getCorDoJogadorDaVez());
+       
+       if(jogadores[jogadorDaVez].venceu()){
+           return false;
+       }
+       else{
+            jogadorDaVez++;
+
+            if(jogadorDaVez > 3)
+                jogadorDaVez = 0; 
+            return true;
+       }    
+    }   
 }

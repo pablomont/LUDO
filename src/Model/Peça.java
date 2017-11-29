@@ -13,18 +13,26 @@ import java.awt.Point;
  */
 public abstract class Peça {
     public boolean naBase = true;
+    public boolean chegada = false;
     protected Point[] caminho;
-    protected final int NUM_PEÇAS = 74;
+    protected final int NUM_CASAS = 74;
     protected int casaAtual = -1;
 
-
+    public boolean getChegada() {
+        return chegada;
+    }
+ 
+    public int getCasaAtual() {
+        return casaAtual;
+    }
+    
     public Peça() {
         this.caminho = new Point[74];
     }
    
     protected abstract void preencheCaminho();
     
-    public Point mover(int qtdCasasParaAndar){
+    public Point mover(int qtdCasasParaAndar)throws ArrayIndexOutOfBoundsException{
         
         if(naBase){
             this.casaAtual = 0;
@@ -33,13 +41,17 @@ public abstract class Peça {
         
         else{
             this.casaAtual += qtdCasasParaAndar;
+            if(casaAtual == 74)
+                chegada = true;
         }
         
-        return getCasa();
+        return getPointCasa();
     }
     
     
-    public  Point getCasa(){
+    public  Point getPointCasa() throws ArrayIndexOutOfBoundsException{
         return caminho[casaAtual];
     }     
+    
+    
 }

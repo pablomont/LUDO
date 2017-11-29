@@ -27,6 +27,7 @@ public class MovimentaDado{
     private boolean RunningDado2;
     private boolean RunningDadoAmbos;
 
+    
     public boolean isRunning(EnumDado dado) {
         if(dado == Primeiro)
             return RunningDado1;
@@ -63,9 +64,12 @@ public class MovimentaDado{
             Dado1.schedule(d1 = new DadoTimerTask(button1,framesDado,Primeiro,tempoLimite),0,5000);
             this.Dado2 = new Timer();
             Dado2.schedule(d2 =new DadoTimerTask(button2,framesDado,Segundo,tempoLimite),0,5000);
+            RunningDado1 = true;
+            RunningDado2 = true;
+ 
         }
     
-        this.RunningDadoAmbos = (RunningDado1 && RunningDado2);
+        this.RunningDadoAmbos = (RunningDado1 || RunningDado2);
     } 
     
      public void start(EnumDado dado){
@@ -85,9 +89,11 @@ public class MovimentaDado{
             Dado1.schedule(d1 =  new DadoTimerTask(button1,framesDado,Primeiro),0,5000);
             this.Dado2 = new Timer();
             Dado2.schedule(d2 = new DadoTimerTask(button2,framesDado,Segundo),0,5000);
+            RunningDado1 = true;
+            RunningDado2 = true;
         }
         
-        this.RunningDadoAmbos = (RunningDado1 && RunningDado2);
+        this.RunningDadoAmbos = (RunningDado1 || RunningDado2);
         
     } 
     
@@ -112,7 +118,7 @@ public class MovimentaDado{
             d2.getTimerAnimateDado().stop();
         }
         
-        this.RunningDadoAmbos = (RunningDado1 && RunningDado2);
+        this.RunningDadoAmbos = (RunningDado1 || RunningDado2);
    
     } 
      

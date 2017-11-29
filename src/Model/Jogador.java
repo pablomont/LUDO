@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Control.PanelTabuleiroControl.corDoJogadorDaVez;
 import Util.EnumDado;
 import java.util.Random;
 
@@ -69,14 +70,37 @@ public class Jogador {
     
     private Peça[] peças;
     private final Random randomGenerator;
-    private int peçaAtualEscolhida;
+    private int indexPeçaAtualEscolhida;
+    private int qtdPeçasNaChegada = 0;
+
+    public int getQtdPeçasNabase() {
+        
+        int qtdPeçasNabaseAux = 0;
+        
+        for(Peça p: peças){
+            if(p.naBase == true)
+                qtdPeçasNabaseAux++;
+                
+        }
+        return qtdPeçasNabaseAux;
+        
+    }
     
+    public boolean venceu(){
+        return (qtdPeçasNaChegada == 4);
+    }
     
+    public void incrementaNumPeçasNaChegada(corDoJogadorDaVez cor){
+        qtdPeçasNaChegada++;
+        System.out.println(cor+": quantiade de peças na chegada:  "+qtdPeçasNaChegada);
+    }
+
     public Jogador(Peça[] peças) {
         randomGenerator = new Random();
         this.peças = peças;
 
     }
+    
     
     public void lancarDados(){
         Tabuleiro.lancarDados();
@@ -89,13 +113,20 @@ public class Jogador {
             Tabuleiro.lancarDadoDois();
         }
     }
-    
-    public Peça escolherPeça(){
-        peçaAtualEscolhida = randomGenerator.nextInt(3);
-        return this.peças[peçaAtualEscolhida];
+
+
+    public Peça escolhePeçaRandom(){
+        indexPeçaAtualEscolhida = randomGenerator.nextInt(3);
+        return getPeçaEscolhida();
     }
 
-    public Peça getPeça(int index){
-        return peças[index];
+    public Peça escolhePeça(int index){
+        this.indexPeçaAtualEscolhida = index;
+        return getPeçaEscolhida();
+    }
+    
+    
+    public Peça getPeçaEscolhida(){
+        return peças[indexPeçaAtualEscolhida];
     }      
 }
