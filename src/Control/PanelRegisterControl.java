@@ -6,7 +6,6 @@
 package Control;
 
 import Model.Jogador;
-import Model.user.JogadorM;
 import Model.user.JogadorModel;
 import Util.FrameOperation;
 import View.PanelInicialView;

@@ -5,6 +5,8 @@
  */
 package Control;
 
+import Model.Jogador;
+import Model.user.JogadorModel;
 import Util.FrameOperation;
 import View.PanelInicialView;
 import View.PanelRegisterView;
@@ -35,6 +37,20 @@ public class PanelInicialControl extends AbstractControl{
         
     }
 
+    public void loginVerificacao(String login, String senha){
+        
+        JogadorModel jg = new JogadorModel();
+        Jogador j = new Jogador();
+        j.setLogin(login);
+        j.setSenha(senha);
+        
+        try {
+            jg.doLogin(j);
+        } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+        }
+    }
+    
     public void register() {
         PanelRegisterControl regController = new PanelRegisterControl(new PanelRegisterView());
         regController.mostrarView();

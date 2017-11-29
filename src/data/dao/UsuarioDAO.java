@@ -9,6 +9,7 @@ import Model.Jogador;
 import data.DataBase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -55,7 +56,44 @@ public class UsuarioDAO implements DAO{
             return;
         }
     }
+    
+    public Jogador verficaLogin(Jogador user) throws Exception
+    {
+        String sql= "SELECT * FROM Usuario WHERE login = ? AND senha = ?";
+        try {
+            PreparedStatement preparedStatement = conexao.prepareStatement(sql);
+            
+            preparedStatement.setString(1, user.getLogin());
+            preparedStatement.setString(2, user.getSenha());
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                user.setLogin(rs.getString("login"));
+                user.setSenha(rs.getString("senha"));
+                user.setDataDeNascimento(rs.getString("dataDeNascimento"));
+                user.setAvatar(rs.getString("avatar"));
+                user.setName(rs.getString("nome")); 
+                
+                preparedStatement.close();
+                conexao.close();
+                System.out.println("DADOS DO JOGADOR LOGADO -> "+ "\nNome:"+user.getName()
+                +"\nSenha: "+user.getSenha() + "\nNome do avatar: "+user.getAvatar());
 
+                return user;
+             }
+            
+         
+            preparedStatement.close();
+            
+            
+            conexao.close();
+            throw new Exception("Usuário ou senha incorreto.");
+            
+        } catch (SQLException ex) {
+           System.out.println("Erro ao realizar login de usuário "+user.getLogin()+" E:"+ex.getMessage());
+        }
+        return null;
+    }
+    
     @Override
     public void UPDATE(Object myDAO) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
