@@ -37,6 +37,23 @@ public class DataBase {
                 System.err.println("Fail on create table [User] (E: "+ex.getMessage()+")");
             return false;
         }
+        
+        
+        String sqlRanking = "CREATE TABLE IF NOT EXISTS Ranking ( "
+                            +"ID INT ROWID,"
+                            +"nome VARCHAR(10) NOT NULL,  "
+                            +"quantVitorias INT(4) NOT NULL,   "
+                            +"partidasJogadas INT(4) NOT NULL,             "
+                            +"PRIMARY KEY (ID),"
+                            +"FOREIGN KEY(nome) REFERENCES Usuario(login));"; 
+        try {
+            prepSteaStatement = conexao.prepareStatement(sqlRanking);
+            prepSteaStatement.execute();
+        } catch (SQLException ex) {
+                System.err.println("Fail on create table [User] (E: "+ex.getMessage()+")");
+            return false;
+        }
+        
         return true;
     }
     
