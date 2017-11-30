@@ -6,6 +6,7 @@
         <group/>
 =======
         <group>
+<<<<<<< Updated upstream
             <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Control/AbstractControl.java</file>
             <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Model/PeçaAzul.java</file>
             <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/data/dao/UsuarioDAO.java</file>
@@ -26,6 +27,20 @@
             <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Model/Jogador.java</file>
             <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/View/PanelTabuleiroView.java</file>
             <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Control/PanelRegisterControl.java</file>
+=======
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Start/AppStart.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Util/EnumDado.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Model/Jogador.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Model/Dado.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Util/FrameOperation.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/View/PanelTabuleiroView.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Util/MovimentaDado.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Control/PanelInicialControl.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/View/PanelInicialView.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Util/DadoTimerTask.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Control/PanelTabuleiroControl.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/View/FramePrincipal.java</file>
+>>>>>>> Stashed changes
         </group>
 >>>>>>> Stashed changes
     </open-files>

@@ -52,6 +52,5 @@ public abstract class Peça {
     public  Point getPointCasa() throws ArrayIndexOutOfBoundsException{
         return caminho[casaAtual];
     }     
-    
-    
+
 }

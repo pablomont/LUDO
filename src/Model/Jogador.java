@@ -83,7 +83,6 @@ public class Jogador {
                 
         }
         return qtdPeçasNabaseAux;
-        
     }
     
     public boolean venceu(){
@@ -93,6 +92,8 @@ public class Jogador {
     public void incrementaNumPeçasNaChegada(corDoJogadorDaVez cor){
         qtdPeçasNaChegada++;
         System.out.println(cor+": quantiade de peças na chegada:  "+qtdPeçasNaChegada);
+        System.out.println("peçaEscolhida: "+indexPeçaAtualEscolhida);
+        
     }
 
     public Jogador(Peça[] peças) {
