@@ -32,6 +32,7 @@ public abstract class Peça {
    
     protected abstract void preencheCaminho();
     
+   
     public Point mover(int qtdCasasParaAndar)throws ArrayIndexOutOfBoundsException{
         
         if(naBase){
@@ -40,9 +41,12 @@ public abstract class Peça {
         }
         
         else{
+            
             this.casaAtual += qtdCasasParaAndar;
+          
             if(casaAtual == 74)
                 chegada = true;
+          
         }
         
         return getPointCasa();
@@ -52,5 +56,7 @@ public abstract class Peça {
     public  Point getPointCasa() throws ArrayIndexOutOfBoundsException{
         return caminho[casaAtual];
     }     
-
-}
+    
+    
+    
+ }

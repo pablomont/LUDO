@@ -16,12 +16,12 @@ import java.sql.SQLException;
  *
  * @author professor Daniel
  */
-public class UsuarioDAO implements DAO{
+public class JogadorDAO implements DAO{
 
     
     private Connection conexao = null;
     
-    public UsuarioDAO(){
+    public JogadorDAO(){
         this.conexao = DataBase.getConnection();
     }
     

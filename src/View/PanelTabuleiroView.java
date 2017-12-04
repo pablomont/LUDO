@@ -416,7 +416,14 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Você não pode mover a peça escolhida com o dado atual.", "", ERROR_MESSAGE);
         }
         
-    }
+
+    
+        Point p = control.movimentaPeao();
+        peaoClicado.setLocation(p); 
+        atualizaView();
+    
+    }                                                                                      
+
     
     private void jLabelPeaoMouseClicked(java.awt.event.MouseEvent evt) {                                        
        

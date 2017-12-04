@@ -63,6 +63,12 @@ public class PanelRegisterView extends javax.swing.JPanel {
         setLayout(null);
         add(jLogin);
         jLogin.setBounds(110, 290, 230, 30);
+
+        try {
+            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         add(jFormattedTextField1);
         jFormattedTextField1.setBounds(110, 390, 230, 30);
 
@@ -166,15 +172,45 @@ public class PanelRegisterView extends javax.swing.JPanel {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
      
-        String avatar = "avatar"+(avatarList.getSelectedIndex()+1)+".png";
+        
+        if(jLogin.getText().length() < 4 ){
+            JOptionPane.showMessageDialog(null,"O login possui menos que 4 caracteres");
+        }
+        if(jLogin.getText().length() > 10){
+            JOptionPane.showMessageDialog(null,"O login possui mais que 10 caracteres");
+        }
+        
+        String aux; 
+        aux = jLogin.getText().substring(0);
+        
+        if(aux.equals("0") || aux.equals("1") || aux.equals("2") || aux.equals("3") || aux.equals("4")
+           || aux.equals("5") || aux.equals("6") || aux.equals("7") || aux.equals("8") || aux.equals("9")){
+            
+             JOptionPane.showMessageDialog(null,"O login não deve ser iniciado com um número ");
+        }
+        
+        if(JTextSenha.getText().length() < 8 || JTextSenha.getText().length() > 10 ){
+            JOptionPane.showMessageDialog(null,"A senha deve possui entre 8 e 10 caracteres");
+        }
+         
+        else{
+            String avatar = "avatar"+(avatarList.getSelectedIndex()+1)+".png";
         
         try {
             control.registrarUsuario(txtNome.getText(), jFormattedTextField1.getText(), avatar, jLogin.getText(),String.valueOf(JTextSenha.getName()));
-        } catch (Exception ex) {
+             JOptionPane.showMessageDialog(null,"Usuário cadastrado com sucesso");
+             txtNome.setText(""); 
+             jFormattedTextField1.setText("");
+             jLogin.setText("");
+             JTextSenha.setText("");
+             
+             } catch (Exception ex) {
             Logger.getLogger(PanelRegisterView.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getMessage());
         }
     
+        }
+        
     }//GEN-LAST:event_btnRegisterActionPerformed
 
 

@@ -34,7 +34,7 @@ public class PanelTabuleiroControl extends AbstractControl{
     PanelTabuleiroView view;
     private Jogador[] jogadores;
     private int jogadorDaVez = 0;
-
+    private Peça peça; 
     private void finalizaJogo() {
         
     }

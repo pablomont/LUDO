@@ -100,6 +100,22 @@ public class Jogador {
 
     }
 
+    
+    
+    
+    public void lancarDados(){
+        //Tabuleiro.lancarDados();
+    }
+    
+    public void lancarDado(){
+//        if(dado == EnumDado.Primeiro)
+//            Tabuleiro.lancarDado();
+//        else{
+//            //Tabuleiro.lancarDadoDois();
+//        }
+    }
+
+
     public Peça escolhePeçaRandom(){
         indexPeçaAtualEscolhida = randomGenerator.nextInt(3);
         return getPeçaEscolhida();
