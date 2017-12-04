@@ -18,6 +18,7 @@ import Model.PeçaVerde;
 import Model.PeçaVermelha;
 import Util.FrameOperation;
 import View.PanelInicialView;
+import View.PanelMenuView;
 import View.PanelTabuleiroView;
 import java.awt.Dimension;
 import java.awt.Point;
@@ -88,7 +89,7 @@ public class PanelTabuleiroControl extends AbstractControl{
 
     @Override
     public void viewAnterior() {
-       new PanelInicialControl(new PanelInicialView()).mostrarView();
+       new PanelMenuControl(new PanelMenuView()).mostrarView();
     }
 
     public boolean proximoJogadorDaVez() {
@@ -109,7 +110,15 @@ public class PanelTabuleiroControl extends AbstractControl{
     }  
     
     public Point movimentaPeao(){
-       return jogadores[jogadorDaVez].getPeçaEscolhida().mover(Dado.getNum()); 
+        
+        if(jogadores[jogadorDaVez].getPeçaEscolhida().naBase && Dado.getNum() == 6)
+            return jogadores[jogadorDaVez].getPeçaEscolhida().mover(Dado.getNum()); 
+        
+        else if(!jogadores[jogadorDaVez].getPeçaEscolhida().naBase){
+            return jogadores[jogadorDaVez].getPeçaEscolhida().mover(Dado.getNum()); 
+        }
+        
+        return null;
         
     }
 }

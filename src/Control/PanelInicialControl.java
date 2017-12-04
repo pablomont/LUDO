@@ -6,9 +6,10 @@
 package Control;
 
 import Model.Jogador;
-import Model.user.JogadorModel;
+import Model.JogadorModel;
 import Util.FrameOperation;
 import View.PanelInicialView;
+import View.PanelMenuView;
 import View.PanelRegisterView;
 import View.PanelTabuleiroView;
 import java.awt.Dimension;
@@ -33,9 +34,7 @@ public class PanelInicialControl extends AbstractControl{
         this.view = view;
     }
 
-    public void login() {
-        
-    }
+   
 
     public void loginVerificacao(String login, String senha){
         
@@ -49,6 +48,10 @@ public class PanelInicialControl extends AbstractControl{
         } catch (Exception ex) {
                 System.out.println(ex.getMessage());
         }
+        
+        PanelMenuControl menuController = new PanelMenuControl(new PanelMenuView());
+        
+        menuController.mostrarView();
     }
     
     public void register() {

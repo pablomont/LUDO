@@ -102,7 +102,7 @@ public class PanelInicialView extends javax.swing.JPanel {
         add(btnRegister);
         btnRegister.setBounds(230, 470, 120, 40);
 
-        btnLogin1.setBackground(new java.awt.Color(153, 153, 0));
+        btnLogin1.setBackground(new java.awt.Color(204, 204, 0));
         btnLogin1.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnLogin1.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin1.setText("Login");
@@ -124,15 +124,14 @@ public class PanelInicialView extends javax.swing.JPanel {
     }//GEN-LAST:event_txtLoginActionPerformed
 
     private void btnGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestActionPerformed
-           control.guest();
+        control.guest();
            
     }//GEN-LAST:event_btnGuestActionPerformed
 
     private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
-       
-        control.login();
+
         control.loginVerificacao(txtLogin.getText(), String.valueOf(JTextSenha.getName()));
-        
+
     }//GEN-LAST:event_btnLogin1ActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed

@@ -6,12 +6,12 @@
 package Control;
 
 import Model.Jogador;
-import Model.user.JogadorModel;
+import Model.JogadorModel;
 import Util.FrameOperation;
 import View.PanelInicialView;
 import View.PanelRegisterView;
 import data.DataBase;
-import data.dao.UsuarioDAO;
+import data.dao.JogadorDAO;
 
 /**
  *

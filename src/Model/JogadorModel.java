@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model.user;
+package Model;
 
 import Model.Jogador;
-import data.dao.UsuarioDAO;
+import data.dao.JogadorDAO;
 
 
 /**
@@ -16,17 +16,15 @@ import data.dao.UsuarioDAO;
 public class JogadorModel {
     
     public static Jogador USER_LOGGED;
-    public static Jogador Usuario; 
-    private UsuarioDAO myDAO; 
+    private JogadorDAO myDAO; 
     
     
     public JogadorModel(){
-        this.myDAO = new UsuarioDAO();
+        this.myDAO = new JogadorDAO();
     }
     
     public void insertUser(Jogador newUser) throws Exception{
         try {
-            
             myDAO.INSERT(newUser);
         } catch (Exception ex) {
             System.err.print("ERROR:::: "+ex.getMessage());
@@ -43,5 +41,5 @@ public class JogadorModel {
             System.out.println(ex.getMessage());
         }
     }
-    
+ 
 }

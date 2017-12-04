@@ -11,27 +11,8 @@ package Model;
  */
 public class Tabuleiro {
     
-    private static Tabuleiro tabuleiro;
-    public static final int NUMCASAFINAL = 60;
-    private static Dado _d1;
-
-    static void lancarDado() {
-       if(tabuleiro == null)
-            tabuleiro = new Tabuleiro();
-       _d1.RandomNum();
-    }
-
     private Tabuleiro() {
-        _d1 = new Dado();
+     
     }
-
-    public static void setNum(int num, int num2){
-        _d1.setNum(num);
-    }
-    
-    public static int getNumDadoUm() {
-        return _d1.getNum();
-    }
-
-    
+ 
 }

@@ -88,10 +88,6 @@ public class DadoTimerTask extends TimerTask  {
              int num = Dado.RandomNum();
              button.setIcon(framesDado[num-1]);
              MovimentaDado.stopTimerTask();
-             
-             
          }
-             
-           
     }
 }

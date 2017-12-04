@@ -13,8 +13,7 @@ import java.util.Random;
  * @author paabl
  */
 public class Jogador {
-    
-
+   
     private String name; 
     private String dataDeNascimento;
     private String login;
@@ -100,20 +99,6 @@ public class Jogador {
         this.peças = peças;
 
     }
-    
-    
-    public void lancarDados(){
-        //Tabuleiro.lancarDados();
-    }
-    
-    public void lancarDado(){
-//        if(dado == EnumDado.Primeiro)
-//            Tabuleiro.lancarDado();
-//        else{
-//            //Tabuleiro.lancarDadoDois();
-//        }
-    }
-
 
     public Peça escolhePeçaRandom(){
         indexPeçaAtualEscolhida = randomGenerator.nextInt(3);

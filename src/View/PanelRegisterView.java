@@ -43,10 +43,10 @@ public class PanelRegisterView extends javax.swing.JPanel {
     private void initComponents() {
 
         jLogin = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jButtonSair = new javax.swing.JButton();
         btnRegister = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         JTextSenha = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
@@ -62,11 +62,7 @@ public class PanelRegisterView extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
         add(jLogin);
-        jLogin.setBounds(360, 340, 110, 20);
-
-        jLabel9.setText("Login:");
-        add(jLabel9);
-        jLabel9.setBounds(360, 310, 50, 20);
+        jLogin.setBounds(110, 290, 230, 30);
         add(jFormattedTextField1);
         jFormattedTextField1.setBounds(110, 390, 230, 30);
 
@@ -94,6 +90,11 @@ public class PanelRegisterView extends javax.swing.JPanel {
         add(btnRegister);
         btnRegister.setBounds(290, 490, 130, 40);
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setText("Login:");
+        add(jLabel10);
+        jLabel10.setBounds(110, 270, 50, 20);
+
         txtNome.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +116,7 @@ public class PanelRegisterView extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Escolha seu avatar: ");
         add(jLabel7);
-        jLabel7.setBounds(110, 280, 150, 20);
+        jLabel7.setBounds(110, 240, 150, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Senha:");
@@ -146,7 +147,7 @@ public class PanelRegisterView extends javax.swing.JPanel {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox1);
-        jComboBox1.setBounds(250, 270, 90, 50);
+        jComboBox1.setBounds(250, 220, 90, 60);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
@@ -165,7 +166,7 @@ public class PanelRegisterView extends javax.swing.JPanel {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
      
-        String avatar = "usuario"+(avatarList.getSelectedIndex()+1)+".png";
+        String avatar = "avatar"+(avatarList.getSelectedIndex()+1)+".png";
         
         try {
             control.registrarUsuario(txtNome.getText(), jFormattedTextField1.getText(), avatar, jLogin.getText(),String.valueOf(JTextSenha.getName()));
@@ -184,6 +185,7 @@ public class PanelRegisterView extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -191,7 +193,6 @@ public class PanelRegisterView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jLogin;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
