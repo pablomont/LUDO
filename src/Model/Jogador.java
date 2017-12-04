@@ -6,7 +6,6 @@
 package Model;
 
 import Control.PanelTabuleiroControl.corDoJogadorDaVez;
-import Util.EnumDado;
 import java.util.Random;
 
 /**
@@ -104,15 +103,15 @@ public class Jogador {
     
     
     public void lancarDados(){
-        Tabuleiro.lancarDados();
+        //Tabuleiro.lancarDados();
     }
     
-    public void lancarDado(EnumDado dado){
-        if(dado == EnumDado.Primeiro)
-            Tabuleiro.lancarDadoUm();
-        else{
-            Tabuleiro.lancarDadoDois();
-        }
+    public void lancarDado(){
+//        if(dado == EnumDado.Primeiro)
+//            Tabuleiro.lancarDado();
+//        else{
+//            //Tabuleiro.lancarDadoDois();
+//        }
     }
 
 

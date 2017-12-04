@@ -9,13 +9,13 @@ import static Control.PanelTabuleiroControl.corDoJogadorDaVez.AMARELO;
 import static Control.PanelTabuleiroControl.corDoJogadorDaVez.AZUL;
 import static Control.PanelTabuleiroControl.corDoJogadorDaVez.VERDE;
 import static Control.PanelTabuleiroControl.corDoJogadorDaVez.VERMELHO;
+import Model.Dado;
 import Model.Jogador;
 import Model.Peça;
 import Model.PeçaAmarela;
 import Model.PeçaAzul;
 import Model.PeçaVerde;
 import Model.PeçaVermelha;
-import Util.EnumDado;
 import Util.FrameOperation;
 import View.PanelInicialView;
 import View.PanelTabuleiroView;
@@ -44,19 +44,7 @@ public class PanelTabuleiroControl extends AbstractControl{
     
   
     public int escolhaMaquinaDado() {
-        int escolha = randomGenerator.nextInt(3)+1;
-        
-        if(getJogadorDaVez().getQtdPeçasNabase() == 3)
-            escolha = 3;
-        
-        switch(escolha){
-    
-            case 1:  lancarDado(EnumDado.Primeiro);break;
-            case 2:  lancarDado(EnumDado.Segundo);break;
-            case 3:  lancarDoisDados();
-        }
-        
-        return escolha;
+        return 0;
     }
     
     
@@ -88,19 +76,6 @@ public class PanelTabuleiroControl extends AbstractControl{
             new Jogador(new Peça[]{new PeçaAzul(0),new PeçaAzul(),new PeçaAzul(),new PeçaAzul()}) 
         };
     }         
-    
-    public void lancarDado(EnumDado dado){
-       //if(jogadorDaVez > 3)
-            //jogadorDaVez = 0; 
-       jogadores[jogadorDaVez].lancarDado(dado);     
-    }
-    
-    public void lancarDoisDados(){  
-        //if(jogadorDaVez > 3)
-            //jogadorDaVez = 0;
-       jogadores[jogadorDaVez].lancarDados();     
-
-    }
 
     @Override
     public void mostrarView() {
@@ -131,5 +106,10 @@ public class PanelTabuleiroControl extends AbstractControl{
                 jogadorDaVez = 0; 
             return true;
        }    
-    }   
+    }  
+    
+    public Point movimentaPeao(){
+       return jogadores[jogadorDaVez].getPeçaEscolhida().mover(Dado.getNum()); 
+        
+    }
 }

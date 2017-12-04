@@ -11,27 +11,32 @@ import java.util.Random;
  * @author paabl
  */
 public class Dado {
-     
-    private int _num;
-    private final Random randomGenerator;
+    
+    
+    private static Dado dado;
+    private static int _num;
+    private static Random randomGenerator;
    
     public Dado() {
         randomGenerator = new Random();
         //this._num = randomGenerator.nextInt(6)+1;
     }
 
-    public void setNum(int _num) {
-        this._num = _num;
-    }
-
-    public void setRandomNum(){
-        this._num = randomGenerator.nextInt(6)+1;
+    public static void setNum(int n) {
+        if(dado == null)     
+            dado = new Dado();
+        _num = n;
     }
     
-    public int getNum() {
+    public static int RandomNum(){
+        if(dado == null)     
+            dado = new Dado();
+        
+        _num = randomGenerator.nextInt(6)+1;
+        return getNum();
+    }
+    
+    public static int getNum() {
         return _num;
-    }
-    
-    
-    
+    }  
 }

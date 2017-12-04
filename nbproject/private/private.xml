@@ -2,13 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< Updated upstream
-        <group/>
-=======
         <group>
 <<<<<<< Updated upstream
             <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Control/AbstractControl.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/View/FramePrincipal.java</file>
             <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Model/PeçaAzul.java</file>
+            <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Start/AppStart.java</file>
             <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/data/dao/UsuarioDAO.java</file>
             <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/data/DataBase.java</file>
             <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Model/PeçaVerde.java</file>
@@ -42,6 +41,5 @@
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/View/FramePrincipal.java</file>
 >>>>>>> Stashed changes
         </group>
->>>>>>> Stashed changes
     </open-files>
 </project-private>

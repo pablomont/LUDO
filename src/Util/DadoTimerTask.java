@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 package Util;
-import static Util.EnumDado.Primeiro;
+import Model.Dado;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
-import javax.swing.JToggleButton;
 import javax.swing.Timer;
 
 import java.util.TimerTask;
+import javax.swing.JButton;
 
 /**
  *
@@ -19,7 +19,7 @@ import java.util.TimerTask;
  */
 public class DadoTimerTask extends TimerTask  {
     
-    private final JToggleButton button;
+    private final JButton button;
     private final ImageIcon[] framesDado;
     private final ActionListener animateDado;
     private final javax.swing.Timer timerAnimateDado;
@@ -31,82 +31,51 @@ public class DadoTimerTask extends TimerTask  {
         return timerAnimateDado;
     }
     
-    public DadoTimerTask(JToggleButton button,ImageIcon[] framesDado, EnumDado dado){
+    public DadoTimerTask(JButton button,ImageIcon[] framesDado){
         this.TempoLimite = 0;
         TempoLimiteAtivado = false;
         this.timeMillis = 0;
         this.button = button;
         this.framesDado = framesDado;  
     
-        if(dado == Primeiro){
-            animateDado = new ActionListener() {
-            int index = 0;
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (index<framesDado.length-1) 
-                    index++;
-                else 
-                    index = 0;
-                button.setIcon(framesDado[index]);     
-                }
-            };        
-        }
-        else{
-            animateDado = new ActionListener() {
+        
+        animateDado = new ActionListener() {
+        int index = 0;
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (index<framesDado.length-1) 
+                index++;
+            else 
+                index = 0;
+            button.setIcon(framesDado[index]);     
+            }
+        };        
 
-            int index2 = framesDado.length-1;
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                if(index2 > 0)
-                    index2--; 
-                else 
-                    index2 = framesDado.length-1;
-                button.setIcon(framesDado[index2]);  
-                }
-            };
-
-        }
-         timerAnimateDado = new javax.swing.Timer(100,animateDado);
+        timerAnimateDado = new javax.swing.Timer(100,animateDado);
     }
     
-    public DadoTimerTask(JToggleButton button,ImageIcon[] framesDado, EnumDado dado,long t){
+    public DadoTimerTask(JButton button,ImageIcon[] framesDado,long t){
         this.TempoLimite = t;
         TempoLimiteAtivado = true;
         this.timeMillis = System.currentTimeMillis();
         this.button = button;
         this.framesDado = framesDado;  
     
-        if(dado == Primeiro){
-            animateDado = new ActionListener() {
-            int index = 0;
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (index<framesDado.length-1) 
-                    index++;
-                else 
-                    index = 0;
-                button.setIcon(framesDado[index]);     
-                }
-            };        
-        }
-        else{
-            animateDado = new ActionListener() {
-
-            int index2 = framesDado.length-1;
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                if(index2 > 0)
-                    index2--; 
-                else 
-                    index2 = framesDado.length-1;
-                button.setIcon(framesDado[index2]);  
-                }
-            };
-
-        }
-         timerAnimateDado = new javax.swing.Timer(100,animateDado);
+       
+        animateDado = new ActionListener() {
+        int index = 0;
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (index<framesDado.length-1) 
+                index++;
+            else 
+                index = 0;
+            button.setIcon(framesDado[index]);     
+            }
+        };        
+       
+       
+        timerAnimateDado = new javax.swing.Timer(100,animateDado);
     }
     
 
@@ -114,8 +83,15 @@ public class DadoTimerTask extends TimerTask  {
      public void run() {
          
          timerAnimateDado.start();
-         if(System.currentTimeMillis() > timeMillis + TempoLimite && TempoLimiteAtivado)
+         if(System.currentTimeMillis() > timeMillis + TempoLimite && TempoLimiteAtivado){
              timerAnimateDado.stop();
+             int num = Dado.RandomNum();
+             button.setIcon(framesDado[num-1]);
+             MovimentaDado.stopTimerTask();
+             
+             
+         }
+             
            
     }
 }
