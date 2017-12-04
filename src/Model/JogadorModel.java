@@ -5,9 +5,7 @@
  */
 package Model;
 
-import Model.Jogador;
 import data.dao.JogadorDAO;
-
 
 /**
  *

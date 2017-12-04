@@ -386,9 +386,6 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             //Button2.setVisible(true);
             movimentDado.start(900);
         }
-            
-        
-    
     }//GEN-LAST:event_jBtnDado1ActionPerformed
 
     private void movimentaPeao(String str, JLabel peaoClicado){
@@ -438,17 +435,19 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             movimentaPeao("Yellow",peaoClicado);
         }
         
-        else if(control.getCorDoJogadorDaVez() == VERDE && peaoClicado.getName().contains("jLabelPeaoGreen")){
-             movimentaPeao("Green",peaoClicado);
-        }
+//        else if(control.getCorDoJogadorDaVez() == VERDE && peaoClicado.getName().contains("jLabelPeaoGreen")){
+//             movimentaPeao("Green",peaoClicado);
+//        }
+//        
+//        else if(control.getCorDoJogadorDaVez() == VERMELHO && peaoClicado.getName().contains("jLabelPeaoRed")){
+//            movimentaPeao("Red",peaoClicado);    
+//        }
+// 
+//        else if(control.getCorDoJogadorDaVez() == AZUL && peaoClicado.getName().contains("jLabelPeaoBlue")){ 
+//            movimentaPeao("Blue",peaoClicado);   
+//        }  
+       
         
-        else if(control.getCorDoJogadorDaVez() == VERMELHO && peaoClicado.getName().contains("jLabelPeaoRed")){
-            movimentaPeao("Red",peaoClicado);    
-        }
- 
-        else if(control.getCorDoJogadorDaVez() == AZUL && peaoClicado.getName().contains("jLabelPeaoBlue")){ 
-            movimentaPeao("Blue",peaoClicado);   
-        }  
     } 
 
     private void preencheVetorFramesDado() {
@@ -465,14 +464,18 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             case AMARELO:   updatePositionDados(new Point(300,400)); 
                             //MovimentaDado.stopTimerTask();
                             return;
-            case VERDE:     updatePositionDados(new Point(290,20));       
-                            
+            case VERDE:     updatePositionDados(new Point(290,20));
+                            //control.getJogador(VERDE).
+                            movimentaPeao(VERDE);
                             break;
             case VERMELHO:  updatePositionDados(new Point(880,20));  
+                            movimentaPeao(VERMELHO);
                             break;
             case AZUL:      updatePositionDados(new Point(830,610));
+                            movimentaPeao(AZUL);
                             break;
         }
+        atualizaView();
     }
 
     private void updatePositionDados(Point PosBtn1) {
@@ -509,6 +512,46 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelUser12;
     private javax.swing.JPanel jPanel7;
     // End of variables declaration//GEN-END:variables
+
+    private void movimentaPeao(PanelTabuleiroControl.corDoJogadorDaVez corDoJogadorDaVez) {
+        
+        JOptionPane.showMessageDialog(this,"O jogador irá fazer sua jogada");
+        
+        Point p = control.movimentaPeao();
+        int i = control.getJogador(VERDE).getIndexPeçaAtualEscolhida();
+        
+        if( corDoJogadorDaVez == VERDE){
+            switch(i){
+                case 0: jLabelPeaoGreen1.setLocation(p);break;
+                case 1: jLabelPeaoGreen2.setLocation(p);break;
+                case 2: jLabelPeaoGreen3.setLocation(p);break;
+                case 3: jLabelPeaoGreen4.setLocation(p);break;
+            
+            }
+        }
+        
+        else if(corDoJogadorDaVez == VERMELHO){
+            switch(i){
+                case 0: jLabelPeaoRed1.setLocation(p);break;
+                case 1: jLabelPeaoRed2.setLocation(p);break;
+                case 2: jLabelPeaoRed3.setLocation(p);break;
+                case 3: jLabelPeaoRed4.setLocation(p);break;
+            
+            }
+        }
+        
+        else{
+            switch(i){
+                case 0: jLabelPeaoBlue1.setLocation(p);break;
+                case 1: jLabelPeaoBlue2.setLocation(p);break;
+                case 2: jLabelPeaoBlue3.setLocation(p);break;
+                case 3: jLabelPeaoBlue4.setLocation(p);break;
+            
+            }
+        
+        }
+        
+    }
 
    
 

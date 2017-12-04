@@ -6,6 +6,8 @@
 package Model;
 
 import Control.PanelTabuleiroControl.corDoJogadorDaVez;
+import java.awt.List;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -71,16 +73,12 @@ public class Jogador {
     private int indexPeçaAtualEscolhida;
     private int qtdPeçasNaChegada = 0;
 
-    public int getQtdPeçasNabase() {
-        
-        int qtdPeçasNabaseAux = 0;
-        
-        for(Peça p: peças){
-            if(p.naBase == true)
-                qtdPeçasNabaseAux++;
-                
-        }
-        return qtdPeçasNabaseAux;
+    public int getIndexPeçaAtualEscolhida() {
+        return indexPeçaAtualEscolhida;
+    }
+
+    public Peça[] getPeças() {
+        return peças;
     }
     
     public boolean venceu(){
@@ -89,19 +87,29 @@ public class Jogador {
     
     public void incrementaNumPeçasNaChegada(corDoJogadorDaVez cor){
         qtdPeçasNaChegada++;
-        System.out.println(cor+": quantiade de peças na chegada:  "+qtdPeçasNaChegada);
-        System.out.println("peçaEscolhida: "+indexPeçaAtualEscolhida);
+        //System.out.println(cor+": quantiade de peças na chegada:  "+qtdPeçasNaChegada);
+       // System.out.println("peçaEscolhida: "+indexPeçaAtualEscolhida);
         
     }
 
     public Jogador(Peça[] peças) {
         randomGenerator = new Random();
         this.peças = peças;
-
+     
     }
 
-    
-    
+    public ArrayList getPeçasNaBase() {
+        ArrayList<Peça> peçasNaBase = new ArrayList();
+        
+        for(Peça p : peças){
+            if(p.naBase)
+                peçasNaBase.add(p);
+        }
+        
+        return peçasNaBase;
+    }
+
+
     
     public void lancarDados(){
         //Tabuleiro.lancarDados();
@@ -120,7 +128,30 @@ public class Jogador {
         indexPeçaAtualEscolhida = randomGenerator.nextInt(3);
         return getPeçaEscolhida();
     }
+    public ArrayList getPeçasForaDaBase() {
+        ArrayList<Peça> peçasForaDaBase = new ArrayList();
+        
+        for(Peça p : peças){
+            if(!p.naBase)
+                peçasForaDaBase.add(p);
+        }
+        
+        return peçasForaDaBase;
+    }
 
+    public Peça escolhePeçaRandomDaBase(){
+        int num = randomGenerator.nextInt(this.getPeçasNaBase().size());
+        this.indexPeçaAtualEscolhida = num;
+        return (Peça) getPeçasNaBase().get(num);
+        
+    }
+    
+     public Peça escolhePeçaRandomForaDaBase(){
+        int num = randomGenerator.nextInt(this.getPeçasForaDaBase().size());
+        this.indexPeçaAtualEscolhida = num;
+        return (Peça) getPeçasForaDaBase().get(num);
+    }
+     
     public Peça escolhePeça(int index){
         this.indexPeçaAtualEscolhida = index;
         return getPeçaEscolhida();

@@ -22,6 +22,8 @@ import View.PanelMenuView;
 import View.PanelTabuleiroView;
 import java.awt.Dimension;
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -35,6 +37,21 @@ public class PanelTabuleiroControl extends AbstractControl{
     private Jogador[] jogadores;
     private int jogadorDaVez = 0;
     private Peça peça; 
+
+
+    
+    public Jogador getJogador(corDoJogadorDaVez cor){
+        switch(cor){
+            case AMARELO: return jogadores[0]; 
+            case VERDE: return jogadores[1];
+            case VERMELHO:  return jogadores[2];
+            case AZUL:  return jogadores[3];
+        }
+        
+        return null;
+    }
+    
+
     private void finalizaJogo() {
         
     }
@@ -54,9 +71,7 @@ public class PanelTabuleiroControl extends AbstractControl{
     }
     
     public corDoJogadorDaVez getCorDoJogadorDaVez() {
-       // if(jogadorDaVez > 3)
-            //jogadorDaVez = 0;        
-        
+       
         switch(jogadorDaVez){
             case 0: return AMARELO;
             case 1: return VERDE;
@@ -111,14 +126,28 @@ public class PanelTabuleiroControl extends AbstractControl{
     
     public Point movimentaPeao(){
         
-        if(jogadores[jogadorDaVez].getPeçaEscolhida().naBase && Dado.getNum() == 6)
-            return jogadores[jogadorDaVez].getPeçaEscolhida().mover(Dado.getNum()); 
         
-        else if(!jogadores[jogadorDaVez].getPeçaEscolhida().naBase){
-            return jogadores[jogadorDaVez].getPeçaEscolhida().mover(Dado.getNum()); 
+        if(jogadorDaVez != 0){
+            if(Dado.getNum() != 6){
+                return jogadores[jogadorDaVez].escolhePeçaRandomForaDaBase().mover(Dado.getNum());
+            }
+            else{
+                return jogadores[jogadorDaVez].escolhePeçaRandomDaBase().mover(0);
+            
+            }
+        }
+        else{
+            return jogadores[0].getPeçaEscolhida().mover(Dado.getNum()); 
         }
         
-        return null;
+//        if(jogadores[jogadorDaVez].getPeçaEscolhida().naBase && Dado.getNum() == 6)
+//            return jogadores[jogadorDaVez].getPeçaEscolhida().mover(Dado.getNum()); 
+//        
+//        else if(!jogadores[jogadorDaVez].getPeçaEscolhida().naBase){
+//            return jogadores[jogadorDaVez].getPeçaEscolhida().mover(Dado.getNum()); 
+//        }
+        
+      
         
     }
 }

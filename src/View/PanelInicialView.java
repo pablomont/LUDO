@@ -39,7 +39,6 @@ public class PanelInicialView extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         JTextSenha = new javax.swing.JPasswordField();
         txtLogin = new javax.swing.JTextField();
-        btnGuest = new javax.swing.JButton();
         btnRegister = new javax.swing.JButton();
         btnLogin1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -61,7 +60,7 @@ public class PanelInicialView extends javax.swing.JPanel {
         jLabel4.setBounds(110, 380, 60, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Usuário:");
+        jLabel5.setText("Login:");
         add(jLabel5);
         jLabel5.setBounds(110, 330, 80, 20);
 
@@ -78,18 +77,6 @@ public class PanelInicialView extends javax.swing.JPanel {
         add(txtLogin);
         txtLogin.setBounds(110, 350, 230, 30);
 
-        btnGuest.setBackground(new java.awt.Color(0, 51, 255));
-        btnGuest.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        btnGuest.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuest.setText("Guest");
-        btnGuest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuestActionPerformed(evt);
-            }
-        });
-        add(btnGuest);
-        btnGuest.setBounds(360, 470, 130, 40);
-
         btnRegister.setBackground(new java.awt.Color(0, 255, 0));
         btnRegister.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,7 +92,7 @@ public class PanelInicialView extends javax.swing.JPanel {
         btnLogin1.setBackground(new java.awt.Color(204, 204, 0));
         btnLogin1.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnLogin1.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin1.setText("Login");
+        btnLogin1.setText("Log In");
         btnLogin1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogin1ActionPerformed(evt);
@@ -123,11 +110,6 @@ public class PanelInicialView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLoginActionPerformed
 
-    private void btnGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestActionPerformed
-        control.guest();
-           
-    }//GEN-LAST:event_btnGuestActionPerformed
-
     private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
 
         control.loginVerificacao(txtLogin.getText(), String.valueOf(JTextSenha.getName()));
@@ -141,7 +123,6 @@ public class PanelInicialView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField JTextSenha;
-    private javax.swing.JButton btnGuest;
     private javax.swing.JButton btnLogin1;
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel jLabel1;

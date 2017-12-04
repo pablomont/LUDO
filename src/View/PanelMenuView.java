@@ -67,10 +67,10 @@ public class PanelMenuView extends javax.swing.JPanel {
         add(jLabel7);
         jLabel7.setBounds(560, 110, 80, 20);
 
-        jLabelAvatarJogador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar1.png"))); // NOI18N
+        jLabelAvatarJogador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar5.png"))); // NOI18N
         jLabelAvatarJogador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
         add(jLabelAvatarJogador);
-        jLabelAvatarJogador.setBounds(480, 70, 70, 67);
+        jLabelAvatarJogador.setBounds(480, 70, 70, 70);
 
         jLabelLogin.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         jLabelLogin.setText("Login:");
