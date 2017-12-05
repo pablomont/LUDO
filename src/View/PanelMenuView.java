@@ -49,8 +49,8 @@ public class PanelMenuView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jLabelAvatarJogador = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabelLogin = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -64,30 +64,30 @@ public class PanelMenuView extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
 
-        jPanel1.setLayout(null);
-
         jLabelAvatarJogador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar5.png"))); // NOI18N
         jLabelAvatarJogador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
-        jPanel1.add(jLabelAvatarJogador);
-        jLabelAvatarJogador.setBounds(80, 10, 70, 70);
+        add(jLabelAvatarJogador);
+        jLabelAvatarJogador.setBounds(490, 90, 70, 70);
+
+        jPanel1.setLayout(null);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         jLabel7.setText("Ranking:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(10, 140, 80, 20);
+        jLabel7.setBounds(10, 40, 120, 20);
 
         jLabelLogin.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         jLabelLogin.setText("Login:");
         jPanel1.add(jLabelLogin);
-        jLabelLogin.setBounds(10, 110, 220, 20);
+        jLabelLogin.setBounds(10, 10, 120, 20);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/back.png"))); // NOI18N
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 2, true));
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 220, 170);
+        jLabel1.setBounds(0, 0, 150, 70);
 
         add(jPanel1);
-        jPanel1.setBounds(500, 90, 220, 170);
+        jPanel1.setBounds(550, 130, 150, 70);
 
         jButtonSair.setBackground(new java.awt.Color(255, 255, 255));
         jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/logoutDOOR.png"))); // NOI18N
@@ -135,7 +135,7 @@ public class PanelMenuView extends javax.swing.JPanel {
 
         jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/a-soft-sky-with-cloud-background-in-pastel-color-abstract-gradation-color-pastel_6529-11.jpg"))); // NOI18N
         add(jLabelBackground);
-        jLabelBackground.setBounds(100, 70, 626, 417);
+        jLabelBackground.setBounds(100, 80, 626, 417);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed

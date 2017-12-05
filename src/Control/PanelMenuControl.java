@@ -32,6 +32,7 @@ public class PanelMenuControl extends AbstractControl{
 
     @Override
     public void mostrarView() {
+        
         FrameOperation.setView(view);
         FrameOperation.setMaximized(false);
         FrameOperation.setResizable(false);

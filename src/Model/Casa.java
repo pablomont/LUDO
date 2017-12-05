@@ -13,7 +13,7 @@ import javax.swing.JLabel;
  * @author paabl
  */
 public class Casa {
-
+    
     public Casa(Point position) {
         this.position = position;
         ocupada = false;

@@ -23,7 +23,8 @@ public class FramePrincipal extends javax.swing.JFrame {
     
     public FramePrincipal() {
         initComponents();
-
+        //this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**

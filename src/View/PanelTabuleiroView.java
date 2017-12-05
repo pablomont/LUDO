@@ -16,8 +16,6 @@ import Model.Peça;
 import Util.MovimentaDado;
 import java.awt.Point;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
@@ -69,17 +67,18 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonVoltar = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
         jBtnDado1 = new javax.swing.JButton();
         jLabelPeaoYellow2 = new javax.swing.JLabel();
         jLabelPeaoYellow1 = new javax.swing.JLabel();
         jLabelPeaoYellow3 = new javax.swing.JLabel();
         jLabelPeaoYellow4 = new javax.swing.JLabel();
         jLabelJogador = new javax.swing.JLabel();
-        jLabelUser10 = new javax.swing.JLabel();
-        jLabelUser11 = new javax.swing.JLabel();
-        jLabelUser12 = new javax.swing.JLabel();
+        jLabelUser13 = new javax.swing.JLabel();
+        jLabelUser14 = new javax.swing.JLabel();
+        jLabelUser15 = new javax.swing.JLabel();
         jLabelPeaoBlue4 = new javax.swing.JLabel();
         jLabelPeaoBlue3 = new javax.swing.JLabel();
         jLabelPeaoBlue1 = new javax.swing.JLabel();
@@ -92,26 +91,22 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jLabelPeaoGreen4 = new javax.swing.JLabel();
         jLabelPeaoGreen3 = new javax.swing.JLabel();
         jLabelPeaoGreen2 = new javax.swing.JLabel();
-        jLabelTabuleiero2 = new javax.swing.JLabel();
-        jLabelCircleYellow2 = new javax.swing.JLabel();
-        jLabelCircleBlue2 = new javax.swing.JLabel();
-        jLabelCircleGreen2 = new javax.swing.JLabel();
-        jLabelCircleRed2 = new javax.swing.JLabel();
+        jLabelTabuleiero3 = new javax.swing.JLabel();
+        jLabelCircleYellow3 = new javax.swing.JLabel();
+        jLabelCircleBlue3 = new javax.swing.JLabel();
+        jLabelCircleGreen3 = new javax.swing.JLabel();
+        jLabelCircleRed3 = new javax.swing.JLabel();
+        jButtonVoltar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 253, 165));
+        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
 
-        jButtonVoltar.setBackground(new java.awt.Color(255, 253, 165));
-        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/logoutDOOR.png"))); // NOI18N
-        jButtonVoltar.setBorder(null);
-        jButtonVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVoltarActionPerformed(evt);
-            }
-        });
+        jPanel2.setBackground(new java.awt.Color(255, 253, 165));
 
-        jPanel7.setBackground(new java.awt.Color(255, 253, 165));
-        jPanel7.setLayout(null);
+        jPanel3.setBackground(new java.awt.Color(255, 253, 165));
+
+        jPanel8.setBackground(new java.awt.Color(255, 253, 165));
+        jPanel8.setLayout(null);
 
         jBtnDado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado1.png"))); // NOI18N
         jBtnDado1.setBorder(null);
@@ -122,8 +117,8 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                 jBtnDado1ActionPerformed(evt);
             }
         });
-        jPanel7.add(jBtnDado1);
-        jBtnDado1.setBounds(290, 390, 40, 40);
+        jPanel8.add(jBtnDado1);
+        jBtnDado1.setBounds(290, 400, 40, 40);
 
         jLabelPeaoYellow2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
         jLabelPeaoYellow2.setToolTipText("0");
@@ -133,7 +128,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                 jLabelPeaoMouseClicked(evt);
             }
         });
-        jPanel7.add(jLabelPeaoYellow2);
+        jPanel8.add(jLabelPeaoYellow2);
         jLabelPeaoYellow2.setBounds(440, 570, 23, 32);
 
         jLabelPeaoYellow1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
@@ -144,7 +139,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                 jLabelPeaoMouseClicked(evt);
             }
         });
-        jPanel7.add(jLabelPeaoYellow1);
+        jPanel8.add(jLabelPeaoYellow1);
         jLabelPeaoYellow1.setBounds(560, 580, 23, 32);
 
         jLabelPeaoYellow3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
@@ -155,7 +150,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                 jLabelPeaoMouseClicked(evt);
             }
         });
-        jPanel7.add(jLabelPeaoYellow3);
+        jPanel8.add(jLabelPeaoYellow3);
         jLabelPeaoYellow3.setBounds(410, 530, 23, 32);
 
         jLabelPeaoYellow4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
@@ -166,208 +161,194 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                 jLabelPeaoMouseClicked(evt);
             }
         });
-        jPanel7.add(jLabelPeaoYellow4);
+        jPanel8.add(jLabelPeaoYellow4);
         jLabelPeaoYellow4.setBounds(440, 500, 23, 32);
 
         jLabelJogador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar5.png"))); // NOI18N
         jLabelJogador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
-        jPanel7.add(jLabelJogador);
+        jPanel8.add(jLabelJogador);
         jLabelJogador.setBounds(150, 430, 70, 80);
 
-        jLabelUser10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar5.png"))); // NOI18N
-        jLabelUser10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
-        jPanel7.add(jLabelUser10);
-        jLabelUser10.setBounds(1030, 400, 70, 80);
+        jLabelUser13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar5.png"))); // NOI18N
+        jLabelUser13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        jPanel8.add(jLabelUser13);
+        jLabelUser13.setBounds(1030, 400, 70, 80);
 
-        jLabelUser11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar5.png"))); // NOI18N
-        jLabelUser11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
-        jPanel7.add(jLabelUser11);
-        jLabelUser11.setBounds(1020, 30, 70, 80);
+        jLabelUser14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar5.png"))); // NOI18N
+        jLabelUser14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        jPanel8.add(jLabelUser14);
+        jLabelUser14.setBounds(1020, 30, 70, 80);
 
-        jLabelUser12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar5.png"))); // NOI18N
-        jLabelUser12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
-        jPanel7.add(jLabelUser12);
-        jLabelUser12.setBounds(130, 40, 70, 70);
+        jLabelUser15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar5.png"))); // NOI18N
+        jLabelUser15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        jPanel8.add(jLabelUser15);
+        jLabelUser15.setBounds(130, 40, 70, 70);
 
         jLabelPeaoBlue4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
         jLabelPeaoBlue4.setToolTipText("3");
         jLabelPeaoBlue4.setName("jLabelPeaoBlue4"); // NOI18N
-        jLabelPeaoBlue4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoBlue4);
+        jPanel8.add(jLabelPeaoBlue4);
         jLabelPeaoBlue4.setBounds(820, 500, 23, 32);
 
         jLabelPeaoBlue3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
         jLabelPeaoBlue3.setToolTipText("2");
         jLabelPeaoBlue3.setName("jLabelPeaoBlue3"); // NOI18N
-        jLabelPeaoBlue3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoBlue3);
+        jPanel8.add(jLabelPeaoBlue3);
         jLabelPeaoBlue3.setBounds(850, 470, 23, 32);
 
         jLabelPeaoBlue1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
         jLabelPeaoBlue1.setToolTipText("0");
         jLabelPeaoBlue1.setName("jLabelPeaoBlue1"); // NOI18N
-        jLabelPeaoBlue1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoBlue1);
+        jPanel8.add(jLabelPeaoBlue1);
         jLabelPeaoBlue1.setBounds(870, 340, 23, 32);
 
         jLabelPeaoBlue2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
         jLabelPeaoBlue2.setToolTipText("1");
         jLabelPeaoBlue2.setName("jLabelPeaoBlue2"); // NOI18N
-        jLabelPeaoBlue2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoBlue2);
+        jPanel8.add(jLabelPeaoBlue2);
         jLabelPeaoBlue2.setBounds(820, 430, 23, 32);
 
         jLabelPeaoRed3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
         jLabelPeaoRed3.setToolTipText("2");
         jLabelPeaoRed3.setName("jLabelPeaoRed3"); // NOI18N
-        jLabelPeaoRed3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoRed3);
+        jPanel8.add(jLabelPeaoRed3);
         jLabelPeaoRed3.setBounds(790, 90, 23, 40);
 
         jLabelPeaoRed4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
         jLabelPeaoRed4.setToolTipText("3");
         jLabelPeaoRed4.setName("jLabelPeaoRed4"); // NOI18N
-        jLabelPeaoRed4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoRed4);
+        jPanel8.add(jLabelPeaoRed4);
         jLabelPeaoRed4.setBounds(750, 120, 23, 40);
 
         jLabelPeaoGreen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
         jLabelPeaoGreen1.setToolTipText("0");
         jLabelPeaoGreen1.setName("jLabelPeaoGreen1"); // NOI18N
-        jLabelPeaoGreen1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoGreen1);
+        jPanel8.add(jLabelPeaoGreen1);
         jLabelPeaoGreen1.setBounds(320, 270, 30, 40);
 
         jLabelPeaoRed1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
         jLabelPeaoRed1.setToolTipText("0");
         jLabelPeaoRed1.setName("jLabelPeaoRed1"); // NOI18N
-        jLabelPeaoRed1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoRed1);
+        jPanel8.add(jLabelPeaoRed1);
         jLabelPeaoRed1.setBounds(635, 25, 23, 40);
 
         jLabelPeaoRed2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
         jLabelPeaoRed2.setToolTipText("1");
         jLabelPeaoRed2.setName("jLabelPeaoRed2"); // NOI18N
-        jLabelPeaoRed2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoRed2);
+        jPanel8.add(jLabelPeaoRed2);
         jLabelPeaoRed2.setBounds(750, 50, 23, 40);
 
         jLabelPeaoGreen4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
         jLabelPeaoGreen4.setToolTipText("3");
         jLabelPeaoGreen4.setName("jLabelPeaoGreen4"); // NOI18N
-        jLabelPeaoGreen4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoGreen4);
+        jPanel8.add(jLabelPeaoGreen4);
         jLabelPeaoGreen4.setBounds(370, 190, 30, 40);
 
         jLabelPeaoGreen3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
         jLabelPeaoGreen3.setToolTipText("2");
         jLabelPeaoGreen3.setName("jLabelPeaoGreen3"); // NOI18N
-        jLabelPeaoGreen3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoGreen3);
+        jPanel8.add(jLabelPeaoGreen3);
         jLabelPeaoGreen3.setBounds(410, 150, 30, 40);
 
         jLabelPeaoGreen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-green.png"))); // NOI18N
         jLabelPeaoGreen2.setToolTipText("1");
         jLabelPeaoGreen2.setName("jLabelPeaoGreen2"); // NOI18N
-        jLabelPeaoGreen2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoGreen2);
+        jPanel8.add(jLabelPeaoGreen2);
         jLabelPeaoGreen2.setBounds(370, 120, 30, 40);
 
-        jLabelTabuleiero2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/tabu.png"))); // NOI18N
-        jLabelTabuleiero2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jPanel7.add(jLabelTabuleiero2);
-        jLabelTabuleiero2.setBounds(280, 10, 656, 653);
+        jLabelTabuleiero3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/tabu.png"))); // NOI18N
+        jLabelTabuleiero3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jPanel8.add(jLabelTabuleiero3);
+        jLabelTabuleiero3.setBounds(280, 10, 656, 653);
 
-        jLabelCircleYellow2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/yellow-circle-design-hi.png"))); // NOI18N
-        jLabelCircleYellow2.setText("Dado 1");
-        jPanel7.add(jLabelCircleYellow2);
-        jLabelCircleYellow2.setBounds(10, 370, 300, 360);
+        jLabelCircleYellow3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/yellow-circle-design-hi.png"))); // NOI18N
+        jLabelCircleYellow3.setText("Dado 1");
+        jPanel8.add(jLabelCircleYellow3);
+        jLabelCircleYellow3.setBounds(10, 370, 300, 360);
 
-        jLabelCircleBlue2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/blue-circle-design-hi.png"))); // NOI18N
-        jPanel7.add(jLabelCircleBlue2);
-        jLabelCircleBlue2.setBounds(890, 380, 350, 345);
+        jLabelCircleBlue3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/blue-circle-design-hi.png"))); // NOI18N
+        jPanel8.add(jLabelCircleBlue3);
+        jLabelCircleBlue3.setBounds(890, 380, 350, 345);
 
-        jLabelCircleGreen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/green-circle-design-hi.png"))); // NOI18N
-        jPanel7.add(jLabelCircleGreen2);
-        jLabelCircleGreen2.setBounds(10, 21, 350, 345);
+        jLabelCircleGreen3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/green-circle-design-hi.png"))); // NOI18N
+        jPanel8.add(jLabelCircleGreen3);
+        jLabelCircleGreen3.setBounds(10, 21, 350, 345);
 
-        jLabelCircleRed2.setBackground(javax.swing.UIManager.getDefaults().getColor("InternalFrame.activeTitleGradient"));
-        jLabelCircleRed2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/red-circle-design-hi.png"))); // NOI18N
-        jPanel7.add(jLabelCircleRed2);
-        jLabelCircleRed2.setBounds(870, 10, 360, 350);
+        jLabelCircleRed3.setBackground(javax.swing.UIManager.getDefaults().getColor("InternalFrame.activeTitleGradient"));
+        jLabelCircleRed3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/red-circle-design-hi.png"))); // NOI18N
+        jPanel8.add(jLabelCircleRed3);
+        jLabelCircleRed3.setBounds(870, 10, 360, 350);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1197, 1197, 1197)
-                        .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1251, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 1243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
+
+        jButtonVoltar.setBackground(new java.awt.Color(255, 253, 165));
+        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/logoutDOOR.png"))); // NOI18N
+        jButtonVoltar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonVoltar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        add(jPanel2);
     }// </editor-fold>//GEN-END:initComponents
+
+    
+    private void jBtnDado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDado1ActionPerformed
+        if(Dado.getNum() == 6){
+            //Button2.setVisible(true);
+            movimentDado.start(900);
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_jBtnDado1ActionPerformed
+
+    private void jLabelPeaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPeaoMouseClicked
+         if (MovimentaDado.isRunning()){
+             JOptionPane.showMessageDialog(this, "Espere o dado parar antes de mover a peça");
+             return;
+        }
+        
+        JLabel peaoClicado = (JLabel)evt.getSource();
+
+        if(control.getCorDoJogadorDaVez() == AMARELO && peaoClicado.getName().contains("jLabelPeaoYellow")){
+            movimentaPeao("Yellow",peaoClicado);
+        }
+    }//GEN-LAST:event_jLabelPeaoMouseClicked
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
          int reply = JOptionPane.showConfirmDialog(null, "Tem certeza que você deseja sair", "Fazer logout", JOptionPane.YES_NO_OPTION);
@@ -375,15 +356,6 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             control.viewAnterior();
         }
     }//GEN-LAST:event_jButtonVoltarActionPerformed
-
-    
-    private void jBtnDado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDado1ActionPerformed
-        
-        if(Dado.getNum() == 6){
-            //Button2.setVisible(true);
-            movimentDado.start(900);
-        }
-    }//GEN-LAST:event_jBtnDado1ActionPerformed
 
     private void movimentaPeao(String str, JLabel peaoClicado){
         
@@ -417,21 +389,6 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     }                                                                                      
 
     
-    private void jLabelPeaoMouseClicked(java.awt.event.MouseEvent evt) {                                        
-       
-        if (MovimentaDado.isRunning()){
-             JOptionPane.showMessageDialog(this, "Espere o dado parar antes de mover a peça");
-             return;
-        }
-        
-        JLabel peaoClicado = (JLabel)evt.getSource();
-
-        if(control.getCorDoJogadorDaVez() == AMARELO && peaoClicado.getName().contains("jLabelPeaoYellow")){
-            movimentaPeao("Yellow",peaoClicado);
-        }
-
-    } 
-
     private void preencheVetorFramesDado() {
         for (int i = 1; i <= MAX_ICONS; i++) 
             framesDado[i-1] = new javax.swing.ImageIcon(getClass().getResource("/ImagesDado/dado"+i+".png"));
@@ -474,10 +431,10 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnDado1;
     private javax.swing.JButton jButtonVoltar;
-    private javax.swing.JLabel jLabelCircleBlue2;
-    private javax.swing.JLabel jLabelCircleGreen2;
-    private javax.swing.JLabel jLabelCircleRed2;
-    private javax.swing.JLabel jLabelCircleYellow2;
+    private javax.swing.JLabel jLabelCircleBlue3;
+    private javax.swing.JLabel jLabelCircleGreen3;
+    private javax.swing.JLabel jLabelCircleRed3;
+    private javax.swing.JLabel jLabelCircleYellow3;
     private javax.swing.JLabel jLabelJogador;
     private javax.swing.JLabel jLabelPeaoBlue1;
     private javax.swing.JLabel jLabelPeaoBlue2;
@@ -495,16 +452,16 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelPeaoYellow2;
     private javax.swing.JLabel jLabelPeaoYellow3;
     private javax.swing.JLabel jLabelPeaoYellow4;
-    private javax.swing.JLabel jLabelTabuleiero2;
-    private javax.swing.JLabel jLabelUser10;
-    private javax.swing.JLabel jLabelUser11;
-    private javax.swing.JLabel jLabelUser12;
-    private javax.swing.JPanel jPanel7;
+    private javax.swing.JLabel jLabelTabuleiero3;
+    private javax.swing.JLabel jLabelUser13;
+    private javax.swing.JLabel jLabelUser14;
+    private javax.swing.JLabel jLabelUser15;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel8;
     // End of variables declaration//GEN-END:variables
 
-    
-   
-    
+ 
     
     private void movimentaPeao(PanelTabuleiroControl.corDoJogadorDaVez corDoJogadorDaVez) {
         
@@ -519,9 +476,9 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             i = control.getJogador(VERDE).getIndexPeçaAtualEscolhida();
             switch(i){
                 case 0: deslocaPeao(jLabelPeaoGreen1);break;
-                case 1: deslocaPeao(jLabelPeaoGreen2);break;
+                case 1: deslocaPeao(jLabelPeaoGreen4);break;
                 case 2: deslocaPeao(jLabelPeaoGreen3);break;
-                case 3: deslocaPeao(jLabelPeaoGreen4);break;
+                case 3: deslocaPeao(jLabelPeaoGreen2);break;
             }
         }
         

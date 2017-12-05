@@ -6,6 +6,7 @@
 package View;
 
 import Control.PanelInicialControl;
+import java.awt.event.WindowEvent;
 
 /**
  *
@@ -111,7 +112,7 @@ public class PanelInicialView extends javax.swing.JPanel {
     }//GEN-LAST:event_txtLoginActionPerformed
 
     private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
-
+     
         control.loginVerificacao(txtLogin.getText(), String.valueOf(JTextSenha.getName()));
 
     }//GEN-LAST:event_btnLogin1ActionPerformed

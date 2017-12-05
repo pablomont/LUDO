@@ -13,6 +13,7 @@ import View.PanelMenuView;
 import View.PanelRegisterView;
 import View.PanelTabuleiroView;
 import java.awt.Dimension;
+import java.awt.event.WindowEvent;
 
 
 
@@ -23,7 +24,7 @@ import java.awt.Dimension;
  * @author paabl
  */
 public class PanelInicialControl extends AbstractControl{
-
+    
     private PanelInicialView view;
     private final int dimensionWidth = 804;
     private final int dimensionHeight = 600;
@@ -32,11 +33,14 @@ public class PanelInicialControl extends AbstractControl{
 
     public PanelInicialControl(PanelInicialView view) {
         this.view = view;
+
     }
 
    
 
     public void loginVerificacao(String login, String senha){
+        
+        
         
         JogadorModel jg = new JogadorModel();
         Jogador j = new Jogador();
@@ -49,9 +53,11 @@ public class PanelInicialControl extends AbstractControl{
                 System.out.println(ex.getMessage());
         }
         
-        PanelMenuControl menuController = new PanelMenuControl(new PanelMenuView());
         
+        
+        PanelMenuControl menuController = new PanelMenuControl(new PanelMenuView());
         menuController.mostrarView();
+        
     }
     
     public void register() {
@@ -71,6 +77,7 @@ public class PanelInicialControl extends AbstractControl{
         FrameOperation.setResizable(false);
         FrameOperation.setSize(new Dimension(dimensionWidth, dimensionHeight));
         FrameOperation.setCenter(true);
+          
     }
 
     @Override

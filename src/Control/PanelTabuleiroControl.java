@@ -17,6 +17,7 @@ import Model.PeçaAzul;
 import Model.PeçaVerde;
 import Model.PeçaVermelha;
 import Util.FrameOperation;
+import View.FramePrincipal;
 import View.PanelMenuView;
 import View.PanelTabuleiroView;
 import java.awt.Dimension;
@@ -93,10 +94,8 @@ public class PanelTabuleiroControl extends AbstractControl{
     @Override
     public void mostrarView() {
         FrameOperation.setView(view);
-        FrameOperation.setMaximized(false);
+        FrameOperation.setMaximized(true);
         FrameOperation.setResizable(false);
-        FrameOperation.setSize(new Dimension(1271,833));
-        FrameOperation.setLocation(new Point(80,20));
     }
 
     @Override
