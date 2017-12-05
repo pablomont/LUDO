@@ -6,6 +6,7 @@
 package View;
 
 import Control.PanelInicialControl;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -22,6 +23,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     
     public FramePrincipal() {
         initComponents();
+
     }
 
     /**

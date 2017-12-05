@@ -52,7 +52,7 @@ public class PanelInicialView extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/Ludo_logo.png"))); // NOI18N
         add(jLabel2);
-        jLabel2.setBounds(0, 0, 500, 300);
+        jLabel2.setBounds(0, -10, 500, 300);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Senha:");
@@ -87,7 +87,7 @@ public class PanelInicialView extends javax.swing.JPanel {
             }
         });
         add(btnRegister);
-        btnRegister.setBounds(230, 470, 120, 40);
+        btnRegister.setBounds(223, 440, 120, 40);
 
         btnLogin1.setBackground(new java.awt.Color(204, 204, 0));
         btnLogin1.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
@@ -99,11 +99,11 @@ public class PanelInicialView extends javax.swing.JPanel {
             }
         });
         add(btnLogin1);
-        btnLogin1.setBounds(110, 470, 110, 40);
+        btnLogin1.setBounds(110, 440, 100, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/a-soft-sky-with-cloud-background-in-pastel-color-abstract-gradation-color-pastel_6529-11.jpg"))); // NOI18N
         add(jLabel1);
-        jLabel1.setBounds(100, 90, 640, 440);
+        jLabel1.setBounds(100, 70, 640, 420);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed

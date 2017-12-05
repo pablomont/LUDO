@@ -49,9 +49,11 @@ public class PanelMenuView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel7 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabelAvatarJogador = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabelLogin = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jButtonSair = new javax.swing.JButton();
         btnJogar = new javax.swing.JButton();
         btnRanking = new javax.swing.JButton();
@@ -62,20 +64,30 @@ public class PanelMenuView extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
-        jLabel7.setText("Ranking:");
-        add(jLabel7);
-        jLabel7.setBounds(560, 110, 80, 20);
+        jPanel1.setLayout(null);
 
         jLabelAvatarJogador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar5.png"))); // NOI18N
         jLabelAvatarJogador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
-        add(jLabelAvatarJogador);
-        jLabelAvatarJogador.setBounds(480, 70, 70, 70);
+        jPanel1.add(jLabelAvatarJogador);
+        jLabelAvatarJogador.setBounds(80, 10, 70, 70);
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
+        jLabel7.setText("Ranking:");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(10, 140, 80, 20);
 
         jLabelLogin.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         jLabelLogin.setText("Login:");
-        add(jLabelLogin);
-        jLabelLogin.setBounds(560, 80, 220, 20);
+        jPanel1.add(jLabelLogin);
+        jLabelLogin.setBounds(10, 110, 220, 20);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/back.png"))); // NOI18N
+        jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 0), 2, true));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 220, 170);
+
+        add(jPanel1);
+        jPanel1.setBounds(500, 90, 220, 170);
 
         jButtonSair.setBackground(new java.awt.Color(255, 255, 255));
         jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/logoutDOOR.png"))); // NOI18N
@@ -99,7 +111,7 @@ public class PanelMenuView extends javax.swing.JPanel {
             }
         });
         add(btnJogar);
-        btnJogar.setBounds(150, 290, 280, 40);
+        btnJogar.setBounds(150, 360, 280, 40);
 
         btnRanking.setBackground(new java.awt.Color(0, 51, 255));
         btnRanking.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
@@ -111,11 +123,11 @@ public class PanelMenuView extends javax.swing.JPanel {
             }
         });
         add(btnRanking);
-        btnRanking.setBounds(150, 340, 280, 40);
+        btnRanking.setBounds(150, 410, 280, 40);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/Ludo_logo.png"))); // NOI18N
         add(jLabel3);
-        jLabel3.setBounds(0, -20, 500, 300);
+        jLabel3.setBounds(0, -10, 500, 300);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/ludo2.png"))); // NOI18N
         add(jLabel2);
@@ -123,7 +135,7 @@ public class PanelMenuView extends javax.swing.JPanel {
 
         jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/a-soft-sky-with-cloud-background-in-pastel-color-abstract-gradation-color-pastel_6529-11.jpg"))); // NOI18N
         add(jLabelBackground);
-        jLabelBackground.setBounds(100, 50, 626, 417);
+        jLabelBackground.setBounds(100, 70, 626, 417);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
@@ -148,12 +160,14 @@ public class PanelMenuView extends javax.swing.JPanel {
     private javax.swing.JButton btnJogar;
     private javax.swing.JButton btnRanking;
     private javax.swing.JButton jButtonSair;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelAvatarJogador;
     private javax.swing.JLabel jLabelBackground;
     private javax.swing.JLabel jLabelLogin;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
   

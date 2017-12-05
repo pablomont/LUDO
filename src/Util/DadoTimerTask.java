@@ -5,6 +5,7 @@
  */
 package Util;
 import Model.Dado;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -12,6 +13,7 @@ import javax.swing.Timer;
 
 import java.util.TimerTask;
 import javax.swing.JButton;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -84,6 +86,7 @@ public class DadoTimerTask extends TimerTask  {
          
          timerAnimateDado.start();
          if(System.currentTimeMillis() > timeMillis + TempoLimite && TempoLimiteAtivado){
+             button.setBorder(new LineBorder(Color.BLACK,2,true));
              timerAnimateDado.stop();
              int num = Dado.RandomNum();
              button.setIcon(framesDado[num-1]);

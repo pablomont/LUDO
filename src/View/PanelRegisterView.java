@@ -62,15 +62,20 @@ public class PanelRegisterView extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
         add(jLogin);
-        jLogin.setBounds(110, 290, 230, 30);
+        jLogin.setBounds(110, 260, 230, 30);
 
         try {
             jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextField1ActionPerformed(evt);
+            }
+        });
         add(jFormattedTextField1);
-        jFormattedTextField1.setBounds(110, 390, 230, 30);
+        jFormattedTextField1.setBounds(110, 360, 230, 30);
 
         jButtonSair.setBackground(new java.awt.Color(255, 255, 255));
         jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/logoutDOOR.png"))); // NOI18N
@@ -94,12 +99,12 @@ public class PanelRegisterView extends javax.swing.JPanel {
             }
         });
         add(btnRegister);
-        btnRegister.setBounds(290, 490, 130, 40);
+        btnRegister.setBounds(110, 450, 230, 30);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Login:");
         add(jLabel10);
-        jLabel10.setBounds(110, 270, 50, 20);
+        jLabel10.setBounds(110, 240, 50, 20);
 
         txtNome.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -108,35 +113,40 @@ public class PanelRegisterView extends javax.swing.JPanel {
             }
         });
         add(txtNome);
-        txtNome.setBounds(110, 340, 230, 30);
+        txtNome.setBounds(110, 310, 230, 30);
 
         JTextSenha.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        JTextSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTextSenhaActionPerformed(evt);
+            }
+        });
         add(JTextSenha);
-        JTextSenha.setBounds(110, 440, 230, 30);
+        JTextSenha.setBounds(110, 410, 230, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Data de nascimento:");
         add(jLabel8);
-        jLabel8.setBounds(110, 370, 150, 20);
+        jLabel8.setBounds(110, 340, 150, 20);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Escolha seu avatar: ");
         add(jLabel7);
-        jLabel7.setBounds(110, 240, 150, 20);
+        jLabel7.setBounds(540, 80, 150, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Senha:");
         add(jLabel4);
-        jLabel4.setBounds(110, 420, 60, 20);
+        jLabel4.setBounds(110, 390, 60, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Usuário:");
         add(jLabel5);
-        jLabel5.setBounds(110, 320, 80, 20);
+        jLabel5.setBounds(110, 290, 80, 20);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/Ludo_logo.png"))); // NOI18N
         add(jLabel3);
-        jLabel3.setBounds(0, -20, 500, 300);
+        jLabel3.setBounds(0, -10, 500, 300);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/ludo2.png"))); // NOI18N
         add(jLabel2);
@@ -144,7 +154,7 @@ public class PanelRegisterView extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/a-soft-sky-with-cloud-background-in-pastel-color-abstract-gradation-color-pastel_6529-11.jpg"))); // NOI18N
         add(jLabel1);
-        jLabel1.setBounds(100, 60, 626, 417);
+        jLabel1.setBounds(100, 70, 626, 417);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Usuário:");
@@ -152,8 +162,13 @@ public class PanelRegisterView extends javax.swing.JPanel {
         jLabel6.setBounds(120, 340, 80, 20);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         add(jComboBox1);
-        jComboBox1.setBounds(250, 220, 90, 60);
+        jComboBox1.setBounds(560, 110, 90, 60);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
@@ -212,6 +227,18 @@ public class PanelRegisterView extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+
+    private void JTextSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTextSenhaActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

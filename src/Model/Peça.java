@@ -17,6 +17,7 @@ public abstract class Peça {
     protected Point[] caminho;
     protected final int NUM_CASAS = 74;
     protected int casaAtual = -1;
+    private int casaAntiga;
 
     public boolean getChegada() {
         return chegada;
@@ -35,20 +36,20 @@ public abstract class Peça {
     public Point mover(int qtdCasasParaAndar){
         Point p = null;
         
+        this.casaAntiga = this.casaAtual;
         this.casaAtual += qtdCasasParaAndar;
         
         if(casaAtual == 74)
             chegada = true;
           
         try{
-            p = getPointCasa();
+            p = getPointCasaAtual();
         }
         catch(ArrayIndexOutOfBoundsException e){
             this.casaAtual -= qtdCasasParaAndar;
             chegada = false;
         }
         return p;
-        
     }
     
     public Point moverFirstCasa(){
@@ -57,9 +58,25 @@ public abstract class Peça {
         return caminho[casaAtual];
     }
     
-    public  Point getPointCasa() throws ArrayIndexOutOfBoundsException{
+    public  Point getPointCasaAtual() throws ArrayIndexOutOfBoundsException{
         return caminho[casaAtual];
     }     
+
+    public Point getCasaPointAntiga() {
+        return caminho[casaAntiga];
+    }
+
+    public int getCasaIndexAntiga() {
+        return this.casaAntiga;
+    }
+
+    public int getIndexCasaAtual() {
+       return this.casaAtual;
+    }
+
+    public Point getPoint(int i) {
+         return caminho[i];
+    }
     
     
     

@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import static java.awt.Frame.NORMAL;
 import java.awt.Point;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -28,6 +29,7 @@ public class FrameOperation {
     public FrameOperation(){
         mainFrame = new FramePrincipal();
         mainFrame.setVisible(true);
+        mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
     public FrameOperation(JPanel view){

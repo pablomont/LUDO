@@ -5,14 +5,31 @@
  */
 package Model;
 
+import java.awt.Point;
+
 /**
  *
  * @author paabl
  */
 public class Tabuleiro {
     
+    private final int NUM_CASAS = 96;
+    
+    private Casa[] casas;
+    
     private Tabuleiro() {
-     
+        casas = new Casa[NUM_CASAS];
+        preencheCasas();
+        
     }
+
+    private void preencheCasas() {
+        casas = new Casa[]{
+            
+            
+        };
+    }
+
+   
  
 }

@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package Util;
+import java.awt.Color;
 import java.util.Timer;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.border.LineBorder;
 
 
 /**
@@ -34,8 +36,9 @@ public class MovimentaDado{
 
     public void start(long tempoLimite){
         Running = true;
+        button1.setBorder(new LineBorder(Color.WHITE,2,true));
         dadoTimer.schedule(dadoTimerTask = new DadoTimerTask(button1,framesDado,tempoLimite),0,1000);
-
+            
     } 
     
      public void start(){
