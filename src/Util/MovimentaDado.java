@@ -18,19 +18,12 @@ public class MovimentaDado{
     private static boolean Running;
     private final JButton button1;
     private final ImageIcon[] framesDado;
-    private Timer dadoTimer;
+    private final Timer dadoTimer;
     private static DadoTimerTask dadoTimerTask;
-    //private boolean RunningDado1;
 
     public static boolean isRunning() {
         return Running;
     }
-
-
-//    public boolean isRunning() {
-//        return RunningDado1;
-//    }
-
 
     public MovimentaDado(JButton button1,ImageIcon[] framesDado){
         this.dadoTimer = new Timer();
@@ -42,18 +35,20 @@ public class MovimentaDado{
     public void start(long tempoLimite){
         Running = true;
         dadoTimer.schedule(dadoTimerTask = new DadoTimerTask(button1,framesDado,tempoLimite),0,1000);
-        //RunningDado1 = false;
+
     } 
     
      public void start(){
         Running = true; 
         dadoTimer.schedule(dadoTimerTask =  new DadoTimerTask(button1,framesDado),0,1000);
-        //RunningDado1 = false;   
+
     } 
     
      public static void stopTimerTask(){
          Running = false;
+         dadoTimerTask.getTimerAnimateDado().stop();
          dadoTimerTask.cancel();
+         
      }
    
 }

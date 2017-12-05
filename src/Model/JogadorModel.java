@@ -9,7 +9,7 @@ import data.dao.JogadorDAO;
 
 /**
  *
- * @author professor Daniel
+ * @author José George
  */
 public class JogadorModel {
     

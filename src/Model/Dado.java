@@ -19,7 +19,6 @@ public class Dado {
    
     public Dado() {
         randomGenerator = new Random();
-        //this._num = randomGenerator.nextInt(6)+1;
     }
 
     public static void setNum(int n) {

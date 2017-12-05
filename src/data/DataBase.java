@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author professor Daniel
+ * @author José George
  */
 public class DataBase {
 

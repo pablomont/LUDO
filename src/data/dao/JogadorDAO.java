@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author professor Daniel
+ * @author José George
  */
 public class JogadorDAO implements DAO{
 

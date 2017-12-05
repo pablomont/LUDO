@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <file>file:/C:/Users/professor%20Daniel/Documents/DEV/LUDO/src/Util/FrameOperation.java</file>
             <file>file:/C:/Users/professor%20Daniel/Documents/DEV/LUDO/src/Model/Peça.java</file>
             <file>file:/C:/Users/professor%20Daniel/Documents/DEV/LUDO/src/Model/Dado.java</file>
@@ -36,6 +37,22 @@
             <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/View/PanelTabuleiroView.java</file>
             <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/data/dao/DAO.java</file>
             <file>file:/C:/Users/Lufh/Documents/Developer/LUDO/src/Control/PanelRegisterControl.java</file>
+>>>>>>> Stashed changes
+=======
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Start/AppStart.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Util/EnumDado.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Model/Jogador.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Model/Dado.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Util/FrameOperation.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/View/PanelTabuleiroView.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Control/PanelTabuleiroControl.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/View/FramePrincipal.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/data/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Model/Peça.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Util/MovimentaDado.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Control/PanelInicialControl.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/View/PanelInicialView.java</file>
+            <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Util/DadoTimerTask.java</file>
 >>>>>>> Stashed changes
         </group>
     </open-files>

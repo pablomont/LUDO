@@ -17,13 +17,10 @@ import Model.PeçaAzul;
 import Model.PeçaVerde;
 import Model.PeçaVermelha;
 import Util.FrameOperation;
-import View.PanelInicialView;
 import View.PanelMenuView;
 import View.PanelTabuleiroView;
 import java.awt.Dimension;
 import java.awt.Point;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 
@@ -34,7 +31,7 @@ import java.util.Random;
 public class PanelTabuleiroControl extends AbstractControl{
     private final Random randomGenerator;
     PanelTabuleiroView view;
-    private Jogador[] jogadores;
+    private final Jogador[] jogadores;
     private int jogadorDaVez = 0;
     private Peça peça; 
 
@@ -132,13 +129,29 @@ public class PanelTabuleiroControl extends AbstractControl{
                 return jogadores[jogadorDaVez].escolhePeçaRandomForaDaBase().mover(Dado.getNum());
             }
             else{
-                return jogadores[jogadorDaVez].escolhePeçaRandomDaBase().mover(0);
-            
+                Peça p = jogadores[jogadorDaVez].escolhePeçaRandomDaBase();
+                if(p.naBase)
+                    return p.moverFirstCasa();
+                return p.mover(Dado.getNum());
             }
         }
         else{
-            return jogadores[0].getPeçaEscolhida().mover(Dado.getNum()); 
+            if(Dado.getNum() != 6 && !jogadores[0].getPeçaEscolhida().naBase)
+                 return jogadores[0].getPeçaEscolhida().mover(Dado.getNum()); 
+            else if(Dado.getNum() == 6){
+                if(jogadores[0].getPeçaEscolhida().naBase)
+                    return jogadores[0].getPeçaEscolhida().moverFirstCasa();
+                else{
+                     return jogadores[0].getPeçaEscolhida().mover(Dado.getNum()); 
+                }
+            }
+            //Dado.getNum() != 6 && jogadores[0].getPeçaEscolhida().naBase
+            else{
+                return null;
+            }
         }
+        
+    }    
         
 //        if(jogadores[jogadorDaVez].getPeçaEscolhida().naBase && Dado.getNum() == 6)
 //            return jogadores[jogadorDaVez].getPeçaEscolhida().mover(Dado.getNum()); 
@@ -146,8 +159,5 @@ public class PanelTabuleiroControl extends AbstractControl{
 //        else if(!jogadores[jogadorDaVez].getPeçaEscolhida().naBase){
 //            return jogadores[jogadorDaVez].getPeçaEscolhida().mover(Dado.getNum()); 
 //        }
-        
-      
-        
-    }
+       
 }

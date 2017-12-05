@@ -44,7 +44,6 @@ public class FrameOperation {
         mainFrame.setSize(d);
     }
     
-    //setExtendedState(MAXIMIZED_BOTH);
     public static void setMaximized(boolean valor){
         if(valor)
             mainFrame.setExtendedState(MAXIMIZED_BOTH);

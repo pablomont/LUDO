@@ -7,7 +7,7 @@ package data.dao;
 
 /**
  *
- * @author professor Daniel
+ * @author José George
  */
 public interface DAO {
     

@@ -15,14 +15,11 @@ import Model.JogadorModel;
 import Util.MovimentaDado;
 import java.awt.Point;
 import java.util.Random;
-import javafx.scene.Cursor;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
-
-
 
 /**
  *
@@ -34,15 +31,8 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     private final ImageIcon[] framesDado = new ImageIcon[MAX_ICONS];
     MovimentaDado movimentDado;
     PanelTabuleiroControl control;
-    private String nomeAvatarJogador;
-    
-    
-//    ArrayList<JLabel> peoesBaseVerde;
-//    ArrayList<JLabel> peoesBaseVermelho;
-//    ArrayList<JLabel> peoesBaseAzul;
-//    ArrayList<JLabel> peoesForaBaseVerde;
-//    ArrayList<JLabel> peoesForaBaseVermelho;
-//    ArrayList<JLabel> peoesForaBaseAzul;
+    private final String nomeAvatarJogador;
+
     
     public PanelTabuleiroView() {
         control = new PanelTabuleiroControl(this);
@@ -55,8 +45,6 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         
         randomGenerator = new Random();
         preencheVetorFramesDado();
-        //preenchePeoesBase();
-        //preenchePeosForaBase();  
         movimentDado = new MovimentaDado(jBtnDado1,framesDado);
         movimentDado.start(1100);
 
@@ -74,18 +62,18 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jButtonVoltar = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jBtnDado1 = new javax.swing.JButton();
+        jLabelPeaoYellow2 = new javax.swing.JLabel();
+        jLabelPeaoYellow1 = new javax.swing.JLabel();
+        jLabelPeaoYellow3 = new javax.swing.JLabel();
+        jLabelPeaoYellow4 = new javax.swing.JLabel();
         jLabelJogador = new javax.swing.JLabel();
         jLabelUser10 = new javax.swing.JLabel();
         jLabelUser11 = new javax.swing.JLabel();
         jLabelUser12 = new javax.swing.JLabel();
-        jLabelPeaoYellow1 = new javax.swing.JLabel();
         jLabelPeaoBlue4 = new javax.swing.JLabel();
         jLabelPeaoBlue3 = new javax.swing.JLabel();
         jLabelPeaoBlue1 = new javax.swing.JLabel();
-        jLabelPeaoYellow2 = new javax.swing.JLabel();
         jLabelPeaoBlue2 = new javax.swing.JLabel();
-        jLabelPeaoYellow3 = new javax.swing.JLabel();
-        jLabelPeaoYellow4 = new javax.swing.JLabel();
         jLabelPeaoRed3 = new javax.swing.JLabel();
         jLabelPeaoRed4 = new javax.swing.JLabel();
         jLabelPeaoGreen1 = new javax.swing.JLabel();
@@ -128,6 +116,50 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jPanel7.add(jBtnDado1);
         jBtnDado1.setBounds(290, 390, 40, 40);
 
+        jLabelPeaoYellow2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
+        jLabelPeaoYellow2.setToolTipText("0");
+        jLabelPeaoYellow2.setName("jLabelPeaoYellow2"); // NOI18N
+        jLabelPeaoYellow2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabelPeaoYellow2);
+        jLabelPeaoYellow2.setBounds(440, 570, 23, 32);
+
+        jLabelPeaoYellow1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
+        jLabelPeaoYellow1.setToolTipText("1");
+        jLabelPeaoYellow1.setName("jLabelPeaoYellow1"); // NOI18N
+        jLabelPeaoYellow1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabelPeaoYellow1);
+        jLabelPeaoYellow1.setBounds(560, 580, 23, 32);
+
+        jLabelPeaoYellow3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
+        jLabelPeaoYellow3.setToolTipText("0");
+        jLabelPeaoYellow3.setName("jLabelPeaoYellow3"); // NOI18N
+        jLabelPeaoYellow3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabelPeaoYellow3);
+        jLabelPeaoYellow3.setBounds(410, 530, 23, 32);
+
+        jLabelPeaoYellow4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
+        jLabelPeaoYellow4.setToolTipText("0");
+        jLabelPeaoYellow4.setName("jLabelPeaoYellow4"); // NOI18N
+        jLabelPeaoYellow4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPeaoMouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabelPeaoYellow4);
+        jLabelPeaoYellow4.setBounds(440, 500, 23, 32);
+
         jLabelJogador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/avatar5.png"))); // NOI18N
         jLabelJogador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
         jPanel7.add(jLabelJogador);
@@ -147,17 +179,6 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jLabelUser12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
         jPanel7.add(jLabelUser12);
         jLabelUser12.setBounds(130, 40, 70, 70);
-
-        jLabelPeaoYellow1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
-        jLabelPeaoYellow1.setToolTipText("1");
-        jLabelPeaoYellow1.setName("jLabelPeaoYellow1"); // NOI18N
-        jLabelPeaoYellow1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoYellow1);
-        jLabelPeaoYellow1.setBounds(560, 580, 23, 32);
 
         jLabelPeaoBlue4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
         jLabelPeaoBlue4.setToolTipText("3");
@@ -192,17 +213,6 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jPanel7.add(jLabelPeaoBlue1);
         jLabelPeaoBlue1.setBounds(870, 340, 23, 32);
 
-        jLabelPeaoYellow2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
-        jLabelPeaoYellow2.setToolTipText("0");
-        jLabelPeaoYellow2.setName("jLabelPeaoYellow2"); // NOI18N
-        jLabelPeaoYellow2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoYellow2);
-        jLabelPeaoYellow2.setBounds(440, 570, 23, 32);
-
         jLabelPeaoBlue2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-blue.png"))); // NOI18N
         jLabelPeaoBlue2.setToolTipText("1");
         jLabelPeaoBlue2.setName("jLabelPeaoBlue2"); // NOI18N
@@ -213,28 +223,6 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         });
         jPanel7.add(jLabelPeaoBlue2);
         jLabelPeaoBlue2.setBounds(820, 430, 23, 32);
-
-        jLabelPeaoYellow3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
-        jLabelPeaoYellow3.setToolTipText("0");
-        jLabelPeaoYellow3.setName("jLabelPeaoYellow3"); // NOI18N
-        jLabelPeaoYellow3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoYellow3);
-        jLabelPeaoYellow3.setBounds(410, 530, 23, 32);
-
-        jLabelPeaoYellow4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
-        jLabelPeaoYellow4.setToolTipText("0");
-        jLabelPeaoYellow4.setName("jLabelPeaoYellow4"); // NOI18N
-        jLabelPeaoYellow4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPeaoMouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabelPeaoYellow4);
-        jLabelPeaoYellow4.setBounds(440, 500, 23, 32);
 
         jLabelPeaoRed3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
         jLabelPeaoRed3.setToolTipText("2");
@@ -411,14 +399,9 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         }
         catch(java.lang.NullPointerException e){
             JOptionPane.showMessageDialog(this, "Você não pode mover a peça escolhida com o dado atual.", "", ERROR_MESSAGE);
+            atualizaView();
         }
-        
-
-    
-        Point p = control.movimentaPeao();
-        peaoClicado.setLocation(p); 
-        atualizaView();
-    
+      
     }                                                                                      
 
     
@@ -434,20 +417,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         if(control.getCorDoJogadorDaVez() == AMARELO && peaoClicado.getName().contains("jLabelPeaoYellow")){
             movimentaPeao("Yellow",peaoClicado);
         }
-        
-//        else if(control.getCorDoJogadorDaVez() == VERDE && peaoClicado.getName().contains("jLabelPeaoGreen")){
-//             movimentaPeao("Green",peaoClicado);
-//        }
-//        
-//        else if(control.getCorDoJogadorDaVez() == VERMELHO && peaoClicado.getName().contains("jLabelPeaoRed")){
-//            movimentaPeao("Red",peaoClicado);    
-//        }
-// 
-//        else if(control.getCorDoJogadorDaVez() == AZUL && peaoClicado.getName().contains("jLabelPeaoBlue")){ 
-//            movimentaPeao("Blue",peaoClicado);   
-//        }  
-       
-        
+
     } 
 
     private void preencheVetorFramesDado() {
@@ -458,12 +428,13 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     private void atualizaView() {
       
         movimentDado.start(900);
-        control.proximoJogadorDaVez();
-        switch(control.getCorDoJogadorDaVez()){
+        if(control.proximoJogadorDaVez()){
+            switch(control.getCorDoJogadorDaVez()){
             
             case AMARELO:   updatePositionDados(new Point(300,400)); 
                             //MovimentaDado.stopTimerTask();
-                            return;
+                            //movimentDado.start(900);
+                            break;
             case VERDE:     updatePositionDados(new Point(290,20));
                             //control.getJogador(VERDE).
                             movimentaPeao(VERDE);
@@ -474,8 +445,14 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             case AZUL:      updatePositionDados(new Point(830,610));
                             movimentaPeao(AZUL);
                             break;
+            }   
         }
-        atualizaView();
+        else{
+        
+              JOptionPane.showMessageDialog(this,"O jogador "+control.getCorDoJogadorDaVez()+" venceu o jogo !!");
+        }
+        
+        
     }
 
     private void updatePositionDados(Point PosBtn1) {
@@ -516,11 +493,13 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     private void movimentaPeao(PanelTabuleiroControl.corDoJogadorDaVez corDoJogadorDaVez) {
         
         JOptionPane.showMessageDialog(this,"O jogador irá fazer sua jogada");
-        
+        MovimentaDado.stopTimerTask();
         Point p = control.movimentaPeao();
-        int i = control.getJogador(VERDE).getIndexPeçaAtualEscolhida();
         
-        if( corDoJogadorDaVez == VERDE){
+        try{
+            int i;
+        if(corDoJogadorDaVez == VERDE){
+            i = control.getJogador(VERDE).getIndexPeçaAtualEscolhida();
             switch(i){
                 case 0: jLabelPeaoGreen1.setLocation(p);break;
                 case 1: jLabelPeaoGreen2.setLocation(p);break;
@@ -531,6 +510,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         }
         
         else if(corDoJogadorDaVez == VERMELHO){
+            i = control.getJogador(VERMELHO).getIndexPeçaAtualEscolhida();
             switch(i){
                 case 0: jLabelPeaoRed1.setLocation(p);break;
                 case 1: jLabelPeaoRed2.setLocation(p);break;
@@ -541,6 +521,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         }
         
         else{
+            i = control.getJogador(AZUL).getIndexPeçaAtualEscolhida();
             switch(i){
                 case 0: jLabelPeaoBlue1.setLocation(p);break;
                 case 1: jLabelPeaoBlue2.setLocation(p);break;
@@ -550,89 +531,13 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             }
         
         }
-        
+         atualizaView();
+    }
+    catch(java.lang.NullPointerException e){
+        atualizaView();
+    }
     }
 
-   
-
-//    private JLabel escolhePeaoNaBaseRandom(PanelTabuleiroControl.corDoJogadorDaVez cor) {
-//        int num;
-//        JLabel peao = null;
-//        
-//  
-//        switch(cor){
-//            case VERDE: num = randomGenerator.nextInt(peoesBaseVerde.size());
-//                        peao = peoesBaseVerde.get(num);
-//                        peoesBaseVerde.remove(peao);
-//                        peoesForaBaseVerde.add(peao); break;
-//            case VERMELHO: num = randomGenerator.nextInt(peoesBaseVermelho.size());
-//                        peao = peoesBaseVermelho.get(num);
-//                        peoesBaseVermelho.remove(peao);
-//                        peoesForaBaseVermelho.add(peao); break;
-//            case AZUL:  num = randomGenerator.nextInt(peoesBaseAzul.size());
-//                        peao = peoesBaseAzul.get(num);
-//                        peoesBaseAzul.remove(peao);
-//                        peoesForaBaseAzul.add(peao);break;            
-//        }
-//       
-//        return peao;
-//    }
-//
-//    private JLabel escolhePeãoForaDaBaseRandom(PanelTabuleiroControl.corDoJogadorDaVez cor) {
-//        int num;
-//        JLabel peao = null;
-//        
-//        switch(cor){
-//            case VERDE: num = randomGenerator.nextInt(peoesForaBaseVerde.size());
-//                        peao = peoesForaBaseVerde.get(num);break;
-//            case VERMELHO:
-//                        num = randomGenerator.nextInt(peoesForaBaseVermelho.size());
-//                        peao = peoesForaBaseVermelho.get(num);break;
-//            case AZUL:  num = randomGenerator.nextInt(peoesForaBaseAzul.size());
-//                        peao = peoesForaBaseAzul.get(num);break;           
-//        }
-//       
-//        return peao;
-//        
-//    }
-//
-//    private void preenchePeoesBase() {
-//        peoesBaseVerde = new ArrayList();
-//        peoesBaseVerde.add(jLabelPeaoGreen2);
-//        peoesBaseVerde.add(jLabelPeaoGreen3);
-//        peoesBaseVerde.add(jLabelPeaoGreen4);
-//        
-//        peoesBaseVermelho = new ArrayList();
-//        peoesBaseVermelho.add(jLabelPeaoRed2);
-//        peoesBaseVermelho.add(jLabelPeaoRed3);
-//        peoesBaseVermelho.add(jLabelPeaoRed4);
-//        
-//        peoesBaseAzul = new ArrayList();
-//        peoesBaseAzul.add(jLabelPeaoBlue2);
-//        peoesBaseAzul.add(jLabelPeaoBlue3);
-//        peoesBaseAzul.add(jLabelPeaoBlue4);
-//    }
-//
-//    private void preenchePeosForaBase() {
-//        peoesForaBaseVerde = new ArrayList();
-//        peoesForaBaseVerde.add(jLabelPeaoGreen1);
-//        
-//        peoesForaBaseVermelho = new ArrayList();
-//        peoesForaBaseVermelho.add(jLabelPeaoRed1);
-//        
-//        peoesForaBaseAzul = new ArrayList();
-//        peoesForaBaseAzul.add(jLabelPeaoBlue1);
-//  
-//    }
-//
-//    private void removePeaoDaListaForaDaBase(JLabel peao, PanelTabuleiroControl.corDoJogadorDaVez cor) {
-//        switch(cor){
-//            case VERMELHO: peoesForaBaseVermelho.remove(peao); break;
-//            case AZUL: peoesForaBaseAzul.remove(peao); break;
-//            case VERDE: peoesForaBaseVerde.remove(peao); break;
-//        
-//        }
-//    }
 }       
        
     

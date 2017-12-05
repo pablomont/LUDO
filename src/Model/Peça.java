@@ -9,7 +9,7 @@ import java.awt.Point;
 
 /**
  *
- * @author Lufh
+ * @author paabl
  */
 public abstract class Peça {
     public boolean naBase = true;
@@ -31,27 +31,31 @@ public abstract class Peça {
     }
    
     protected abstract void preencheCaminho();
-    
    
-    public Point mover(int qtdCasasParaAndar)throws ArrayIndexOutOfBoundsException{
+    public Point mover(int qtdCasasParaAndar){
+        Point p = null;
         
-        if(naBase){
-            this.casaAtual = 0;
-            naBase = false;
-        }
+        this.casaAtual += qtdCasasParaAndar;
         
-        else{
-            
-            this.casaAtual += qtdCasasParaAndar;
+        if(casaAtual == 74)
+            chegada = true;
           
-            if(casaAtual == 74)
-                chegada = true;
-          
+        try{
+            p = getPointCasa();
         }
+        catch(ArrayIndexOutOfBoundsException e){
+            this.casaAtual -= qtdCasasParaAndar;
+            chegada = false;
+        }
+        return p;
         
-        return getPointCasa();
     }
     
+    public Point moverFirstCasa(){
+        this.naBase = false;
+        this.casaAtual = 0;
+        return caminho[casaAtual];
+    }
     
     public  Point getPointCasa() throws ArrayIndexOutOfBoundsException{
         return caminho[casaAtual];

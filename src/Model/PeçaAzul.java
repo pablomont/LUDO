@@ -9,7 +9,7 @@ import java.awt.Point;
 
 /**
  *
- * @author Lufh
+ * @author paabl
  */
 public class PeçaAzul extends Peça{
 
