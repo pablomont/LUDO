@@ -20,7 +20,21 @@ public abstract class Peça {
     protected final int NUM_CASAS = 74;
     protected int casaAtual = -1;
     protected int casaAntiga;
+    protected Point locationBase;
 
+    public Point getLocationBase() {
+        return locationBase;
+    }
+
+    public void setNaBase(boolean naBase) {
+        this.naBase = naBase;
+    }
+
+    public CorPeça getCor() {
+        return cor;
+    }
+   
+    
     public boolean getChegada() {
         return chegada;
     }

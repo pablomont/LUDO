@@ -15,23 +15,26 @@ public class PeçaVerde extends Peça{
 
     
     
-    public PeçaVerde(int casaAtual){
-        cor = CorPeça.VERDE;
+    public PeçaVerde(int casaAtual, Point locationBase){
         super.casaAtual = casaAtual;
         naBase = false;
         preencheCaminho();
+        cor = CorPeça.VERDE;
+        super.locationBase = locationBase;
+
     }
 
-    public PeçaVerde() {
+    public PeçaVerde(Point locationBase) {
+        super.locationBase = locationBase;
+        cor = CorPeça.VERDE;
         preencheCaminho();
         naBase = true;
-        cor = CorPeça.VERDE;
     }
     
     @Override
     protected final void preencheCaminho() {
         caminho = new Point[]{
-            //Próxima linha representa o trajeto 1 do verde
+           //Próxima linha representa o trajeto 1 do verde
             new Point(320,270),new Point(355,270),new Point(390,270),new Point(425,270),new Point(460,270),new Point(495,270),new Point(530,270),
             //Próxima linha representa o trajeto 2 do verde
             new Point(565,235),new Point(565,200),new Point(565,165),new Point(565,130),new Point(565,95),new Point(565,60),new Point(565,25),new Point(565,0),
@@ -54,7 +57,7 @@ public class PeçaVerde extends Peça{
              //Próxima linha representa o trajeto 11 do verde
             new Point(530,345),new Point(495,345),new Point(460,345),new Point(425,345),new Point(390,345),new Point(355,345),new Point(320,345),new Point(285,345),
             //Próxima linha representa o trajeto 12 do verde
-            new Point(285,310),new Point(320,310),new Point(355,310),new Point(390,310),new Point(425,310),new Point(460,310),new Point(495,310),new Point(530,310) 
+            new Point(285,310),new Point(320,310),new Point(355,310),new Point(390,310),new Point(425,310),new Point(460,310),new Point(495,310),new Point(530,310)  
         };
     
     }

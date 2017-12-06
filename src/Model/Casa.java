@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Model;
-import java.util.ArrayList;
+import java.awt.Point;
 import javax.swing.JLabel;
 
 /**
@@ -13,37 +13,53 @@ import javax.swing.JLabel;
  */
 public class Casa {
     
-    private final ArrayList peoes;
-    private final ArrayList peças;
-    private boolean ocupada;
-    
-    public Casa(){
-        peoes = new ArrayList<JLabel>();
-        peças = new ArrayList<Peça>();
+  private final Point posicao;
+
+    public Point getPosicao() {
+        return posicao;
     }
-      
-    public void addPeao(JLabel peao,Peça p){
-        peoes.add(peao);
-        peças.add(p);
-        
+    private JLabel peao;
+    private Peça peça;
+    private boolean ocupada;
+    private Casa estadoAnterior;
+    
+    public Casa(int x, int y){
+        this.posicao = new Point(x,y); 
+        ocupada = false;
+    }
+
+    private JLabel getPeao(){
+        return peao;  
+    }
+    
+    private Peça getPeça(){
+    
+        return peça;
+    }
+    
+    public void addPeao(JLabel peao,Peça peça){
+        //if(ocupada)
+            estadoAnterior = this;
+        this.peao = peao;
+        this.peça = peça;
         ocupada = true;
     }
     
-    public void removePeao(JLabel peao){
-        int i = peoes.indexOf(peao);
-        peoes.remove(peao);
-        peças.remove(i);
-        
-        if(peças.size() == 0)
-            ocupada = false;
+    public JLabel getPeaoAnterior(){
+        return estadoAnterior.getPeao();
     }
-
+    
+    public Peça getPeçaAnterior(){
+        return estadoAnterior.getPeça();
+    }
+   
+    public void removePeao(){
+        this.peao = null;
+        this.peça = null;
+        ocupada = false;
+    }
+    
     public boolean isOcupada() {
         return ocupada;
     }
-
-    
-    
-    
-
 }

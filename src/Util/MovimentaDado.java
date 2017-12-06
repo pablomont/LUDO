@@ -5,10 +5,14 @@
  */
 package Util;
 import java.awt.Color;
+import java.io.IOException;
 import java.util.Timer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
+import songs.TocarSom;
 
 
 /**
@@ -35,6 +39,14 @@ public class MovimentaDado{
     
 
     public void start(long tempoLimite){
+        
+         try {
+            TocarSom.tocaSom("jogando_dados");
+        } catch (IOException ex) {
+            Logger.getLogger(DadoTimerTask.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+        
         Running = true;
         button1.setBorder(new LineBorder(Color.WHITE,2,true));
         dadoTimer.schedule(dadoTimerTask = new DadoTimerTask(button1,framesDado,tempoLimite),0,1000);

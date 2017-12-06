@@ -11,18 +11,23 @@ import static Model.CorPeça.AMARELO;
 import static Model.CorPeça.AZUL;
 import static Model.CorPeça.VERDE;
 import static Model.CorPeça.VERMELHO;
-import Model.Dado;
 import Model.JogadorModel;
 import Model.Peça;
+import Model.Tabuleiro;
+import Util.DadoTimerTask;
 import Util.MovimentaDado;
 import java.awt.Point;
+import java.io.IOException;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import songs.TocarSom;
 
 /**
  *
@@ -51,7 +56,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         randomGenerator = new Random();
         preencheVetorFramesDado();
         movimentDado = new MovimentaDado(jBtnDado1,framesDado);
-        movimentDado.start(1100);
+        movimentDado.start(900);
         
         
         dlg.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
@@ -141,7 +146,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             }
         });
         jPanel8.add(jLabelPeaoYellow1);
-        jLabelPeaoYellow1.setBounds(560, 580, 23, 32);
+        jLabelPeaoYellow1.setBounds(560, 590, 23, 32);
 
         jLabelPeaoYellow3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-yellow.png"))); // NOI18N
         jLabelPeaoYellow3.setToolTipText("0");
@@ -332,10 +337,12 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
 
     
     private void jBtnDado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDado1ActionPerformed
-        if(Dado.getNum() == 6){
-            //Button2.setVisible(true);
-            movimentDado.start(900);
-        }// TODO add your handling code here:
+//        if(Dado.getNum() == 6){
+//            //Button2.setVisible(true);
+//            movimentDado.start(900);
+//        }// TODO add your handling code here:
+
+        movimentDado.start(900);
     }//GEN-LAST:event_jBtnDado1ActionPerformed
 
     private void jLabelPeaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPeaoMouseClicked
@@ -403,24 +410,24 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             
             case AMARELO:   updatePositionDados(new Point(300,400)); 
                             sleep(1000);
-                            movimentDado.start(2600);
+                            movimentDado.start(900);
                             //MovimentaDado.stopTimerTask();
                             //movimentDado.start(900);
                             break;
             case VERDE:     updatePositionDados(new Point(290,20));
                             //control.getJogador(VERDE).
                             sleep(1000);
-                            movimentDado.start(1900);
+                            movimentDado.start(900);
                             movimentaPeao(VERDE);
                             break;
             case VERMELHO:  updatePositionDados(new Point(880,20)); 
                             sleep(1000);        
-                            movimentDado.start(1900);
+                            movimentDado.start(900);
                             movimentaPeao(VERMELHO);
                             break;
             case AZUL:      updatePositionDados(new Point(830,610));
                              sleep(1000);
-                            movimentDado.start(1900);
+                            movimentDado.start(900);
                             movimentaPeao(AZUL);
                             break;
             }   
@@ -474,7 +481,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     
     private void movimentaPeao(CorPeça corDoJogadorDaVez) {
         
-        sleep(2900);
+        sleep(1100);
         
         MovimentaDado.stopTimerTask();
         Point p = control.movimentaPeao();
@@ -485,9 +492,9 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             i = control.getJogador(VERDE).getIndexPeçaAtualEscolhida();
             switch(i){
                 case 0: deslocaPeao(jLabelPeaoGreen1);break;
-                case 1: deslocaPeao(jLabelPeaoGreen4);break;
+                case 1: deslocaPeao(jLabelPeaoGreen2);break;
                 case 2: deslocaPeao(jLabelPeaoGreen3);break;
-                case 3: deslocaPeao(jLabelPeaoGreen2);break;
+                case 3: deslocaPeao(jLabelPeaoGreen4);break;
             }
         }
         
@@ -512,7 +519,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             }
         }
         sleep(500);
-         atualizaView();
+        atualizaView();
     }
     catch(java.lang.NullPointerException e){
          sleep(500);
@@ -522,14 +529,85 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
 
     private void deslocaPeao(JLabel jLabelPeao) {
         Peça pe = control.getJogadorDaVez().getPeçaEscolhida();
-        Point p;
+        Point p = null;
+        
         for(int i = pe.getCasaIndexAntiga(); i <= pe.getIndexCasaAtual() ; i++){
             p = pe.getPoint(i);
             jLabelPeao.setLocation(p);
-            sleep(200);
+            
+            System.out.print(Tabuleiro.contains(p));
+            
+            try {
+            TocarSom.tocaSom("movendo_pino");
+        } catch (IOException ex) {
+            Logger.getLogger(DadoTimerTask.class.getName()).log(Level.SEVERE, null, ex);
         }
+            sleep(250);
+            
+        }
+        
+         JLabel peao = getPeaoMesmaPosicao(jLabelPeao,pe.getCor());
+         Peça peça;
+         if(peao != null){
+             if(peao.getName().contains("Yellow")){
+                 if(peao.getName().contains("1")){
+                     peça = control.getJogador(AMARELO).getPeça(0);
+                 }
+                 else if(peao.getName().contains("2")){
+                     peça = control.getJogador(AMARELO).getPeça(1);
+                 }
+                 else if(peao.getName().contains("3")){
+                     peça = control.getJogador(AMARELO).getPeça(2);
+                 }
+                 else{
+                     peça = control.getJogador(AMARELO).getPeça(3);
+                 }
+             }
+             else if(peao.getName().contains("Red")){
+                 if(peao.getName().contains("1")){
+                     peça = control.getJogador(VERMELHO).getPeça(0);
+                 }
+                 else if(peao.getName().contains("2")){
+                     peça = control.getJogador(VERMELHO).getPeça(1);
+                 }
+                 else if(peao.getName().contains("3")){
+                     peça = control.getJogador(VERMELHO).getPeça(2);
+                 }
+                 else{
+                     peça = control.getJogador(VERMELHO).getPeça(3);
+                 }
+             }
+             else if(peao.getName().contains("Blue")){
+                 if(peao.getName().contains("1")){
+                     peça = control.getJogador(AZUL).getPeça(0);
+                 }
+                 else if(peao.getName().contains("2")){
+                     peça = control.getJogador(AZUL).getPeça(1);
+                 }
+                 else if(peao.getName().contains("3")){
+                     peça = control.getJogador(AZUL).getPeça(2);
+                 }
+                 else{
+                     peça = control.getJogador(AZUL).getPeça(3);
+                 }
+             }
+             else{
+                 if(peao.getName().contains("1")){
+                     peça = control.getJogador(VERDE).getPeça(0);
+                 }
+                 else if(peao.getName().contains("2")){
+                     peça = control.getJogador(VERDE).getPeça(1);
+                 }
+                 else if(peao.getName().contains("3")){
+                     peça = control.getJogador(VERDE).getPeça(2);
+                 }
+                 else{
+                     peça = control.getJogador(VERDE).getPeça(3);
+                 }
+             }
+         }
+            
     }
-
     private void sleep(int n) {
         new Thread(new Runnable() {
           @Override
@@ -543,6 +621,159 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
           }
         }).start();
         dlg.setVisible(true);
+    }
+
+    private JLabel getPeaoMesmaPosicao(JLabel jLabelPeao,CorPeça cor) {
+        
+        JLabel peao = null;
+        
+        switch(cor){
+            case AMARELO:  peao = verificaPeao(AMARELO,jLabelPeao); break;
+            case VERMELHO:  peao = verificaPeao(VERMELHO,jLabelPeao); break;
+            case AZUL:  peao = verificaPeao(AZUL,jLabelPeao); break;
+            case VERDE:  peao = verificaPeao(VERDE,jLabelPeao); break;
+   
+        }
+         
+        return peao;
+    }
+
+    private JLabel verificaPeao(CorPeça cor, JLabel jLabelPeao) {
+       
+        JLabel peao = null;
+
+        if(cor == AMARELO){
+            //compara com verde
+            if(jLabelPeao.getLocation().equals(jLabelPeaoGreen1.getLocation()))
+                peao = jLabelPeaoGreen1;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoGreen2.getLocation()))
+                peao = jLabelPeaoGreen2;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoGreen3.getLocation()))
+                peao = jLabelPeaoGreen3;    
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoGreen4.getLocation()))
+                peao = jLabelPeaoGreen4;
+            
+            //Compara com vermelehos
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoRed1.getLocation()))
+                peao = jLabelPeaoRed1;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoRed2.getLocation()))
+                peao = jLabelPeaoRed2;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoRed3.getLocation()))
+                peao = jLabelPeaoRed3;    
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoRed4.getLocation()))
+                peao = jLabelPeaoRed4;   
+                
+            //compara com azul
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoBlue1.getLocation()))
+                peao = jLabelPeaoBlue1;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoBlue2.getLocation()))
+                peao = jLabelPeaoBlue2;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoBlue3.getLocation()))
+                peao = jLabelPeaoBlue3;    
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoBlue4.getLocation()))
+                peao = jLabelPeaoBlue4;   
+
+        }
+        else if(cor == VERMELHO){
+             //compara com amarelo
+            if(jLabelPeao.getLocation().equals(jLabelPeaoYellow1.getLocation()))
+                peao = jLabelPeaoYellow1;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoYellow2.getLocation()))
+                peao = jLabelPeaoYellow2;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoYellow3.getLocation()))
+                peao = jLabelPeaoYellow3;    
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoYellow4.getLocation()))
+                peao = jLabelPeaoYellow4;
+        
+            //compara com verde
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoGreen1.getLocation()))
+                peao = jLabelPeaoGreen1;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoGreen2.getLocation()))
+                peao = jLabelPeaoGreen2;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoGreen3.getLocation()))
+                peao = jLabelPeaoGreen3;    
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoGreen4.getLocation()))
+                peao = jLabelPeaoGreen4;
+            
+             //compara com azul
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoBlue1.getLocation()))
+                peao = jLabelPeaoBlue1;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoBlue2.getLocation()))
+                peao = jLabelPeaoBlue2;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoBlue3.getLocation()))
+                peao = jLabelPeaoBlue3;    
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoBlue4.getLocation()))
+                peao = jLabelPeaoBlue4;   
+        
+        }
+        
+         else if(cor == VERDE){
+              //compara com amarelo
+            if(jLabelPeao.getLocation().equals(jLabelPeaoYellow1.getLocation()))
+                peao = jLabelPeaoYellow1;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoYellow2.getLocation()))
+                peao = jLabelPeaoYellow2;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoYellow3.getLocation()))
+                peao = jLabelPeaoYellow3;    
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoYellow4.getLocation()))
+                peao = jLabelPeaoYellow4;
+            
+             //compara com azul
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoBlue1.getLocation()))
+                peao = jLabelPeaoBlue1;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoBlue2.getLocation()))
+                peao = jLabelPeaoBlue2;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoBlue3.getLocation()))
+                peao = jLabelPeaoBlue3;    
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoBlue4.getLocation()))
+                peao = jLabelPeaoBlue4;  
+         
+             //Compara com vermelehos
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoRed1.getLocation()))
+                peao = jLabelPeaoRed1;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoRed2.getLocation()))
+                peao = jLabelPeaoRed2;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoRed3.getLocation()))
+                peao = jLabelPeaoRed3;    
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoRed4.getLocation()))
+                peao = jLabelPeaoRed4; 
+         
+         }
+        
+         else if(cor == AZUL){
+                //compara com amarelo
+            if(jLabelPeao.getLocation().equals(jLabelPeaoYellow1.getLocation()))
+                peao = jLabelPeaoYellow1;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoYellow2.getLocation()))
+                peao = jLabelPeaoYellow2;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoYellow3.getLocation()))
+                peao = jLabelPeaoYellow3;    
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoYellow4.getLocation()))
+                peao = jLabelPeaoYellow4;
+            
+             //Compara com vermelhos
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoRed1.getLocation()))
+                peao = jLabelPeaoRed1;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoRed2.getLocation()))
+                peao = jLabelPeaoRed2;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoRed3.getLocation()))
+                peao = jLabelPeaoRed3;    
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoRed4.getLocation()))
+                peao = jLabelPeaoRed4; 
+         
+          //compara com verde
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoGreen1.getLocation()))
+                peao = jLabelPeaoGreen1;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoGreen2.getLocation()))
+                peao = jLabelPeaoGreen2;
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoGreen3.getLocation()))
+                peao = jLabelPeaoGreen3;    
+            else if(jLabelPeao.getLocation().equals(jLabelPeaoGreen4.getLocation()))
+                peao = jLabelPeaoGreen4;
+            
+         }
+         
+         return peao;
     }
 
 }       

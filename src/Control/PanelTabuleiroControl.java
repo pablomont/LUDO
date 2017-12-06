@@ -24,6 +24,7 @@ import View.PanelTabuleiroView;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.util.Random;
+import songs.TocarSom;
 
 
 /**
@@ -82,10 +83,10 @@ public class PanelTabuleiroControl extends AbstractControl{
         randomGenerator = new Random();
         this.view = view;
         jogadores = new Jogador[]{
-            new Jogador(new Peça[]{new PeçaAmarela(0),new PeçaAmarela(),new PeçaAmarela(),new PeçaAmarela()}),
-            new Jogador(new Peça[]{new PeçaVerde(0),new PeçaVerde(),new PeçaVerde(),new PeçaVerde()}),
-            new Jogador(new Peça[]{new PeçaVermelha(0),new PeçaVermelha(),new PeçaVermelha(),new PeçaVermelha()}),
-            new Jogador(new Peça[]{new PeçaAzul(0),new PeçaAzul(),new PeçaAzul(),new PeçaAzul()}) 
+            new Jogador(new Peça[]{new PeçaAmarela(0, new Point(480,530)),new PeçaAmarela(new Point(440,570)),new PeçaAmarela(new Point(410,530)),new PeçaAmarela(new Point(440,500))}),
+            new Jogador(new Peça[]{new PeçaVerde(0,new Point(340,150)),new PeçaVerde(new Point(370,120)),new PeçaVerde(new Point(410,150)),new PeçaVerde(new Point(370,190))}),
+            new Jogador(new Peça[]{new PeçaVermelha(0,new Point(720,90)),new PeçaVermelha(new Point(750,50)),new PeçaVermelha(new Point(790,90)),new PeçaVermelha(new Point(750,120))}),
+            new Jogador(new Peça[]{new PeçaAzul(0,new Point(780,470)),new PeçaAzul(new Point(820,430)),new PeçaAzul(new Point(850,470)),new PeçaAzul(new Point(820,500))}) 
         };
     }         
 
@@ -93,7 +94,7 @@ public class PanelTabuleiroControl extends AbstractControl{
     public void mostrarView() {
         FrameOperation.setView(view);
         FrameOperation.setMaximized(true);
-        FrameOperation.setResizable(false);
+        FrameOperation.setResizable(false);      
     }
 
     @Override

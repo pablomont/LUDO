@@ -14,17 +14,20 @@ import java.awt.Point;
 public class PeçaAzul extends Peça{
 
     
-    public PeçaAzul(int casaAtual){
+   public PeçaAzul(int casaAtual, Point locationBase){
         super.casaAtual = casaAtual;
-        cor = CorPeça.AZUL;
         naBase = false;
         preencheCaminho();
+        cor = CorPeça.AZUL;
+        super.locationBase = locationBase;
+
     }
 
-    public PeçaAzul() {
+    public PeçaAzul(Point locationBase) {
+        super.locationBase = locationBase;
+        cor = CorPeça.AZUL;
         preencheCaminho();
         naBase = true;
-        cor = CorPeça.AZUL;
     }
     
     @Override

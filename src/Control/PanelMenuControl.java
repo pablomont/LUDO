@@ -5,11 +5,16 @@
  */
 package Control;
 
+import Util.DadoTimerTask;
 import Util.FrameOperation;
 import View.PanelInicialView;
 import View.PanelMenuView;
 import View.PanelTabuleiroView;
 import java.awt.Dimension;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import songs.TocarSom;
 
 /**
  *

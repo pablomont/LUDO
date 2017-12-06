@@ -154,5 +154,9 @@ public class Jogador {
     
     public Peça getPeçaEscolhida(){
         return peças[indexPeçaAtualEscolhida];
-    }      
+    }
+    
+    public Peça getPeça(int index){
+        return peças[index];
+    }
 }
