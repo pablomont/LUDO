@@ -6,10 +6,11 @@
 package View;
 
 import Control.PanelTabuleiroControl;
-import static Control.PanelTabuleiroControl.corDoJogadorDaVez.AMARELO;
-import static Control.PanelTabuleiroControl.corDoJogadorDaVez.AZUL;
-import static Control.PanelTabuleiroControl.corDoJogadorDaVez.VERDE;
-import static Control.PanelTabuleiroControl.corDoJogadorDaVez.VERMELHO;
+import Model.CorPeça;
+import static Model.CorPeça.AMARELO;
+import static Model.CorPeça.AZUL;
+import static Model.CorPeça.VERDE;
+import static Model.CorPeça.VERMELHO;
 import Model.Dado;
 import Model.JogadorModel;
 import Model.Peça;
@@ -310,7 +311,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -321,7 +322,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButtonVoltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -377,12 +378,12 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             Point p = control.movimentaPeao();
             //peaoClicado.setLocation(p); 
             deslocaPeao(peaoClicado);
-             sleep(1250);
+             sleep(500);
             atualizaView();
         }
         catch(java.lang.NullPointerException e){
             JOptionPane.showMessageDialog(this, "Você não pode mover a peça escolhida com o dado atual.", "", ERROR_MESSAGE);
-             sleep(1250);
+             sleep(500);
             atualizaView();
         }
       
@@ -396,22 +397,30 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
 
     private void atualizaView() {
       
-        movimentDado.start(1900);
+        
         if(control.proximoJogadorDaVez()){
             switch(control.getCorDoJogadorDaVez()){
             
             case AMARELO:   updatePositionDados(new Point(300,400)); 
+                            sleep(1000);
+                            movimentDado.start(2600);
                             //MovimentaDado.stopTimerTask();
                             //movimentDado.start(900);
                             break;
             case VERDE:     updatePositionDados(new Point(290,20));
                             //control.getJogador(VERDE).
+                            sleep(1000);
+                            movimentDado.start(1900);
                             movimentaPeao(VERDE);
                             break;
-            case VERMELHO:  updatePositionDados(new Point(880,20));  
+            case VERMELHO:  updatePositionDados(new Point(880,20)); 
+                            sleep(1000);        
+                            movimentDado.start(1900);
                             movimentaPeao(VERMELHO);
                             break;
             case AZUL:      updatePositionDados(new Point(830,610));
+                             sleep(1000);
+                            movimentDado.start(1900);
                             movimentaPeao(AZUL);
                             break;
             }   
@@ -463,9 +472,9 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
 
  
     
-    private void movimentaPeao(PanelTabuleiroControl.corDoJogadorDaVez corDoJogadorDaVez) {
+    private void movimentaPeao(CorPeça corDoJogadorDaVez) {
         
-        sleep(2100);
+        sleep(2900);
         
         MovimentaDado.stopTimerTask();
         Point p = control.movimentaPeao();
@@ -502,11 +511,11 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                 case 3: deslocaPeao(jLabelPeaoBlue4);break;
             }
         }
-        sleep(1250);
+        sleep(500);
          atualizaView();
     }
     catch(java.lang.NullPointerException e){
-         sleep(1250);
+         sleep(500);
         atualizaView();
     }
     }

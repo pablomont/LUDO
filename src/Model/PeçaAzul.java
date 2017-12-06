@@ -16,6 +16,7 @@ public class PeçaAzul extends Peça{
     
     public PeçaAzul(int casaAtual){
         super.casaAtual = casaAtual;
+        cor = CorPeça.AZUL;
         naBase = false;
         preencheCaminho();
     }
@@ -23,6 +24,7 @@ public class PeçaAzul extends Peça{
     public PeçaAzul() {
         preencheCaminho();
         naBase = true;
+        cor = CorPeça.AZUL;
     }
     
     @Override

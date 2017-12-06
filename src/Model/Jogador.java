@@ -5,7 +5,6 @@
  */
 package Model;
 
-import Control.PanelTabuleiroControl.corDoJogadorDaVez;
 import java.awt.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -86,7 +85,7 @@ public class Jogador {
         return (qtdPeçasNaChegada == 4);
     }
     
-    public void incrementaNumPeçasNaChegada(corDoJogadorDaVez cor){
+    public void incrementaNumPeçasNaChegada(CorPeça cor){
         qtdPeçasNaChegada++;
        System.out.println(cor+": quantiade de peças na chegada:  "+qtdPeçasNaChegada);
        System.out.println("peçaEscolhida: "+indexPeçaAtualEscolhida);

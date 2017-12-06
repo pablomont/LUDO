@@ -12,17 +12,25 @@ import java.awt.Point;
  * @author paabl
  */
 public abstract class Peça {
-    public boolean naBase = true;
-    public boolean chegada = false;
+    
+    protected CorPeça cor;
+    protected boolean naBase = true;
+    protected boolean chegada = false;
     protected Point[] caminho;
     protected final int NUM_CASAS = 74;
     protected int casaAtual = -1;
-    private int casaAntiga;
+    protected int casaAntiga;
 
     public boolean getChegada() {
         return chegada;
     }
+
+    public boolean isNaBase() {
+        return naBase;
+    }
  
+    
+    
     public int getCasaAtual() {
         return casaAtual;
     }

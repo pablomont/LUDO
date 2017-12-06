@@ -5,10 +5,11 @@
  */
 package Control;
 
-import static Control.PanelTabuleiroControl.corDoJogadorDaVez.AMARELO;
-import static Control.PanelTabuleiroControl.corDoJogadorDaVez.AZUL;
-import static Control.PanelTabuleiroControl.corDoJogadorDaVez.VERDE;
-import static Control.PanelTabuleiroControl.corDoJogadorDaVez.VERMELHO;
+import Model.CorPeça;
+import static Model.CorPeça.AMARELO;
+import static Model.CorPeça.AZUL;
+import static Model.CorPeça.VERDE;
+import static Model.CorPeça.VERMELHO;
 import Model.Dado;
 import Model.Jogador;
 import Model.Peça;
@@ -38,7 +39,7 @@ public class PanelTabuleiroControl extends AbstractControl{
 
 
     
-    public Jogador getJogador(corDoJogadorDaVez cor){
+    public Jogador getJogador(CorPeça cor){
         switch(cor){
             case AMARELO: return jogadores[0]; 
             case VERDE: return jogadores[1];
@@ -54,10 +55,7 @@ public class PanelTabuleiroControl extends AbstractControl{
         
     }
      
-    public enum corDoJogadorDaVez {
-       AMARELO, VERDE, AZUL, VERMELHO;
-    }
-    
+
   
     public int escolhaMaquinaDado() {
         return 0;
@@ -68,7 +66,7 @@ public class PanelTabuleiroControl extends AbstractControl{
         return jogadores[jogadorDaVez];
     }
     
-    public corDoJogadorDaVez getCorDoJogadorDaVez() {
+    public CorPeça getCorDoJogadorDaVez() {
        
         switch(jogadorDaVez){
             case 0: return AMARELO;
@@ -105,7 +103,7 @@ public class PanelTabuleiroControl extends AbstractControl{
 
     public boolean proximoJogadorDaVez() {
         
-       if(jogadores[jogadorDaVez].getPeçaEscolhida().chegada)
+       if(jogadores[jogadorDaVez].getPeçaEscolhida().getChegada())
             jogadores[jogadorDaVez].incrementaNumPeçasNaChegada(getCorDoJogadorDaVez());
        
        if(jogadores[jogadorDaVez].venceu()){
@@ -129,16 +127,16 @@ public class PanelTabuleiroControl extends AbstractControl{
             }
             else{
                 Peça p = jogadores[jogadorDaVez].escolhePeçaRandomDaBase();
-                if(p.naBase)
+                if(p.isNaBase())
                     return p.moverFirstCasa();
                 return p.mover(Dado.getNum());
             }
         }
         else{
-            if(Dado.getNum() != 6 && !jogadores[0].getPeçaEscolhida().naBase)
+            if(Dado.getNum() != 6 && !jogadores[0].getPeçaEscolhida().isNaBase())
                  return jogadores[0].getPeçaEscolhida().mover(Dado.getNum()); 
             else if(Dado.getNum() == 6){
-                if(jogadores[0].getPeçaEscolhida().naBase)
+                if(jogadores[0].getPeçaEscolhida().isNaBase())
                     return jogadores[0].getPeçaEscolhida().moverFirstCasa();
                 else{
                      return jogadores[0].getPeçaEscolhida().mover(Dado.getNum()); 

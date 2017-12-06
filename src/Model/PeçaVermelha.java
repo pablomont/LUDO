@@ -17,11 +17,13 @@ public class PeçaVermelha extends Peça {
         super.casaAtual = casaAtual;
         naBase = false;
         preencheCaminho();
+        cor = CorPeça.VERMELHO;
     }
 
     public PeçaVermelha() {
         preencheCaminho();
         naBase = true;
+        cor = CorPeça.VERMELHO;
     }
     
     @Override

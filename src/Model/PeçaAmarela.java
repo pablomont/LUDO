@@ -18,9 +18,11 @@ public class PeçaAmarela extends Peça{
         super.casaAtual = casaAtual;
         naBase = false;
         preencheCaminho();
+        cor = CorPeça.AMARELO;
     }
 
     public PeçaAmarela() {
+        cor = CorPeça.AMARELO;
         preencheCaminho();
         naBase = true;
     }

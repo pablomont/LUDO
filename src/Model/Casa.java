@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package Model;
-
-import java.awt.Point;
+import java.util.ArrayList;
 import javax.swing.JLabel;
 
 /**
@@ -14,20 +13,37 @@ import javax.swing.JLabel;
  */
 public class Casa {
     
-    public Casa(Point position) {
-        this.position = position;
-        ocupada = false;
-    }
+    private final ArrayList peoes;
+    private final ArrayList peças;
+    private boolean ocupada;
     
-    public Casa(JLabel peao){
-        this.position = peao.getLocation();
-        this.peao = peao;
+    public Casa(){
+        peoes = new ArrayList<JLabel>();
+        peças = new ArrayList<Peça>();
+    }
+      
+    public void addPeao(JLabel peao,Peça p){
+        peoes.add(peao);
+        peças.add(p);
+        
         ocupada = true;
     }
     
-    private Peça peça;
-    private Point position;
-    private JLabel peao;
-    private boolean ocupada;
+    public void removePeao(JLabel peao){
+        int i = peoes.indexOf(peao);
+        peoes.remove(peao);
+        peças.remove(i);
+        
+        if(peças.size() == 0)
+            ocupada = false;
+    }
+
+    public boolean isOcupada() {
+        return ocupada;
+    }
+
+    
+    
+    
 
 }
