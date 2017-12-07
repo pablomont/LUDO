@@ -8,6 +8,7 @@ package View;
 
 import Control.PanelMenuControl;
 import Model.JogadorModel;
+import Model.RankingModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -36,6 +37,7 @@ public class PanelMenuView extends javax.swing.JPanel {
         Icon avatar = new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/"+nomeAvatarJogador));
         jLabelAvatarJogador.setIcon(avatar);
         jLabelLogin.setText("Login: "+JogadorModel.USER_LOGGED.getName());
+        jLabel7.setText("\nPJ: "+RankingModel.USER_LOGGED.getPartJogadas() + "  \nVit: "+RankingModel.USER_LOGGED.getQuantidadeVitorias());
 
     }
 
