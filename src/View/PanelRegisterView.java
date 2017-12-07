@@ -187,28 +187,35 @@ public class PanelRegisterView extends javax.swing.JPanel {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
      
+        boolean podeCadastrar = true;
         
         if(jLogin.getText().length() < 4 ){
             JOptionPane.showMessageDialog(null,"O login possui menos que 4 caracteres");
+            podeCadastrar = false;
         }
         if(jLogin.getText().length() > 10){
             JOptionPane.showMessageDialog(null,"O login possui mais que 10 caracteres");
+            podeCadastrar = false;
         }
         
-        String aux; 
-        aux = jLogin.getText().substring(0);
         
-        if(aux.equals("0") || aux.equals("1") || aux.equals("2") || aux.equals("3") || aux.equals("4")
-           || aux.equals("5") || aux.equals("6") || aux.equals("7") || aux.equals("8") || aux.equals("9")){
+        char aux; 
+        aux = jLogin.getText().charAt(0);
+        
+        if(aux == '0' || aux == '1' || aux == '2'  || aux == '3' || aux == '4' || aux == '5' ||
+           aux == '6' || aux == '7' || aux == '9'){
             
              JOptionPane.showMessageDialog(null,"O login não deve ser iniciado com um número ");
+             podeCadastrar = false;
         }
         
         if(JTextSenha.getText().length() < 8 || JTextSenha.getText().length() > 10 ){
             JOptionPane.showMessageDialog(null,"A senha deve possui entre 8 e 10 caracteres");
+            
+            podeCadastrar = false;
         }
          
-        else{
+        if(podeCadastrar){
             String avatar = "avatar"+(avatarList.getSelectedIndex()+1)+".png";
         
         try {
@@ -225,6 +232,7 @@ public class PanelRegisterView extends javax.swing.JPanel {
         }
     
         }
+
         
     }//GEN-LAST:event_btnRegisterActionPerformed
 
