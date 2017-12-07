@@ -13,6 +13,7 @@ import static Model.CorPeça.VERDE;
 import static Model.CorPeça.VERMELHO;
 import Model.JogadorModel;
 import Model.Peça;
+import Model.RankingModel;
 import Model.Tabuleiro;
 import Util.DadoTimerTask;
 import Util.MovimentaDado;
@@ -362,11 +363,13 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
          int reply = JOptionPane.showConfirmDialog(null, "Tem certeza que você deseja sair", "Fazer logout", JOptionPane.YES_NO_OPTION);
          if (reply == JOptionPane.YES_OPTION) {
-            control.viewAnterior();
+            
             
             // atualiza ranking
-            RankingDAO.partidasJogadas++;
-            control.atualizaRanking(RankingDAO.quantVitorias, RankingDAO.partidasJogadas); 
+            //RankingDAO.partidasJogadas++;
+            RankingModel.USER_LOGGED.setPartJogadas(RankingModel.USER_LOGGED.getPartJogadas()+1);
+            control.atualizaRanking(RankingModel.USER_LOGGED.getQuantidadeVitorias(), RankingModel.USER_LOGGED.getPartJogadas()); 
+            control.viewAnterior();
             System.out.println("chamou o metodo atualiza ranking");
             
         }
@@ -386,7 +389,6 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         else if(peaoClicado.getName().contains("jLabelPeao"+str+"4")){
             control.getJogadorDaVez().escolhePeça(3);
         }
-        
         
         try{
             Point p = control.movimentaPeao();
@@ -444,14 +446,15 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
               JOptionPane.showMessageDialog(this,"O jogador "+control.getCorDoJogadorDaVez()+" venceu o jogo !!");
               
               if(control.getCorDoJogadorDaVez()== AMARELO){
-                  RankingDAO.partidasJogadas++;
-                  RankingDAO.quantVitorias++;
-                  control.atualizaRanking(RankingDAO.quantVitorias, RankingDAO.partidasJogadas);
+                  RankingModel.USER_LOGGED.setPartJogadas(RankingModel.USER_LOGGED.getPartJogadas()+1);
+                  RankingModel.USER_LOGGED.setQuantidadeVitorias(RankingModel.USER_LOGGED.getQuantidadeVitorias()+1);
+                  control.atualizaRanking(RankingModel.USER_LOGGED.getQuantidadeVitorias(), RankingModel.USER_LOGGED.getPartJogadas()); 
+
                   
               }else{
-                  RankingDAO.partidasJogadas++;
-                  control.atualizaRanking(RankingDAO.quantVitorias, RankingDAO.partidasJogadas);
-                  System.out.println("chamou o metodo atualiza ranking");
+                  RankingModel.USER_LOGGED.setPartJogadas(RankingModel.USER_LOGGED.getPartJogadas()+1);
+                  control.atualizaRanking(RankingModel.USER_LOGGED.getQuantidadeVitorias(), RankingModel.USER_LOGGED.getPartJogadas()); 
+                  //System.out.println("chamou o metodo atualiza ranking");
               }
              
               

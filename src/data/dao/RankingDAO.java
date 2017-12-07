@@ -5,20 +5,22 @@
  */
 package data.dao;
 
-import Model.Ranking;
+import Model.UserRanking;
 import data.DataBase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Jose George
  */
 public class RankingDAO implements DAO {
-    public static int quantVitorias = 0; 
-    public static int partidasJogadas = 0;
+//    public static int quantVitorias = 0; 
+//    public static int partidasJogadas = 0;
     private Connection conexao = null;
     
      
@@ -29,14 +31,14 @@ public class RankingDAO implements DAO {
 
     @Override
     public void INSERT(Object myDAO) throws Exception {
-        Ranking ranking = (Ranking) myDAO;
+        UserRanking userRanking = (UserRanking) myDAO;
         String sql = "INSERT INTO RankingJogo (login, quantVitorias, partidasJogadas) VALUES(?,?,?)";
        try {
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             
-            preparedStatement.setString(1,ranking.getLogin());
-            preparedStatement.setInt(2,ranking.getQuantidadeVitorias());
-            preparedStatement.setInt(3,ranking.getPartJogadas());
+            preparedStatement.setString(1,userRanking.getLogin());
+            preparedStatement.setInt(2,userRanking.getQuantidadeVitorias());
+            preparedStatement.setInt(3,userRanking.getPartJogadas());
             
             preparedStatement.execute();
             preparedStatement.close();
@@ -59,7 +61,7 @@ public class RankingDAO implements DAO {
     @Override
     public void UPDATE(Object myDAO) throws Exception {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        Ranking ranking = (Ranking) myDAO;
+        UserRanking ranking = (UserRanking) myDAO;
         String sql = "UPDATE RankingJogo SET quantVitorias = ? , "
                 + "partidasJogadas = ? "
                 + "WHERE login = ?";
@@ -83,11 +85,38 @@ public class RankingDAO implements DAO {
     public void DELETE(Object myDAO) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public Ranking verficaRanking(Ranking rank) {
-        
-         String sql= "SELECT * FROM RankingJogo WHERE login = ? ";
+    
+    //Esse método retorna todas as linhas da tabela RankingJogo
+    public List<UserRanking> getAllUsersRanking(){
+        conexao = DataBase.getConnection();
+        List<UserRanking> usersRanking = new ArrayList<>();
+        String sql= "SELECT * FROM RankingJogo ORDER BY quantVitorias DESC;";
+         
         try {
+            PreparedStatement preparedStatement = conexao.prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+            
+             while(rs.next()){
+                 UserRanking userRanking = new UserRanking(rs.getString("login"),rs.getInt("quantVitorias"),rs.getInt("partidasJogadas")){};
+                 usersRanking.add(userRanking);
+             
+             }
+             preparedStatement.close();
+             conexao.close();
+            
+        } catch (SQLException ex) {
+           System.out.println("error code: "+ex.getErrorCode()+" State: "+ex.getSQLState()+" mensagem"+ex.getMessage());
+        }
+        
+        return usersRanking;
+    
+    }
+    
+    //Esse método retorna uma linha da tabela RankingJogo
+    public UserRanking getUserRanking(UserRanking rank) throws  Exception  {
+        
+        String sql= "SELECT * FROM RankingJogo WHERE login = ? ";
+         try {
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             
             preparedStatement.setString(1, rank.getLogin());
@@ -107,13 +136,11 @@ public class RankingDAO implements DAO {
                 return rank;
              }
             
-         
             preparedStatement.close();
             conexao.close();
-           
-            
-        } catch (SQLException ex) {
-           System.out.println("Erro ao realizar abertura do ranking para o user "+rank.getLogin()+" E:"+ex.getMessage());
+            throw new Exception("Usuário ou senha incorreto.");
+          } catch (SQLException ex) {
+           System.out.println("Erro");
         }
         return null;
     }

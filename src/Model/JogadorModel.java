@@ -6,6 +6,7 @@
 package Model;
 
 import data.dao.JogadorDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,15 +30,13 @@ public class JogadorModel {
         }
     }
 
-    public void doLogin(Jogador j) {
+    public void doLogin(Jogador j) throws Exception {
           
         Jogador searchUser;
-        try {
+        
             searchUser = myDAO.verficaLogin(j);
             USER_LOGGED = searchUser;
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
+        
     }
  
 }

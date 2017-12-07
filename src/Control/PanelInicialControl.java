@@ -7,7 +7,7 @@ package Control;
 
 import Model.Jogador;
 import Model.JogadorModel;
-import Model.Ranking;
+import Model.UserRanking;
 import Model.RankingModel;
 import Util.FrameOperation;
 import View.PanelInicialView;
@@ -15,7 +15,6 @@ import View.PanelMenuView;
 import View.PanelRegisterView;
 import View.PanelTabuleiroView;
 import java.awt.Dimension;
-import java.awt.event.WindowEvent;
 
 
 
@@ -49,25 +48,33 @@ public class PanelInicialControl extends AbstractControl{
         j.setLogin(login);
         j.setSenha(senha);
         
-        try {
-            jg.doLogin(j);
-        } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-        }
-        
         RankingModel rankModel = new RankingModel();
-        Ranking rank = new Ranking();
+        UserRanking rank = new UserRanking();
         rank.setLogin(login);
         
-        try{
-            rankModel.verRanking(rank);
-        } catch(Exception ex){
-            System.out.println(ex.getMessage());
+        try {
+            jg.doLogin(j);
+            rankModel.getUserRanking(rank);
+           
+            PanelMenuControl menuController = new PanelMenuControl(new PanelMenuView());
+            menuController.mostrarView();
+             view.mostraAlerta("Login realizado com sucesso !");
+            
+            
+        } catch (Exception ex) {
+                view.mostraAlerta("Usuário ou senha incorreto !");
         }
         
         
-        PanelMenuControl menuController = new PanelMenuControl(new PanelMenuView());
-        menuController.mostrarView();
+//        
+//        try{
+//            
+//        } catch(Exception ex){
+//            System.out.println(ex.getMessage());
+//        }
+        
+        
+        
         
     }
     

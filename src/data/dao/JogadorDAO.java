@@ -83,10 +83,8 @@ public class JogadorDAO implements DAO{
             
          
             preparedStatement.close();
-            
-            
             conexao.close();
-            throw new Exception("Usuário ou senha incorreto.");
+            throw new Exception("Usuário ou senha incorretooooo");
             
         } catch (SQLException ex) {
            System.out.println("Erro ao realizar login de usuário "+user.getLogin()+" E:"+ex.getMessage());

@@ -146,11 +146,13 @@ public class PanelMenuView extends javax.swing.JPanel {
         if (reply == JOptionPane.YES_OPTION) {
             control.viewAnterior();
         }
-
+        JogadorModel.USER_LOGGED = null;
+        RankingModel.USER_LOGGED = null;
+        
     }//GEN-LAST:event_jButtonSairActionPerformed
 
     private void btnRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRankingActionPerformed
-        //control.ranking();
+        control.ranking();
     }//GEN-LAST:event_btnRankingActionPerformed
 
     private void btnJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJogarActionPerformed

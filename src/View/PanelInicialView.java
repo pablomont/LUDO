@@ -7,6 +7,7 @@ package View;
 
 import Control.PanelInicialControl;
 import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -114,6 +115,8 @@ public class PanelInicialView extends javax.swing.JPanel {
     private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
      
         control.loginVerificacao(txtLogin.getText(), String.valueOf(JTextSenha.getName()));
+        txtLogin.setText("");
+        JTextSenha.setText("");
 
     }//GEN-LAST:event_btnLogin1ActionPerformed
 
@@ -121,6 +124,10 @@ public class PanelInicialView extends javax.swing.JPanel {
         control.register();
     }//GEN-LAST:event_btnRegisterActionPerformed
 
+     public void mostraAlerta(String message){
+         JOptionPane.showMessageDialog(this,message);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField JTextSenha;

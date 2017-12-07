@@ -6,7 +6,7 @@
 package View;
 
 import Control.PanelRegisterControl;
-import Model.Ranking;
+import Model.UserRanking;
 import Model.RankingModel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -222,7 +222,7 @@ public class PanelRegisterView extends javax.swing.JPanel {
         
         try {
             control.registrarUsuario(txtNome.getText(), jFormattedTextField1.getText(), avatar, jLogin.getText(),String.valueOf(JTextSenha.getName()));
-            Ranking ranking = new Ranking();
+            UserRanking ranking = new UserRanking();
             ranking.setLogin(jLogin.getText());
             ranking.setPartJogadas(0);
             ranking.setQuantidadeVitorias(0);
@@ -231,7 +231,7 @@ public class PanelRegisterView extends javax.swing.JPanel {
             RankingModel rankModel = new RankingModel();
        
        try {
-           rankModel.insertRanking(ranking);
+           rankModel.insertUserRanking(ranking);
         } catch (Exception ex) {
           System.out.println(ex.getMessage());
         }

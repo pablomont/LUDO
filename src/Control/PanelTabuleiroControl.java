@@ -18,7 +18,7 @@ import Model.PeçaAmarela;
 import Model.PeçaAzul;
 import Model.PeçaVerde;
 import Model.PeçaVermelha;
-import Model.Ranking;
+import Model.UserRanking;
 import Util.FrameOperation;
 import View.FramePrincipal;
 import View.PanelMenuView;
@@ -163,7 +163,7 @@ public class PanelTabuleiroControl extends AbstractControl{
 
     public void atualizaRanking(int qVit, int pDisputadas) {
         
-        Ranking r = new Ranking(); 
+        UserRanking r = new UserRanking(); 
         RankingDAO rdao = new RankingDAO(); 
         
         r.setLogin(JogadorModel.USER_LOGGED.getLogin());

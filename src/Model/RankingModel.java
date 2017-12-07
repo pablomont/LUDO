@@ -6,6 +6,7 @@
 package Model;
 
 import data.dao.RankingDAO;
+import java.util.List;
 
 /**
  *
@@ -13,15 +14,16 @@ import data.dao.RankingDAO;
  */
 public class RankingModel {
     
-     public static Ranking USER_LOGGED;
-    private RankingDAO myDAO; 
+    public static UserRanking USER_LOGGED;
+    private  static  List<UserRanking> USERS;
+    private static RankingDAO myDAO; 
     
     
     public RankingModel(){
         this.myDAO = new RankingDAO();
     }
     
-    public void insertRanking(Ranking newRanking) throws Exception{
+    public void insertUserRanking(UserRanking newRanking) throws Exception{
         try {
             myDAO.INSERT(newRanking);
         } catch (Exception ex) {
@@ -29,14 +31,20 @@ public class RankingModel {
         }
     }
 
-    public void verRanking(Ranking rank) {
+    public void getUserRanking(UserRanking rank) {
         
-          Ranking searchRanking;
+        UserRanking searchUserRanking;
         try {
-            searchRanking = myDAO.verficaRanking(rank);
-            USER_LOGGED = searchRanking;
+            searchUserRanking = myDAO.getUserRanking(rank);
+            USER_LOGGED = searchUserRanking;
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+    }
+    
+    public static List<UserRanking> getRanking(){
+    
+        USERS =  myDAO.getAllUsersRanking();
+        return USERS;
     }
 }

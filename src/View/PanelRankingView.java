@@ -5,26 +5,47 @@
  */
 package View;
 
-import Control.PanelInicialControl;
-import java.awt.event.WindowEvent;
+import Control.PanelRankingControl;
+import Model.RankingModel;
+import Model.UserRanking;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author paabl
  */
-public class PanelInicialView extends javax.swing.JPanel {
+public class PanelRankingView extends javax.swing.JPanel {
 
-    PanelInicialControl control;
+    PanelRankingControl control;
+    private JTable tabela;
+    private DefaultTableModel modelo;
     
     /**
      * Creates new form Tabuleiro
      */
     
-     public PanelInicialView() {
-        control = new PanelInicialControl(this);
+     public PanelRankingView() {
+        control = new PanelRankingControl(this);
+        criaJTable();
         initComponents();
+        jScrollPane1.setViewportView(tabela);
+        
+        
+        
+        for(UserRanking u: RankingModel.getRanking() )    
+             modelo.addRow(new Object[] {u.getLogin(),u.getQuantidadeVitorias(),u.getPartJogadas()});
+        
     }
 
+     private void criaJTable(){
+        modelo = new DefaultTableModel();
+        tabela = new JTable(modelo);
+        modelo.addColumn("Login");
+        modelo.addColumn("Partidas");
+        modelo.addColumn("Vitórias");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,103 +55,74 @@ public class PanelInicialView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jButtonSair = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        JTextSenha = new javax.swing.JPasswordField();
-        txtLogin = new javax.swing.JTextField();
-        btnRegister = new javax.swing.JButton();
-        btnLogin1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
+        add(jScrollPane1);
+        jScrollPane1.setBounds(100, 100, 580, 400);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/ludo2.png"))); // NOI18N
-        add(jLabel3);
-        jLabel3.setBounds(500, 270, 300, 290);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/Ludo_logo.png"))); // NOI18N
-        add(jLabel2);
-        jLabel2.setBounds(0, -10, 500, 300);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("Senha:");
-        add(jLabel4);
-        jLabel4.setBounds(110, 380, 60, 20);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Login:");
-        add(jLabel5);
-        jLabel5.setBounds(110, 330, 80, 20);
-
-        JTextSenha.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        add(JTextSenha);
-        JTextSenha.setBounds(110, 400, 230, 30);
-
-        txtLogin.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        txtLogin.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSair.setBackground(new java.awt.Color(255, 255, 204));
+        jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/logoutDOOR.png"))); // NOI18N
+        jButtonSair.setBorder(null);
+        jButtonSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLoginActionPerformed(evt);
+                jButtonSairActionPerformed(evt);
             }
         });
-        add(txtLogin);
-        txtLogin.setBounds(110, 350, 230, 30);
+        add(jButtonSair);
+        jButtonSair.setBounds(760, 10, 33, 33);
 
-        btnRegister.setBackground(new java.awt.Color(0, 255, 0));
-        btnRegister.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegister.setText("Register");
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
-            }
-        });
-        add(btnRegister);
-        btnRegister.setBounds(223, 440, 120, 40);
-
-        btnLogin1.setBackground(new java.awt.Color(204, 204, 0));
-        btnLogin1.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        btnLogin1.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin1.setText("Log In");
-        btnLogin1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogin1ActionPerformed(evt);
-            }
-        });
-        add(btnLogin1);
-        btnLogin1.setBounds(110, 440, 100, 40);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/a-soft-sky-with-cloud-background-in-pastel-color-abstract-gradation-color-pastel_6529-11.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/Winners.png"))); // NOI18N
         add(jLabel1);
-        jLabel1.setBounds(100, 70, 640, 420);
+        jLabel1.setBounds(430, 0, 120, 100);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/Ludo_logo2.png"))); // NOI18N
+        add(jLabel6);
+        jLabel6.setBounds(250, 0, 170, 90);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/a-soft-sky-with-cloud-background-in-pastel-color-abstract-gradation-color-pastel_6529-11.jpg"))); // NOI18N
+        add(jLabel2);
+        jLabel2.setBounds(0, 0, 630, 420);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/a-soft-sky-with-cloud-background-in-pastel-color-abstract-gradation-color-pastel_6529-11.jpg"))); // NOI18N
+        add(jLabel3);
+        jLabel3.setBounds(170, 0, 630, 420);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/a-soft-sky-with-cloud-background-in-pastel-color-abstract-gradation-color-pastel_6529-11.jpg"))); // NOI18N
+        add(jLabel4);
+        jLabel4.setBounds(170, 140, 630, 420);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/a-soft-sky-with-cloud-background-in-pastel-color-abstract-gradation-color-pastel_6529-11.jpg"))); // NOI18N
+        add(jLabel5);
+        jLabel5.setBounds(0, 140, 630, 420);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLoginActionPerformed
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
 
-    private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
-     
-        control.loginVerificacao(txtLogin.getText(), String.valueOf(JTextSenha.getName()));
-
-    }//GEN-LAST:event_btnLogin1ActionPerformed
-
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        control.register();
-    }//GEN-LAST:event_btnRegisterActionPerformed
+        int reply = JOptionPane.showConfirmDialog(null, "Tem certeza que você deseja sair", "Fazer logout", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+            control.viewAnterior();
+        }
+    }//GEN-LAST:event_jButtonSairActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField JTextSenha;
-    private javax.swing.JButton btnLogin1;
-    private javax.swing.JButton btnRegister;
+    private javax.swing.JButton jButtonSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField txtLogin;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,12 +9,22 @@ package Model;
  *
  * @author Jose George
  */
-public class Ranking {
+public class UserRanking {
     
     private String login; 
     private int partJogadas; 
     private int quantidadeVitorias;
 
+    public UserRanking(String login, int partJogadas, int quantidadeVitorias) {
+        this.login = login;
+        this.partJogadas = partJogadas;
+        this.quantidadeVitorias = quantidadeVitorias;
+    }
+
+    public UserRanking(){
+    
+    }
+    
     public String getLogin() {
         return login;
     }

@@ -9,6 +9,7 @@ import Util.DadoTimerTask;
 import Util.FrameOperation;
 import View.PanelInicialView;
 import View.PanelMenuView;
+import View.PanelRankingView;
 import View.PanelTabuleiroView;
 import java.awt.Dimension;
 import java.io.IOException;
@@ -53,6 +54,11 @@ public class PanelMenuControl extends AbstractControl{
     public void jogar() {
          PanelTabuleiroControl tabController = new PanelTabuleiroControl(new PanelTabuleiroView());
          tabController.mostrarView();
+    }
+
+    public void ranking() {
+        PanelRankingControl rankingControl = new PanelRankingControl(new PanelRankingView());
+        rankingControl.mostrarView();
     }
 
 }
