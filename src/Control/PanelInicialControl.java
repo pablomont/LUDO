@@ -7,6 +7,8 @@ package Control;
 
 import Model.Jogador;
 import Model.JogadorModel;
+import Model.Ranking;
+import Model.RankingModel;
 import Util.FrameOperation;
 import View.PanelInicialView;
 import View.PanelMenuView;
@@ -53,6 +55,15 @@ public class PanelInicialControl extends AbstractControl{
                 System.out.println(ex.getMessage());
         }
         
+        RankingModel rankModel = new RankingModel();
+        Ranking rank = new Ranking();
+        rank.setLogin(login);
+        
+        try{
+            rankModel.verRanking(rank);
+        } catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
         
         
         PanelMenuControl menuController = new PanelMenuControl(new PanelMenuView());

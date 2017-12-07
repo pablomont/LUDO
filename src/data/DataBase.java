@@ -39,13 +39,13 @@ public class DataBase {
         }
         
         
-        String sqlRanking = "CREATE TABLE IF NOT EXISTS Ranking ( "
-                            +"ID INT ROWID,"
-                            +"nome VARCHAR(10) NOT NULL,  "
+        String sqlRanking = "CREATE TABLE IF NOT EXISTS RankingJogo ( "
+                            +"id INT AUTO_INCREMENT, \n"
+                            +"login VARCHAR(10) NOT NULL, \n "
                             +"quantVitorias INT(4) NOT NULL,   "
                             +"partidasJogadas INT(4) NOT NULL,             "
-                            +"PRIMARY KEY (ID),"
-                            +"FOREIGN KEY(nome) REFERENCES Usuario(login));"; 
+                            +"PRIMARY KEY (id),"
+                            +"FOREIGN KEY(login) REFERENCES Usuario(login));"; 
         try {
             prepSteaStatement = conexao.prepareStatement(sqlRanking);
             prepSteaStatement.execute();
