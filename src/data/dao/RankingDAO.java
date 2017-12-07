@@ -17,9 +17,11 @@ import java.sql.SQLException;
  * @author Jose George
  */
 public class RankingDAO implements DAO {
+    public static int quantVitorias = 0; 
+    public static int partidasJogadas = 0;
+    private Connection conexao = null;
     
-     private Connection conexao = null;
-    
+     
     public RankingDAO(){
         this.conexao = DataBase.getConnection();
     }
@@ -56,7 +58,25 @@ public class RankingDAO implements DAO {
        
     @Override
     public void UPDATE(Object myDAO) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Ranking ranking = (Ranking) myDAO;
+        String sql = "UPDATE RankingJogo SET quantVitorias = ? , "
+                + "partidasJogadas = ? "
+                + "WHERE login = ?";
+        
+         try {
+            PreparedStatement pstmt = conexao.prepareStatement(sql); 
+ 
+            // set the corresponding param
+            pstmt.setInt(1, ranking.getQuantidadeVitorias());
+            pstmt.setInt(2, ranking.getPartJogadas());
+            pstmt.setString(3, ranking.getLogin());
+            System.out.println("uptade rolandooooo");
+            // update 
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("ERROR NO UPDATE:       "+e.getMessage());
+        }
     }
 
     @Override

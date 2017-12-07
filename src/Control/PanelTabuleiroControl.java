@@ -12,15 +12,18 @@ import static Model.CorPeça.VERDE;
 import static Model.CorPeça.VERMELHO;
 import Model.Dado;
 import Model.Jogador;
+import Model.JogadorModel;
 import Model.Peça;
 import Model.PeçaAmarela;
 import Model.PeçaAzul;
 import Model.PeçaVerde;
 import Model.PeçaVermelha;
+import Model.Ranking;
 import Util.FrameOperation;
 import View.FramePrincipal;
 import View.PanelMenuView;
 import View.PanelTabuleiroView;
+import data.dao.RankingDAO;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.util.Random;
@@ -157,5 +160,24 @@ public class PanelTabuleiroControl extends AbstractControl{
 //        else if(!jogadores[jogadorDaVez].getPeçaEscolhida().naBase){
 //            return jogadores[jogadorDaVez].getPeçaEscolhida().mover(Dado.getNum()); 
 //        }
+
+    public void atualizaRanking(int qVit, int pDisputadas) {
+        
+        Ranking r = new Ranking(); 
+        RankingDAO rdao = new RankingDAO(); 
+        
+        r.setLogin(JogadorModel.USER_LOGGED.getLogin());
+        r.setPartJogadas(pDisputadas);
+        r.setQuantidadeVitorias(qVit);
+     
+       
+       try {
+            rdao.UPDATE(r);
+        } catch (Exception ex) {
+          System.out.println(ex.getMessage());
+        }
+        
+        
+    }
        
 }

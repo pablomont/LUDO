@@ -16,6 +16,7 @@ import Model.Peça;
 import Model.Tabuleiro;
 import Util.DadoTimerTask;
 import Util.MovimentaDado;
+import data.dao.RankingDAO;
 import java.awt.Point;
 import java.io.IOException;
 import java.util.Random;
@@ -357,11 +358,17 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             movimentaPeao("Yellow",peaoClicado);
         }
     }//GEN-LAST:event_jLabelPeaoMouseClicked
-
+       
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
          int reply = JOptionPane.showConfirmDialog(null, "Tem certeza que você deseja sair", "Fazer logout", JOptionPane.YES_NO_OPTION);
          if (reply == JOptionPane.YES_OPTION) {
             control.viewAnterior();
+            
+            // atualiza ranking
+            RankingDAO.partidasJogadas++;
+            control.atualizaRanking(RankingDAO.quantVitorias, RankingDAO.partidasJogadas); 
+            System.out.println("chamou o metodo atualiza ranking");
+            
         }
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
