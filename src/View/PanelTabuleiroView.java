@@ -442,6 +442,19 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         else{
         
               JOptionPane.showMessageDialog(this,"O jogador "+control.getCorDoJogadorDaVez()+" venceu o jogo !!");
+              
+              if(control.getCorDoJogadorDaVez()== AMARELO){
+                  RankingDAO.partidasJogadas++;
+                  RankingDAO.quantVitorias++;
+                  control.atualizaRanking(RankingDAO.quantVitorias, RankingDAO.partidasJogadas);
+                  
+              }else{
+                  RankingDAO.partidasJogadas++;
+                  control.atualizaRanking(RankingDAO.quantVitorias, RankingDAO.partidasJogadas);
+                  System.out.println("chamou o metodo atualiza ranking");
+              }
+             
+              
         }
         
         
