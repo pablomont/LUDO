@@ -11,13 +11,11 @@ import static Model.CorPeça.AMARELO;
 import static Model.CorPeça.AZUL;
 import static Model.CorPeça.VERDE;
 import static Model.CorPeça.VERMELHO;
+import Model.Dado;
 import Model.JogadorModel;
 import Model.Peça;
-import Model.RankingModel;
-import Model.Tabuleiro;
 import Util.DadoTimerTask;
 import Util.MovimentaDado;
-import data.dao.RankingDAO;
 import java.awt.Point;
 import java.io.IOException;
 import java.util.Random;
@@ -75,8 +73,8 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jButtonVoltar = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jBtnDado1 = new javax.swing.JButton();
         jLabelPeaoYellow2 = new javax.swing.JLabel();
@@ -104,14 +102,41 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jLabelCircleBlue3 = new javax.swing.JLabel();
         jLabelCircleGreen3 = new javax.swing.JLabel();
         jLabelCircleRed3 = new javax.swing.JLabel();
-        jButtonVoltar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 253, 165));
-        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
+        setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 253, 165));
+        jPanel1.setBackground(new java.awt.Color(255, 253, 165));
 
-        jPanel3.setBackground(new java.awt.Color(255, 253, 165));
+        jButtonVoltar.setBackground(new java.awt.Color(255, 253, 165));
+        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/logoutDOOR.png"))); // NOI18N
+        jButtonVoltar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(1233, Short.MAX_VALUE)
+                .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonVoltar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        add(jPanel1, java.awt.BorderLayout.NORTH);
 
         jPanel8.setBackground(new java.awt.Color(255, 253, 165));
         jPanel8.setLayout(null);
@@ -287,64 +312,48 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jPanel8.add(jLabelCircleRed3);
         jLabelCircleRed3.setBounds(870, 10, 360, 350);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 1243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
-        );
+        add(jPanel8, java.awt.BorderLayout.CENTER);
 
-        jButtonVoltar.setBackground(new java.awt.Color(255, 253, 165));
-        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageViews/logoutDOOR.png"))); // NOI18N
-        jButtonVoltar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVoltarActionPerformed(evt);
-            }
-        });
+        jPanel2.setBackground(new java.awt.Color(255, 253, 165));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+            .addGap(0, 56, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonVoltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 735, Short.MAX_VALUE)
         );
 
-        add(jPanel2);
+        add(jPanel2, java.awt.BorderLayout.EAST);
+
+        jPanel3.setBackground(new java.awt.Color(255, 253, 165));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 55, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 735, Short.MAX_VALUE)
+        );
+
+        add(jPanel3, java.awt.BorderLayout.WEST);
     }// </editor-fold>//GEN-END:initComponents
 
     
     private void jBtnDado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDado1ActionPerformed
-//        if(Dado.getNum() == 6){
-//            //Button2.setVisible(true);
-//            movimentDado.start(900);
-//        }// TODO add your handling code here:
+        if(Dado.getNum() == 6){
+            //Button2.setVisible(true);
+            if(!MovimentaDado.isRunning())
+                movimentDado.start(900);
+        }// TODO add your handling code here:
 
-        movimentDado.start(900);
+       // movimentDado.start(900);
     }//GEN-LAST:event_jBtnDado1ActionPerformed
 
     private void jLabelPeaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPeaoMouseClicked
@@ -364,14 +373,10 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
          int reply = JOptionPane.showConfirmDialog(null, "Tem certeza que você deseja sair", "Fazer logout", JOptionPane.YES_NO_OPTION);
          if (reply == JOptionPane.YES_OPTION) {
             
-            
-            // atualiza ranking
-            //RankingDAO.partidasJogadas++;
-            RankingModel.USER_LOGGED.setPartJogadas(RankingModel.USER_LOGGED.getPartJogadas()+1);
-            control.atualizaRanking(RankingModel.USER_LOGGED.getQuantidadeVitorias(), RankingModel.USER_LOGGED.getPartJogadas()); 
+            JogadorModel.USER_LOGGED.setQtdPartidas( JogadorModel.USER_LOGGED.getQtdPartidas()+1);
+            JogadorModel.updateUser();
             control.viewAnterior();
-            System.out.println("chamou o metodo atualiza ranking");
-            
+ 
         }
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
@@ -446,21 +451,10 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
               JOptionPane.showMessageDialog(this,"O jogador "+control.getCorDoJogadorDaVez()+" venceu o jogo !!");
               
               if(control.getCorDoJogadorDaVez()== AMARELO){
-                  RankingModel.USER_LOGGED.setPartJogadas(RankingModel.USER_LOGGED.getPartJogadas()+1);
-                  RankingModel.USER_LOGGED.setQuantidadeVitorias(RankingModel.USER_LOGGED.getQuantidadeVitorias()+1);
-                  control.atualizaRanking(RankingModel.USER_LOGGED.getQuantidadeVitorias(), RankingModel.USER_LOGGED.getPartJogadas()); 
-
-                  
-              }else{
-                  RankingModel.USER_LOGGED.setPartJogadas(RankingModel.USER_LOGGED.getPartJogadas()+1);
-                  control.atualizaRanking(RankingModel.USER_LOGGED.getQuantidadeVitorias(), RankingModel.USER_LOGGED.getPartJogadas()); 
-                  //System.out.println("chamou o metodo atualiza ranking");
+                  JogadorModel.USER_LOGGED.setQtdVitorias(JogadorModel.USER_LOGGED.getQtdVitorias()+1);
+                  JogadorModel.updateUser();   
               }
-             
-              
-        }
-        
-        
+        } 
     }
 
     private void updatePositionDados(Point PosBtn1) {
@@ -495,6 +489,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelUser13;
     private javax.swing.JLabel jLabelUser14;
     private javax.swing.JLabel jLabelUser15;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel8;
@@ -555,18 +550,17 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         Point p = null;
         
         for(int i = pe.getCasaIndexAntiga(); i <= pe.getIndexCasaAtual() ; i++){
-            p = pe.getPoint(i);
-            jLabelPeao.setLocation(p);
-            
-            System.out.print(Tabuleiro.contains(p));
-            
-            try {
-            TocarSom.tocaSom("movendo_pino");
+              try {
+            TocarSom t = new TocarSom();
+            t.tocaSom("movendo_pino.wav");
         } catch (IOException ex) {
             Logger.getLogger(DadoTimerTask.class.getName()).log(Level.SEVERE, null, ex);
         }
-            sleep(250);
+            p = pe.getPoint(i);
+            jLabelPeao.setLocation(p);
+            sleep(200);
             
+           // System.out.print(Tabuleiro.contains(p));
         }
         
          JLabel peao = getPeaoMesmaPosicao(jLabelPeao,pe.getCor());
@@ -628,9 +622,12 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                      peça = control.getJogador(VERDE).getPeça(3);
                  }
              }
+             peao.setLocation(peça.getLocationBase());
+             peça.setNaBase(true);
          }
             
     }
+    
     private void sleep(int n) {
         new Thread(new Runnable() {
           @Override
@@ -655,9 +652,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             case VERMELHO:  peao = verificaPeao(VERMELHO,jLabelPeao); break;
             case AZUL:  peao = verificaPeao(AZUL,jLabelPeao); break;
             case VERDE:  peao = verificaPeao(VERDE,jLabelPeao); break;
-   
         }
-         
         return peao;
     }
 
@@ -695,7 +690,6 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                 peao = jLabelPeaoBlue3;    
             else if(jLabelPeao.getLocation().equals(jLabelPeaoBlue4.getLocation()))
                 peao = jLabelPeaoBlue4;   
-
         }
         else if(cor == VERMELHO){
              //compara com amarelo
@@ -760,7 +754,6 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                 peao = jLabelPeaoRed3;    
             else if(jLabelPeao.getLocation().equals(jLabelPeaoRed4.getLocation()))
                 peao = jLabelPeaoRed4; 
-         
          }
         
          else if(cor == AZUL){
@@ -795,10 +788,8 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                 peao = jLabelPeaoGreen4;
             
          }
-         
          return peao;
     }
-
 }       
        
     

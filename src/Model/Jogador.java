@@ -21,11 +21,47 @@ public class Jogador {
     private String login;
     private String senha; 
     private String avatar;
+    private int qtdPartidas;
+    private int qtdVitorias;
+    
+    
 
     public Jogador() {
          randomGenerator = new Random();
     }
 
+    public Jogador(String login,String dataDeNascimento, String senha,  String avatar,String name, int qtdPartidas, int qtdVitorias) {
+        this.login = login;
+        this.dataDeNascimento = dataDeNascimento;
+        this.senha = senha;
+        this.avatar = avatar;
+        this.name = name;
+        setQtdPartidas(qtdPartidas);
+        setQtdVitorias(qtdVitorias);
+        
+        randomGenerator = new Random();
+    }
+
+ 
+    public int getQtdPartidas() {
+        return qtdPartidas;
+    }
+
+    public void setQtdPartidas(int qtdPartidas) {
+        this.qtdPartidas = qtdPartidas;
+    }
+
+    public int getQtdVitorias() {
+        return qtdVitorias;
+    }
+
+    public void setQtdVitorias(int qtdVitorias) {
+        this.qtdVitorias = qtdVitorias;
+    }
+
+    
+    
+    
     public String getAvatar() {
         return avatar;
     }
@@ -66,7 +102,6 @@ public class Jogador {
     public void setSenha(String senha) {
         this.senha = senha;
     }
- 
     
     private Peça[] peças;
     private final Random randomGenerator;
@@ -159,4 +194,7 @@ public class Jogador {
     public Peça getPeça(int index){
         return peças[index];
     }
+
+
+
 }

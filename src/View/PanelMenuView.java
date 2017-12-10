@@ -8,10 +8,7 @@ package View;
 
 import Control.PanelMenuControl;
 import Model.JogadorModel;
-import Model.RankingModel;
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,14 +27,20 @@ public class PanelMenuView extends javax.swing.JPanel {
     
      public PanelMenuView() {
         initComponents();
-        
+     
         
         control = new PanelMenuControl(this);
+
         nomeAvatarJogador = JogadorModel.USER_LOGGED.getAvatar();
+   
         Icon avatar = new javax.swing.ImageIcon(getClass().getResource("/ImageAvatars/"+nomeAvatarJogador));
+ 
         jLabelAvatarJogador.setIcon(avatar);
+   
         jLabelLogin.setText("Login: "+JogadorModel.USER_LOGGED.getName());
-        jLabel7.setText("\nPJ: "+RankingModel.USER_LOGGED.getPartJogadas() + "  \nVit: "+RankingModel.USER_LOGGED.getQuantidadeVitorias());
+    
+        jLabel7.setText("\nPJ: "+JogadorModel.USER_LOGGED.getQtdPartidas() + "  \nVit: "+JogadorModel.USER_LOGGED.getQtdVitorias());
+        
 
     }
 
@@ -147,7 +150,7 @@ public class PanelMenuView extends javax.swing.JPanel {
             control.viewAnterior();
         }
         JogadorModel.USER_LOGGED = null;
-        RankingModel.USER_LOGGED = null;
+       ;
         
     }//GEN-LAST:event_jButtonSairActionPerformed
 
@@ -173,6 +176,8 @@ public class PanelMenuView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelLogin;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
-
+ public void mostraAlerta(String message){
+         JOptionPane.showMessageDialog(this,message);
+    }
   
 }

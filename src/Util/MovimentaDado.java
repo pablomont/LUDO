@@ -40,8 +40,9 @@ public class MovimentaDado{
 
     public void start(long tempoLimite){
         
-         try {
-            TocarSom.tocaSom("jogando_dados");
+        try {
+            TocarSom t = new TocarSom();
+            t.tocaSom("jogando_dados.wav");
         } catch (IOException ex) {
             Logger.getLogger(DadoTimerTask.class.getName()).log(Level.SEVERE, null, ex);
         }

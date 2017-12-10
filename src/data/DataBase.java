@@ -20,13 +20,14 @@ public class DataBase {
         Connection conexao = getConnection();
         PreparedStatement prepSteaStatement;
         
-        String sqlUsuario = "CREATE TABLE IF NOT EXISTS Usuario ( "
+        String sqlUsuario = "CREATE TABLE IF NOT EXISTS Jogador ( "
                             +"nome VARCHAR(50) NOT NULL,  "
                             +"dataDeNascimento VARCHAR(10) NOT NULL,   "
                             +"avatar TEXT NOT NULL,             "
                             +"login VARCHAR(10),"
                             +"senha VARCHAR(20),"
-                
+                            +"qtdPartidas INTEGER,"  
+                            +"qtdVitorias INTEGER,"  
                             +"PRIMARY KEY(login));"; 
         
         
@@ -34,27 +35,11 @@ public class DataBase {
             prepSteaStatement = conexao.prepareStatement(sqlUsuario);
             prepSteaStatement.execute();
         } catch (SQLException ex) {
-                System.err.println("Fail on create table [User] (E: "+ex.getMessage()+")");
+                System.err.println("Fail on create table [Jogador] (E: "+ex.getMessage()+")");
             return false;
         }
         
-        
-        String sqlRanking = "CREATE TABLE IF NOT EXISTS RankingJogo ( "
-                            +"id INT AUTO_INCREMENT, \n"
-                            +"login VARCHAR(10) NOT NULL, \n "
-                            +"quantVitorias INT(4) NOT NULL,   "
-                            +"partidasJogadas INT(4) NOT NULL,             "
-                            +"PRIMARY KEY (login),"
-                            +"PRIMARY KEY (id),"
-                            +"FOREIGN KEY(login) REFERENCES Usuario(login));"; 
-        try {
-            prepSteaStatement = conexao.prepareStatement(sqlRanking);
-            prepSteaStatement.execute();
-        } catch (SQLException ex) {
-                System.err.println("Fail on create table [User] (E: "+ex.getMessage()+")");
-            return false;
-        }
-        
+       
         return true;
     }
     
@@ -62,7 +47,7 @@ public class DataBase {
          Connection conn = null;
         try {
             // db parameters
-            String url = "jdbc:sqlite:.db";
+            String url = "jdbc:sqlite:ludo.db";
             // create a connection to the database
             conn = DriverManager.getConnection(url);
             

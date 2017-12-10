@@ -30,7 +30,7 @@ public class TocarSom {
     private static String trilhaDecorrente;
     private static TocarSom tocarSom;
 
-    private TocarSom(){
+    public TocarSom(){
         //Os comandos abaixo servem para generalizar os diretorios dos arquivos de musica
         click = System.getProperty("user.dir")+"\\src\\songs\\click.wav";
       
@@ -45,18 +45,18 @@ public class TocarSom {
     }
     
         
-    public static void tocaSom(String nome) throws IOException{
+    public void tocaSom(String nome) throws IOException{
         if(tocarSom == null)
             tocarSom = new TocarSom();
         
-        if(nome.equals("click"))
-            in = new FileInputStream(click);
-        else if(nome.equals("jogando_dados"))
-            in = new FileInputStream(jogandoDados);
-        else if(nome.equals("movendo_pino"))
-            in = new FileInputStream(movendoPinos);
-        else
-            in = new FileInputStream(trilhaDecorrente);
+        //if(nome.equals("click"))
+            in = getClass().getResourceAsStream(nome);
+//        else if(nome.equals("jogando_dados"))
+//            in = new FileInputStream(jogandoDados);
+//        else if(nome.equals("movendo_pino"))
+//            in = new FileInputStream(movendoPinos);
+//        else
+//            in = new FileInputStream(trilhaDecorrente);
         
         audio = new AudioStream(in);
         AudioPlayer.player.start(audio);

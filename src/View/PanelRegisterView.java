@@ -6,8 +6,6 @@
 package View;
 
 import Control.PanelRegisterControl;
-import Model.UserRanking;
-import Model.RankingModel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -221,27 +219,20 @@ public class PanelRegisterView extends javax.swing.JPanel {
             String avatar = "avatar"+(avatarList.getSelectedIndex()+1)+".png";
         
         try {
-            control.registrarUsuario(txtNome.getText(), jFormattedTextField1.getText(), avatar, jLogin.getText(),String.valueOf(JTextSenha.getName()));
+                control.registrarJogador(txtNome.getText(), jFormattedTextField1.getText(), avatar, jLogin.getText(),String.valueOf(JTextSenha.getName()));
             
-      
               if(PanelRegisterControl.cadastroSucesso){
-                  control.cria_ranking(jLogin.getText(), 0, 0);
 
                   txtNome.setText("");
                   jFormattedTextField1.setText("");
                   jLogin.setText("");
                   JTextSenha.setText("");
 
-            } else{
-                  
-              }
-             
-         
-            
-             
+                } 
             } catch (Exception ex) {
-            Logger.getLogger(PanelRegisterView.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex.getMessage());
+            //Logger.getLogger(PanelRegisterView.class.getName()).log(Level.SEVERE, null, ex);
+            //System.out.println(ex.getMessage());
+            JOptionPane.showConfirmDialog(this, ex.getMessage());
         }
     
         }
@@ -281,7 +272,7 @@ public class PanelRegisterView extends javax.swing.JPanel {
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 
-     JComboBox avatarList;
+    JComboBox avatarList;
     private void preencheComboBox() {
          //DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         for (int i = 1; i <= MAX_ICONS; i++) {

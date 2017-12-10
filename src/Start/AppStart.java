@@ -33,7 +33,8 @@ public class AppStart {
 //        }).start();
        
         try {
-            TocarSom.tocaSom("");
+            TocarSom t = new TocarSom();
+            t.tocaSom("trilha_decorrente.wav");
         } catch (IOException ex) {
             Logger.getLogger(DadoTimerTask.class.getName()).log(Level.SEVERE, null, ex);
         }

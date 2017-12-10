@@ -5,17 +5,12 @@
  */
 package Control;
 
-import Util.DadoTimerTask;
 import Util.FrameOperation;
 import View.PanelInicialView;
 import View.PanelMenuView;
 import View.PanelRankingView;
 import View.PanelTabuleiroView;
 import java.awt.Dimension;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import songs.TocarSom;
 
 /**
  *
@@ -43,7 +38,7 @@ public class PanelMenuControl extends AbstractControl{
         FrameOperation.setMaximized(false);
         FrameOperation.setResizable(false);
         FrameOperation.setSize(new Dimension(dimensionWidth, dimensionHeight));
-        FrameOperation.setCenter(true);
+
     }
 
     @Override

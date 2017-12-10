@@ -6,8 +6,8 @@
 package View;
 
 import Control.PanelRankingControl;
-import Model.RankingModel;
-import Model.UserRanking;
+import Model.Jogador;
+import Model.JogadorModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -34,8 +34,8 @@ public class PanelRankingView extends javax.swing.JPanel {
         
         
         
-        for(UserRanking u: RankingModel.getRanking() )    
-             modelo.addRow(new Object[] {u.getLogin(),u.getQuantidadeVitorias(),u.getPartJogadas()});
+        for(Jogador j: JogadorModel.getJogadores() )    
+           modelo.addRow(new Object[] {j.getLogin(),j.getQtdPartidas(),j.getQtdVitorias()});
         
     }
 

@@ -7,8 +7,6 @@ package Control;
 
 import Model.Jogador;
 import Model.JogadorModel;
-import Model.UserRanking;
-import Model.RankingModel;
 import Util.FrameOperation;
 import View.PanelInicialView;
 import View.PanelMenuView;
@@ -37,44 +35,28 @@ public class PanelInicialControl extends AbstractControl{
 
     }
 
-   
-
     public void loginVerificacao(String login, String senha){
         
-        
-        
+        try {
+            
         JogadorModel jg = new JogadorModel();
         Jogador j = new Jogador();
         j.setLogin(login);
         j.setSenha(senha);
+
+        jg.doLogin(j);
+            
+        PanelMenuControl menuController = new PanelMenuControl(new PanelMenuView());
+        menuController.mostrarView();
         
-        RankingModel rankModel = new RankingModel();
-        UserRanking rank = new UserRanking();
-        rank.setLogin(login);
-        
-        try {
-            jg.doLogin(j);
-            rankModel.getUserRanking(rank);
-           
-            PanelMenuControl menuController = new PanelMenuControl(new PanelMenuView());
-            menuController.mostrarView();
-             view.mostraAlerta("Login realizado com sucesso !");
+        view.mostraAlerta("Login realizado com sucesso !");
             
             
         } catch (Exception ex) {
-                view.mostraAlerta("Usuário ou senha incorreto !");
+            
+            view.mostraAlerta(ex.getMessage());
         }
-        
-        
-//        
-//        try{
-//            
-//        } catch(Exception ex){
-//            System.out.println(ex.getMessage());
-//        }
-        
-        
-        
+  
         
     }
     

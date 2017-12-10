@@ -11,6 +11,7 @@ import static java.awt.Frame.MAXIMIZED_BOTH;
 import static java.awt.Frame.NORMAL;
 import java.awt.Point;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -59,7 +60,10 @@ public class FrameOperation {
     }
     
     public static void setView(JPanel view){
+
         view.setVisible(true);
+   
+        
         mainFrame.setContentPane(view);
         mainFrame.revalidate();  
     }

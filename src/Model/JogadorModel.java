@@ -6,7 +6,8 @@
 package Model;
 
 import data.dao.JogadorDAO;
-import javax.swing.JOptionPane;
+import java.util.List;
+
 
 /**
  *
@@ -15,11 +16,18 @@ import javax.swing.JOptionPane;
 public class JogadorModel {
     
     public static Jogador USER_LOGGED;
-    private JogadorDAO myDAO; 
+    private static List<Jogador> USERS;
+    private static JogadorDAO myDAO; 
+    
     
     
     public JogadorModel(){
-        this.myDAO = new JogadorDAO();
+        myDAO = new JogadorDAO();
+    }
+
+    public static List<Jogador> getJogadores() {
+        USERS = myDAO.SELECTALL();
+        return USERS;
     }
     
     public void insertUser(Jogador newUser) throws Exception{
@@ -34,9 +42,18 @@ public class JogadorModel {
           
         Jogador searchUser;
         
-            searchUser = myDAO.verficaLogin(j);
-            USER_LOGGED = searchUser;
-        
+        searchUser = myDAO.SELECTONE(j);
+        USER_LOGGED = searchUser;
     }
+    
+    public static void updateUser(){
+    
+        try {
+            myDAO.UPDATE(USER_LOGGED);
+        } catch (Exception ex) {
+            System.err.print("ERROR:::: "+ex.getMessage());
+        }
+    }
+    
  
 }

@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,7 +35,7 @@ public class JogadorDAO implements DAO{
     @Override
     public void INSERT(Object myDAO) throws Exception {
         Jogador jogador = (Jogador) myDAO;
-        String sql = "INSERT INTO Usuario (nome, dataDeNascimento, avatar, login, senha) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO Jogador (nome, dataDeNascimento, avatar, login, senha, qtdPartidas, qtdVitorias) VALUES(?,?,?,?,?,?,?)";
        try {
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             
@@ -42,12 +44,14 @@ public class JogadorDAO implements DAO{
             preparedStatement.setString(3,jogador.getAvatar());
             preparedStatement.setString(4,jogador.getLogin());
             preparedStatement.setString(5,jogador.getSenha());
+            preparedStatement.setInt(6, jogador.getQtdPartidas());
+            preparedStatement.setInt(7, jogador.getQtdVitorias());
             
             preparedStatement.execute();
             preparedStatement.close();
             conexao.close();
             JOptionPane.showMessageDialog(null,"Usuário cadastrado com sucesso");
-            PanelRegisterControl.cadastroSucesso = true;
+        
         } catch (SQLException ex) {
      
             switch(ex.getErrorCode()){
@@ -62,9 +66,9 @@ public class JogadorDAO implements DAO{
         }
     }
     
-    public Jogador verficaLogin(Jogador user) throws Exception
+    public Jogador SELECTONE(Jogador user) throws Exception
     {
-        String sql= "SELECT * FROM Usuario WHERE login = ? AND senha = ?";
+        String sql= "SELECT * FROM Jogador WHERE login = ? AND senha = ?";
         try {
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             
@@ -77,11 +81,12 @@ public class JogadorDAO implements DAO{
                 user.setDataDeNascimento(rs.getString("dataDeNascimento"));
                 user.setAvatar(rs.getString("avatar"));
                 user.setName(rs.getString("nome")); 
+                user.setQtdPartidas(rs.getInt("qtdPartidas")); 
+                user.setQtdVitorias(rs.getInt("qtdVitorias")); 
                 
                 preparedStatement.close();
                 conexao.close();
-                System.out.println("DADOS DO JOGADOR LOGADO -> "+ "\nNome:"+user.getName()
-                +"\nSenha: "+user.getSenha() + "\nNome do avatar: "+user.getAvatar());
+           
 
                 return user;
              }
@@ -89,7 +94,7 @@ public class JogadorDAO implements DAO{
          
             preparedStatement.close();
             conexao.close();
-            throw new Exception("Usuário ou senha incorretooooo");
+            throw new Exception("Usuário ou senha incorreto");
             
         } catch (SQLException ex) {
            System.out.println("Erro ao realizar login de usuário "+user.getLogin()+" E:"+ex.getMessage());
@@ -97,14 +102,70 @@ public class JogadorDAO implements DAO{
         return null;
     }
     
+    public List<Jogador> SELECTALL(){
+        
+        conexao = DataBase.getConnection();
+        Jogador jogador;
+        List<Jogador> jogadores = new ArrayList();
+        String sql= "SELECT * FROM Jogador ORDER BY qtdVitorias DESC; ";
+        try {
+            
+            PreparedStatement preparedStatement = conexao.prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+            
+            while(rs.next()){
+                
+                jogador = new Jogador(rs.getString("login"),
+                        rs.getString("senha"),
+                        rs.getString("dataDeNascimento"),
+                        rs.getString("avatar"),
+                        rs.getString("nome"),
+                        rs.getInt("qtdPartidas"),
+                        rs.getInt("qtdVitorias")
+                );
+                
+                jogadores.add(jogador);
+                
+             }
+           
+            preparedStatement.close();
+            conexao.close();
+          
+            
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+        return jogadores;
+    }
+
     @Override
     public void UPDATE(Object myDAO) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        conexao = DataBase.getConnection();
+        Jogador jogador = (Jogador) myDAO;
+        String sql = "UPDATE Jogador SET qtdVitorias = ? , "
+                + "qtdPartidas = ? "
+                + "WHERE login = ?";
+        
+         try {
+            PreparedStatement pstmt = conexao.prepareStatement(sql); 
+ 
+            // set the corresponding param
+            pstmt.setInt(1, jogador.getQtdVitorias());
+            pstmt.setInt(2,  jogador.getQtdPartidas());
+            pstmt.setString(3, jogador.getLogin());
+            // update 
+            pstmt.executeUpdate();
+            conexao.close();
+        } catch (SQLException e) {
+            System.out.println("ERROR NO UPDATE:       "+e.getMessage());
+        }
     }
 
     @Override
     public void DELETE(Object myDAO) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+        
     
 }
+
