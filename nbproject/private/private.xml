@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Model/JogadorModel.java</file>
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/View/PanelTabuleiroView.java</file>
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/View/PanelMenuView.java</file>
@@ -13,6 +14,15 @@
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Model/RankingModel.java</file>
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/View/FramePrincipal.java</file>
             <file>file:/C:/Users/paabl/Documents/DEV/LUDO/LUDO/src/Model/UserRanking.java</file>
+=======
+            <file>file:/C:/Users/Jose%20George/Documents/DEV/LUDO/src/Control/PanelTabuleiroControl.java</file>
+            <file>file:/C:/Users/Jose%20George/Documents/DEV/LUDO/src/View/PanelInicialView.java</file>
+            <file>file:/C:/Users/Jose%20George/Documents/DEV/LUDO/src/data/dao/RankingDAO.java</file>
+            <file>file:/C:/Users/Jose%20George/Documents/DEV/LUDO/src/Control/PanelInicialControl.java</file>
+            <file>file:/C:/Users/Jose%20George/Documents/DEV/LUDO/src/View/PanelTabuleiroView.java</file>
+            <file>file:/C:/Users/Jose%20George/Documents/DEV/LUDO/src/View/PanelMenuView.java</file>
+            <file>file:/C:/Users/Jose%20George/Documents/DEV/LUDO/src/View/FramePrincipal.java</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>

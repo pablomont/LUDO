@@ -5,12 +5,14 @@
  */
 package data.dao;
 
+import Control.PanelRegisterControl;
 import Model.Jogador;
 import data.DataBase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,11 +46,14 @@ public class JogadorDAO implements DAO{
             preparedStatement.execute();
             preparedStatement.close();
             conexao.close();
-            
+            JOptionPane.showMessageDialog(null,"Usuário cadastrado com sucesso");
+            PanelRegisterControl.cadastroSucesso = true;
         } catch (SQLException ex) {
      
             switch(ex.getErrorCode()){
             case 19:
+                JOptionPane.showMessageDialog(null,"Por favor, tente outro login");
+                PanelRegisterControl.cadastroSucesso = false;
                 System.err.println("Usuário já existe "+" E: ("+ex.getMessage()+")");
                 return;
             }

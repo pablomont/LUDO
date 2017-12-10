@@ -222,28 +222,24 @@ public class PanelRegisterView extends javax.swing.JPanel {
         
         try {
             control.registrarUsuario(txtNome.getText(), jFormattedTextField1.getText(), avatar, jLogin.getText(),String.valueOf(JTextSenha.getName()));
-            UserRanking ranking = new UserRanking();
-            ranking.setLogin(jLogin.getText());
-            ranking.setPartJogadas(0);
-            ranking.setQuantidadeVitorias(0);
-        
-        
-            RankingModel rankModel = new RankingModel();
-       
-       try {
-           rankModel.insertUserRanking(ranking);
-        } catch (Exception ex) {
-          System.out.println(ex.getMessage());
-        }
-        
             
-            JOptionPane.showMessageDialog(null,"Usuário cadastrado com sucesso");
-             txtNome.setText(""); 
-             jFormattedTextField1.setText("");
-             jLogin.setText("");
-             JTextSenha.setText("");
+      
+              if(PanelRegisterControl.cadastroSucesso){
+                  control.cria_ranking(jLogin.getText(), 0, 0);
+
+                  txtNome.setText("");
+                  jFormattedTextField1.setText("");
+                  jLogin.setText("");
+                  JTextSenha.setText("");
+
+            } else{
+                  
+              }
              
-             } catch (Exception ex) {
+         
+            
+             
+            } catch (Exception ex) {
             Logger.getLogger(PanelRegisterView.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getMessage());
         }

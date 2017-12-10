@@ -7,6 +7,8 @@ package Control;
 
 import Model.Jogador;
 import Model.JogadorModel;
+import Model.RankingModel;
+import Model.UserRanking;
 import Util.FrameOperation;
 import View.PanelInicialView;
 import View.PanelRegisterView;
@@ -20,7 +22,7 @@ import javax.swing.JOptionPane;
 public class PanelRegisterControl extends AbstractControl{
 
     PanelRegisterView view;
-   
+    public static boolean cadastroSucesso = false; 
     
     public void registrarUsuario(String nome, String dataDeNascimento, String avatar, String login,String senha) throws Exception{
        
@@ -38,7 +40,10 @@ public class PanelRegisterControl extends AbstractControl{
        JogadorModel jg = new JogadorModel();
        
        try {
+           
             jg.insertUser(jogador);
+            
+         
         } catch (Exception ex) {
           System.out.println(ex.getMessage());
         }
@@ -60,6 +65,25 @@ public class PanelRegisterControl extends AbstractControl{
     @Override
     public void viewAnterior() {
          new PanelInicialControl(new PanelInicialView()).mostrarView();
+    }
+
+    public void cria_ranking(String login, int partidasJogadas, int quantidadeDeVitoria) {
+            
+          UserRanking ranking = new UserRanking();
+
+        ranking.setLogin(login);
+        ranking.setPartJogadas(0);
+        ranking.setQuantidadeVitorias(0);
+
+        RankingModel rankModel = new RankingModel();
+
+        try {
+            rankModel.insertUserRanking(ranking);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        //JOptionPane.showMessageDialog(null,"Usuário cadastrado com sucesso");
+            
     }
     
 }

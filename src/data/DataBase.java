@@ -44,6 +44,7 @@ public class DataBase {
                             +"login VARCHAR(10) NOT NULL, \n "
                             +"quantVitorias INT(4) NOT NULL,   "
                             +"partidasJogadas INT(4) NOT NULL,             "
+                            +"PRIMARY KEY (login),"
                             +"PRIMARY KEY (id),"
                             +"FOREIGN KEY(login) REFERENCES Usuario(login));"; 
         try {

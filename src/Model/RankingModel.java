@@ -7,6 +7,7 @@ package Model;
 
 import data.dao.RankingDAO;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,7 +27,9 @@ public class RankingModel {
     public void insertUserRanking(UserRanking newRanking) throws Exception{
         try {
             myDAO.INSERT(newRanking);
+            //JOptionPane.showMessageDialog(null,"Usuário cadastrado com sucesso");
         } catch (Exception ex) {
+            //JOptionPane.showMessageDialog(null,"Por favor, tente outro login");
             System.err.print("ERROR:::: "+ex.getMessage());
         }
     }

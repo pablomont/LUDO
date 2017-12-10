@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -83,7 +84,7 @@ public class RankingDAO implements DAO {
 
     @Override
     public void DELETE(Object myDAO) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
     //Esse método retorna todas as linhas da tabela RankingJogo
