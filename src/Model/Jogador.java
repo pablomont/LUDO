@@ -173,12 +173,14 @@ public class Jogador {
     }
     
      public Peça escolhePeçaRandomForaDaBase(){
+         
         ArrayList<Peça> peçasForaDaBase = getPeçasForaDaBase();
         int num = randomGenerator.nextInt(peçasForaDaBase.size());
         Peça peçaEscolhida = peçasForaDaBase.get(num);
         int index = Arrays.asList(peças).indexOf(peçaEscolhida);
         this.indexPeçaAtualEscolhida = index;
         return peçaEscolhida;
+ 
     }
      
     public Peça escolhePeça(int index){

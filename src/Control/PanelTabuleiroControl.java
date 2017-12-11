@@ -123,30 +123,27 @@ public class PanelTabuleiroControl extends AbstractControl{
         
         if(jogadorDaVez != 0){
             if(Dado.getNum() != 6){
-                return jogadores[jogadorDaVez].escolhePeçaRandomForaDaBase().mover(Dado.getNum());
+                jogadores[jogadorDaVez].escolhePeçaRandomForaDaBase().mover(Dado.getNum());
             }
             else{
                 Peça p = jogadores[jogadorDaVez].escolhePeçaRandomDaBase();
-                if(p.isNaBase())
-                    return p.moverFirstCasa();
-                return p.mover(Dado.getNum());
+                return p.moverFirstCasa();
+      
             }
         }
         else{
-            if(Dado.getNum() != 6 && !jogadores[0].getPeçaEscolhida().isNaBase())
-                 return jogadores[0].getPeçaEscolhida().mover(Dado.getNum()); 
-            else if(Dado.getNum() == 6){
-                if(jogadores[0].getPeçaEscolhida().isNaBase())
-                    return jogadores[0].getPeçaEscolhida().moverFirstCasa();
-                else{
-                     return jogadores[0].getPeçaEscolhida().mover(Dado.getNum()); 
-                }
+            if(Dado.getNum() != 6){
+                if(!jogadores[0].getPeçaEscolhida().isNaBase())
+                    jogadores[0].getPeçaEscolhida().mover(Dado.getNum()); 
             }
-            //Dado.getNum() != 6 && jogadores[0].getPeçaEscolhida().naBase
             else{
-                return null;
+                if(!jogadores[0].getPeçaEscolhida().isNaBase())
+                     jogadores[0].getPeçaEscolhida().mover(6); 
+                else
+                    jogadores[0].getPeçaEscolhida().moverFirstCasa(); 
             }
         }
+        return null;
         
     }    
 

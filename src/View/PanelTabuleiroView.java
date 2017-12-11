@@ -399,7 +399,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             Point p = control.movimentaPeao();
             //peaoClicado.setLocation(p); 
             deslocaPeao(peaoClicado);
-             sleep(500);
+            sleep(500);
             atualizaView();
         }
         catch(java.lang.NullPointerException e){
@@ -496,20 +496,21 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
  
-    
+    Point primeiraCasa;
     private void movimentaPeao(CorPeça corDoJogadorDaVez) {
         
         sleep(1100);
         
         MovimentaDado.stopTimerTask();
-        Point p = control.movimentaPeao();
-        
         try{
-            int i;
+            
+        primeiraCasa = control.movimentaPeao();
+
+        int i;
         if(corDoJogadorDaVez == VERDE){
             i = control.getJogador(VERDE).getIndexPeçaAtualEscolhida();
             switch(i){
-                case 0: deslocaPeao(jLabelPeaoGreen1);break;
+                case 0: deslocaPeao(jLabelPeaoGreen1); break;
                 case 1: deslocaPeao(jLabelPeaoGreen2);break;
                 case 2: deslocaPeao(jLabelPeaoGreen3);break;
                 case 3: deslocaPeao(jLabelPeaoGreen4);break;
@@ -539,16 +540,23 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         sleep(500);
         atualizaView();
     }
-    catch(java.lang.NullPointerException e){
-         sleep(500);
+    catch(Exception e){
+        sleep(500);
         atualizaView();
     }
     }
 
     private void deslocaPeao(JLabel jLabelPeao) {
+        
+        if(primeiraCasa != null){
+            jLabelPeao.setLocation(primeiraCasa);
+            primeiraCasa = null;
+            return;
+        }
+        
         Peça pe = control.getJogadorDaVez().getPeçaEscolhida();
         Point p = null;
-        
+
         for(int i = pe.getCasaIndexAntiga(); i <= pe.getIndexCasaAtual() ; i++){
               try {
             TocarSom t = new TocarSom();
