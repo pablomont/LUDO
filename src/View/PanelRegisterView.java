@@ -61,6 +61,12 @@ public class PanelRegisterView extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
+
+        jLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jLoginActionPerformed(evt);
+            }
+        });
         add(jLogin);
         jLogin.setBounds(110, 260, 230, 30);
 
@@ -106,7 +112,7 @@ public class PanelRegisterView extends javax.swing.JPanel {
         add(jLabel10);
         jLabel10.setBounds(110, 240, 50, 20);
 
-        txtNome.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        txtNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
@@ -115,7 +121,7 @@ public class PanelRegisterView extends javax.swing.JPanel {
         add(txtNome);
         txtNome.setBounds(110, 310, 230, 30);
 
-        JTextSenha.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        JTextSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         JTextSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTextSenhaActionPerformed(evt);
@@ -140,7 +146,7 @@ public class PanelRegisterView extends javax.swing.JPanel {
         jLabel4.setBounds(110, 390, 60, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Usuário:");
+        jLabel5.setText("Nome:");
         add(jLabel5);
         jLabel5.setBounds(110, 290, 80, 20);
 
@@ -251,6 +257,10 @@ public class PanelRegisterView extends javax.swing.JPanel {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLoginActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

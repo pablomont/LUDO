@@ -103,9 +103,11 @@ public class PanelTabuleiroControl extends AbstractControl{
 
     public boolean proximoJogadorDaVez() {
         
-       if(jogadores[jogadorDaVez].getPeçaEscolhida().getChegada())
+       if(jogadores[jogadorDaVez].getPeçaEscolhida().getChegada()){
             jogadores[jogadorDaVez].incrementaNumPeçasNaChegada(getCorDoJogadorDaVez());
-       
+            jogadores[jogadorDaVez].removePeçaForaDaBase(jogadores[jogadorDaVez].getPeçaEscolhida());
+       }
+     
        if(jogadores[jogadorDaVez].venceu()){
            return false;
        }
@@ -118,29 +120,63 @@ public class PanelTabuleiroControl extends AbstractControl{
        }    
     }  
     
+    
+    
     public Point movimentaPeao(){
         
         
         if(jogadorDaVez != 0){
             if(Dado.getNum() != 6){
-                jogadores[jogadorDaVez].escolhePeçaRandomForaDaBase().mover(Dado.getNum());
+                while(true)
+                {
+                    try{
+                        jogadores[jogadorDaVez].escolhePeçaRandomForaDaBase().mover(Dado.getNum());
+                        return null;
+                    }
+                    catch(ArrayIndexOutOfBoundsException e){
+                        jogadores[jogadorDaVez].getPeçaEscolhida().setCasaAtual(
+                           jogadores[jogadorDaVez].getPeçaEscolhida().getCasaAtual() - Dado.getNum()
+                        );
+                        jogadores[jogadorDaVez].escolhePeçaRandomForaDaBase().mover(Dado.getNum());
+                    }    
+                }
             }
             else{
-                Peça p = jogadores[jogadorDaVez].escolhePeçaRandomDaBase();
-                return p.moverFirstCasa();
-      
+                try{
+                     Peça p = jogadores[jogadorDaVez].escolhePeçaRandomDaBase();
+                     return p.moverFirstCasa();
+                }
+                catch(Exception e){
+                    Peça p = jogadores[jogadorDaVez].escolhePeçaRandomForaDaBase();
+                    p.mover(6);
+                }
             }
         }
         else{
             if(Dado.getNum() != 6){
                 if(!jogadores[0].getPeçaEscolhida().isNaBase())
-                    jogadores[0].getPeçaEscolhida().mover(Dado.getNum()); 
+                    try{
+                        jogadores[0].getPeçaEscolhida().mover(Dado.getNum()); 
+                    }
+                catch(ArrayIndexOutOfBoundsException e){
+                     jogadores[jogadorDaVez].getPeçaEscolhida().setCasaAtual(
+                           jogadores[jogadorDaVez].getPeçaEscolhida().getCasaAtual() - Dado.getNum()
+                     );
+                }
+                    
             }
             else{
                 if(!jogadores[0].getPeçaEscolhida().isNaBase())
-                     jogadores[0].getPeçaEscolhida().mover(6); 
+                    try{
+                        jogadores[0].getPeçaEscolhida().mover(6); 
+                    }
+                    catch(ArrayIndexOutOfBoundsException e){
+                         jogadores[jogadorDaVez].getPeçaEscolhida().setCasaAtual(
+                           jogadores[jogadorDaVez].getPeçaEscolhida().getCasaAtual() - 6
+                     );
+                    } 
                 else
-                    jogadores[0].getPeçaEscolhida().moverFirstCasa(); 
+                    return jogadores[0].getPeçaEscolhida().moverFirstCasa(); 
             }
         }
         return null;

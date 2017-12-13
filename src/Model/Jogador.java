@@ -59,9 +59,6 @@ public class Jogador {
         this.qtdVitorias = qtdVitorias;
     }
 
-    
-    
-    
     public String getAvatar() {
         return avatar;
     }
@@ -158,18 +155,17 @@ public class Jogador {
     public Peça escolhePeçaRandomDaBase(){
         
         ArrayList<Peça> peçasDaBase = getPeçasNaBase();
-        if(!peçasDaBase.isEmpty()){
-            int num = randomGenerator.nextInt(peçasDaBase.size());
-            Peça peçaEscolhida = peçasDaBase.get(num);
-            int index = Arrays.asList(peças).indexOf(peçaEscolhida);
-            this.indexPeçaAtualEscolhida = index;
-            return peçaEscolhida;
-        }
-        else{
-            return escolhePeçaRandomForaDaBase();
-        }
-        
-        
+        int num = randomGenerator.nextInt(peçasDaBase.size());
+        Peça peçaEscolhida = peçasDaBase.get(num);
+        int index = Arrays.asList(peças).indexOf(peçaEscolhida);
+        this.indexPeçaAtualEscolhida = index;
+        peçaEscolhida.setNaBase(false);
+        return peçaEscolhida;
+
+    }
+    
+    public void removePeçaForaDaBase(Peça peça){
+        this.getPeçasForaDaBase().remove(peça);
     }
     
      public Peça escolhePeçaRandomForaDaBase(){

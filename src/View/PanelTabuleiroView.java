@@ -396,7 +396,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         }
         
         try{
-            Point p = control.movimentaPeao();
+            primeiraCasa = control.movimentaPeao();
             //peaoClicado.setLocation(p); 
             deslocaPeao(peaoClicado);
             sleep(500);
@@ -553,8 +553,12 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
             primeiraCasa = null;
             return;
         }
-        
+          
         Peça pe = control.getJogadorDaVez().getPeçaEscolhida();
+        if(pe.isNaBase())
+            return;
+        
+        
         Point p = null;
 
         for(int i = pe.getCasaIndexAntiga(); i <= pe.getIndexCasaAtual() ; i++){

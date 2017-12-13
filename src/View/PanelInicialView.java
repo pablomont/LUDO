@@ -66,11 +66,11 @@ public class PanelInicialView extends javax.swing.JPanel {
         add(jLabel5);
         jLabel5.setBounds(110, 330, 80, 20);
 
-        JTextSenha.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        JTextSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         add(JTextSenha);
         JTextSenha.setBounds(110, 400, 230, 30);
 
-        txtLogin.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        txtLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLoginActionPerformed(evt);

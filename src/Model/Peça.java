@@ -42,7 +42,12 @@ public abstract class Peça {
     public boolean isNaBase() {
         return naBase;
     }
+
+    public void setCasaAtual(int casaAtual) {
+        this.casaAtual = casaAtual;
+    }
  
+    
     
     
     public int getCasaAtual() {
@@ -64,14 +69,8 @@ public abstract class Peça {
         if(casaAtual == 74)
             chegada = true;
           
-        try{
-            p = getPointCasaAtual();
-        }
-        catch(ArrayIndexOutOfBoundsException e){
-            this.casaAtual -= qtdCasasParaAndar;
-            chegada = false;
-        }
-        return p;
+        return getPointCasaAtual();
+       
     }
     
     public Point moverFirstCasa(){
