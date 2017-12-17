@@ -105,7 +105,7 @@ public class PanelTabuleiroControl extends AbstractControl{
         
        if(jogadores[jogadorDaVez].getPeçaEscolhida().getChegada()){
             jogadores[jogadorDaVez].incrementaNumPeçasNaChegada(getCorDoJogadorDaVez());
-            jogadores[jogadorDaVez].removePeçaForaDaBase(jogadores[jogadorDaVez].getPeçaEscolhida());
+            //jogadores[jogadorDaVez].removePeçaForaDaBase(jogadores[jogadorDaVez].getPeçaEscolhida());
        }
      
        if(jogadores[jogadorDaVez].venceu()){
@@ -124,31 +124,34 @@ public class PanelTabuleiroControl extends AbstractControl{
     
     public Point movimentaPeao(){
         
-        
         if(jogadorDaVez != 0){
             if(Dado.getNum() != 6){
-                while(true)
+                int c = 0;
+                do
                 {
-                    try{
-                        jogadores[jogadorDaVez].escolhePeçaRandomForaDaBase().mover(Dado.getNum());
-                        return null;
-                    }
-                    catch(ArrayIndexOutOfBoundsException e){
-                        jogadores[jogadorDaVez].getPeçaEscolhida().setCasaAtual(
-                           jogadores[jogadorDaVez].getPeçaEscolhida().getCasaAtual() - Dado.getNum()
-                        );
-                        jogadores[jogadorDaVez].escolhePeçaRandomForaDaBase().mover(Dado.getNum());
-                    }    
-                }
+                    c++;
+                   jogadores[jogadorDaVez].escolhePeçaRandomForaDaBase().mover(Dado.getNum());
+                   if(c > 50)
+                       break;
+                }while(Peça.escolherNovamente);
             }
             else{
+                int c = 0;
                 try{
                      Peça p = jogadores[jogadorDaVez].escolhePeçaRandomDaBase();
                      return p.moverFirstCasa();
                 }
                 catch(Exception e){
-                    Peça p = jogadores[jogadorDaVez].escolhePeçaRandomForaDaBase();
-                    p.mover(6);
+                    do
+                    {
+                        c++;
+                        Peça p = jogadores[jogadorDaVez].escolhePeçaRandomForaDaBase();
+                        p.mover(6);
+                        if(c > 50)
+                            break;
+                        
+                    }while(Peça.escolherNovamente);
+                 
                 }
             }
         }

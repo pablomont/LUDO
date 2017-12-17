@@ -60,6 +60,7 @@ public abstract class Peça {
    
     protected abstract void preencheCaminho();
    
+    public static boolean escolherNovamente = false;
     public Point mover(int qtdCasasParaAndar){
         Point p = null;
         
@@ -68,9 +69,16 @@ public abstract class Peça {
         
         if(casaAtual == 74)
             chegada = true;
-          
-        return getPointCasaAtual();
-       
+         
+        if(casaAtual > 74){
+            escolherNovamente = true;
+            this.casaAtual -= qtdCasasParaAndar;
+        }
+        else{
+            escolherNovamente = false;
+        }    
+        
+        return getPointCasaAtual();  
     }
     
     public Point moverFirstCasa(){

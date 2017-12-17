@@ -8,16 +8,12 @@ import Model.Dado;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
 import java.util.TimerTask;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
-import songs.TocarSom;
 
 /**
  *

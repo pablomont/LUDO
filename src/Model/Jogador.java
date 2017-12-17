@@ -118,9 +118,15 @@ public class Jogador {
     }
     
     public void incrementaNumPeçasNaChegada(CorPeça cor){
-        qtdPeçasNaChegada++;
-       System.out.println(cor+": quantiade de peças na chegada:  "+qtdPeçasNaChegada);
-       System.out.println("peçaEscolhida: "+indexPeçaAtualEscolhida);
+        if(!this.getPeçaEscolhida().chegada){
+            qtdPeçasNaChegada++;
+            removePeçaForaDaBase(this.getPeçaEscolhida());
+            System.out.println(cor+": quantiade de peças na chegada:  "+qtdPeçasNaChegada);
+            System.out.println("peçaEscolhida: "+indexPeçaAtualEscolhida);
+        }
+            //qtdPeçasNaChegada++;
+       //removePeçaForaDaBase(this.getPeçaEscolhida());
+       
         
     }
 

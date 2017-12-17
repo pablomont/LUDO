@@ -5,13 +5,6 @@
  */
 package songs;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.net.URL;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import java.io.*;
 import sun.audio.*;
 
@@ -28,7 +21,7 @@ public class TocarSom {
     private static String jogandoDados;
     private static String movendoPinos;
     private static String trilhaDecorrente;
-    private static TocarSom tocarSom;
+    private static TocarSom tocarSom ;
 
     public TocarSom(){
         //Os comandos abaixo servem para generalizar os diretorios dos arquivos de musica

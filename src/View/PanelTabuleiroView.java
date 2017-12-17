@@ -263,7 +263,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
         jLabelPeaoRed1.setToolTipText("0");
         jLabelPeaoRed1.setName("jLabelPeaoRed1"); // NOI18N
         jPanel8.add(jLabelPeaoRed1);
-        jLabelPeaoRed1.setBounds(635, 25, 23, 40);
+        jLabelPeaoRed1.setBounds(630, 30, 23, 40);
 
         jLabelPeaoRed2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePinos/ludo-piece-red-th4.png"))); // NOI18N
         jLabelPeaoRed2.setToolTipText("1");
@@ -440,7 +440,7 @@ public class PanelTabuleiroView extends javax.swing.JPanel {
                             movimentaPeao(VERMELHO);
                             break;
             case AZUL:      updatePositionDados(new Point(830,610));
-                             sleep(1000);
+                            sleep(1000);
                             movimentDado.start(900);
                             movimentaPeao(AZUL);
                             break;
