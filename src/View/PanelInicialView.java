@@ -114,7 +114,7 @@ public class PanelInicialView extends javax.swing.JPanel {
 
     private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
      
-        control.loginVerificacao(txtLogin.getText(), String.valueOf(JTextSenha.getName()));
+        control.loginVerificacao(txtLogin.getText(), String.valueOf(JTextSenha.getPassword()));
         txtLogin.setText("");
         JTextSenha.setText("");
 

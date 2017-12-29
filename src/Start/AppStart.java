@@ -32,12 +32,12 @@ public class AppStart {
 //            f.setPanel(new PanelInicialView(f));
 //        }).start();
        
-        try {
-            TocarSom t = new TocarSom();
-            t.tocaSom("trilha_decorrente.wav");
-        } catch (IOException ex) {
-            Logger.getLogger(DadoTimerTask.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            TocarSom t = new TocarSom();
+//            t.tocaSom("trilha_decorrente.wav");
+//        } catch (IOException ex) {
+//            Logger.getLogger(DadoTimerTask.class.getName()).log(Level.SEVERE, null, ex);
+//        }
    
            // new FrameOperation(new PanelInicialView());
             new FrameOperation();
